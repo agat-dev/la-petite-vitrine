@@ -1,10 +1,11 @@
 
+"use client";
+
 import React from 'react';
 import GalleryItem from './gallery-item';
-import { Button } from './ui/button';
-import { Play } from 'lucide-react';
 
 const Gallery = () => {
+
   const images = [
     {
       id: 1,
@@ -37,36 +38,40 @@ const Gallery = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-cream-100/20 via-cream-100/10 to-cream-100/30 py-24 flex items-center justify-center">
-      <div className="w-full max-w-6xl">
+    <section id="demos" className="relative min-h-screen flex items-center justify-center overflow-hidden py-16 md:py-24 lg:py-36 bg-cream-50/50 backdrop-blur-xl border-y border-white/30 shadow-2xl">
+      {/* Background with subtle gradient - tons crème avec glassmorphism */}
+      <div className="absolute inset-0 bg-gradient-to-br from-cream-100/60 via-cream-200/40 to-cream-300/50 backdrop-blur-sm"></div>
+
+      {/* Animated background elements - tons crème harmonieux */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-20 w-72 h-72 bg-coral-300/25 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-coral-200/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-coral-100/15 rounded-full blur-3xl animate-pulse delay-500"></div>
+      </div>
+
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-6">
         <h1 className="text-5xl font-bold text-center mb-8 animate-fade-in">
           <span className="font-display font-medium bg-coral-500 bg-clip-text text-transparent">
-            Pour tous les
+            Un site web pour chaque
             </span>
-          <span className="font-serif font-light italic text-primary ml-4">artisans</span>
+          <span className="font-serif font-light italic text-slate-700 ml-4">artisans</span>
         </h1>
     
         
-        {/* Container principal avec effet glassmorphism */}
-        <div className="backdrop-blur-lg bg-white/10 rounded-3xl border border-white/20 shadow-2xl p-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {images.map((image, index) => (
-              <GalleryItem 
-                key={image.id} 
-                image={image} 
-                index={index}
-              />
-            ))}
-          </div>
+        {/* Grille des vignettes sans container */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {images.map((image, index) => (
+            <GalleryItem 
+              key={image.id} 
+              image={image} 
+              index={index}
+            />
+          ))}
         </div>
         
-        {/* Éléments décoratifs flottants */}
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-cream-100/30 rounded-full blur-3xl -z-10 animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-coral-500/25 rounded-full blur-3xl -z-10 animate-pulse"></div>
-        <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-coral-500/15 rounded-full blur-3xl -z-10 animate-pulse delay-500"></div>
-        <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-primary/20 rounded-full blur-3xl -z-10 animate-pulse delay-700"></div>
+        {/* Éléments décoratifs flottants - supprimés car déjà dans le background */}
       </div>
-    </div>
+    </section>
   );
 };
 

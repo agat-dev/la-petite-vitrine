@@ -12,7 +12,7 @@ const Hero = () => {
   const elementsOpacity = Math.max(0, 1 - scrollY * 0.003);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16 md:pb-24 lg:pb-36">
       {/* Background with subtle gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/60 via-blue-500/30 to-blue-500/80"></div>
 
@@ -40,7 +40,7 @@ const Hero = () => {
               {/* Badge */}
               <div className="inline-flex items-center gap-2 backdrop-blur-sm bg-white/20 border border-white/30 rounded-full px-4 py-2 mb-8">
                 <span className="text-primary/70 text-sm font-medium">
-                  Site web + Réseaux sociaux
+                  Site web + hébergement + maintenance
                 </span>
               </div>
 
@@ -77,7 +77,7 @@ const Hero = () => {
                   size="lg"
                   className="backdrop-blur-sm bg-cream-100/90 border-white/30 text-primary hover:bg-cream-100/60 px-8 py-4 text-lg font-regular font-display transition-all duration-600"
                 >
-                  Commander
+                  Voir les tarifs
                 </Button>
               </div>
             </div>
@@ -104,7 +104,7 @@ const Hero = () => {
             <div className="w-12 h-12 bg-coral-500 rounded-xl flex items-center justify-center"></div>
             <p className="text-primary/80 mt-3 font-medium text-lg">
               Page web + <br />
-              Réseaux sociaux
+              1 an de maintenance
               <br />
               490€
             </p>

@@ -56,16 +56,22 @@ const FAQItem: React.FC<{ item: FAQItem; index: number }> = ({ item, index }) =>
       ref={ref}
       className={`transform transition-all duration-700 delay-${index * 100} ${animationClass}`}
     >
-      <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:bg-white/15">
+      <div className="backdrop-blur-xl bg-white/15 border border-white/30 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-white/20 hover:border-white/40"
+        style={{
+          backdropFilter: 'blur(20px) saturate(1.2)',
+          background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.10) 100%)',
+          boxShadow: '0 4px 16px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(255, 255, 255, 0.15)',
+        }}
+      >
         <button
           className="w-full text-left flex justify-between items-center focus:outline-none group"
           onClick={() => setIsOpen(!isOpen)}
         >
-          <h3 className="text-lg font-semibold text-gray-800 pr-4 group-hover:text-gray-900 transition-colors">
+          <h3 className="text-lg font-semibold text-primary pr-4 group-hover:text-primary/80 transition-colors drop-shadow-sm">
             {item.question}
           </h3>
           <ChevronDown 
-            className={`w-5 h-5 text-gray-600 transition-transform duration-300 flex-shrink-0 ${
+            className={`w-5 h-5 text-primary/70 transition-transform duration-300 flex-shrink-0 drop-shadow-sm ${
               isOpen ? 'rotate-180' : ''
             }`}
           />
@@ -74,7 +80,7 @@ const FAQItem: React.FC<{ item: FAQItem; index: number }> = ({ item, index }) =>
         <div className={`overflow-hidden transition-all duration-300 ${
           isOpen ? 'max-h-96 mt-4' : 'max-h-0'
         }`}>
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-primary/80 leading-relaxed drop-shadow-sm">
             {item.answer}
           </p>
         </div>
@@ -87,9 +93,15 @@ const FAQ: React.FC = () => {
   const { ref: titleRef, isIntersecting: titleVisible } = useIntersectionObserver<HTMLDivElement>({ threshold: 0.5 });
 
   return (
-    <section className="py-20 px-4 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%25239C92AC%22%20fill-opacity%3D%220.05%22%20fill-rule%3D%22nonzero%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
+    <section className="relative min-h-screen py-16 md:py-24 lg:py-36 px-4 overflow-hidden">
+      {/* Background with subtle gradient - matching atouts */}
+      <div className="absolute inset-0 bg-gradient-to-br from-cream-500 via-cream-500/30 to-cream-500"></div>
+
+      {/* Animated background elements - matching atouts */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-20 w-72 h-72 bg-cream-100/40 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-coral-500/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-coral-500/10 rounded-full blur-3xl animate-pulse delay-500"></div>
       </div>
       
       <div className="container mx-auto max-w-4xl relative z-10">
@@ -99,10 +111,13 @@ const FAQ: React.FC = () => {
             titleVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-10'
           }`}
         >
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-4">
-            Foire aux Questions
+          <h2 className="text-5xl font-bold text-center mb-8 animate-fade-in">
+            <span className="font-display font-medium bg-coral-500 bg-clip-text text-transparent">
+              Foire aux
+            </span>
+            <span className="font-serif font-light italic text-primary ml-4">Questions</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-primary/70 max-w-2xl mx-auto text-center">
             Trouvez rapidement les réponses à vos questions les plus fréquentes
           </p>
         </div>
@@ -114,14 +129,20 @@ const FAQ: React.FC = () => {
         </div>
 
         <div className="mt-16 text-center">
-          <div className="backdrop-blur-lg bg-white/20 border border-white/30 rounded-3xl p-8 shadow-xl">
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">
+          <div className="backdrop-blur-xl bg-white/25 border border-white/40 rounded-3xl p-8 shadow-lg"
+            style={{
+              backdropFilter: 'blur(24px) saturate(1.3)',
+              background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.15) 100%)',
+              boxShadow: '0 6px 20px rgba(0, 0, 0, 0.08), 0 3px 10px rgba(0, 0, 0, 0.05), inset 0 2px 0 rgba(255, 255, 255, 0.4), inset 0 -2px 0 rgba(255, 255, 255, 0.25)',
+            }}
+          >
+            <h3 className="text-2xl font-bold text-primary mb-4 drop-shadow-sm">
               Vous n'avez pas trouvé votre réponse ?
             </h3>
-            <p className="text-gray-700 mb-6">
+            <p className="text-primary/80 mb-6 drop-shadow-sm">
               Notre équipe est là pour vous aider ! Contactez-nous et nous vous répondrons rapidement.
             </p>
-            <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+            <button className="bg-gradient-to-r from-coral-500 to-primary text-white px-8 py-3 rounded-full font-semibold hover:from-coral-600 hover:to-primary/90 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg backdrop-blur-sm">
               Nous contacter
             </button>
           </div>

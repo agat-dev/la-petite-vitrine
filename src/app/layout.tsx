@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Montserrat, Libre_Baskerville, Urbanist } from 'next/font/google'
 import SmoothFollower from "@/components/ui/cursor";
+import Navbar from "@/components/navbar";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -56,9 +57,14 @@ export default function RootLayout({
         <meta name="twitter:image" content="/og-image.jpg" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} ${libreBaskerville.variable} ${urbanist.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} ${libreBaskerville.variable} ${urbanist.variable} antialiased overflow-x-hidden`}
+        style={{
+          scrollbarWidth: 'none',
+          msOverflowStyle: 'none'
+        }}
       >
         <SmoothFollower />
+        <Navbar />
         {children}
       </body>
     </html>

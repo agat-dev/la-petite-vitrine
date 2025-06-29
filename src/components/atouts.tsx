@@ -159,9 +159,9 @@ export default function Hero171() {
   }
 
   return (
-    <section className="relative min-h-screen py-12 px-8 sm:px-4 lg:px-28 overflow-hidden">
+    <section className="relative min-h-screen py-16 md:py-24 lg:py-36 px-8 sm:px-4 lg:px-28 overflow-hidden">
       {/* Background with subtle gradient - matching hero */}
-      <div className="absolute inset-0 bg-gradient-to-br from-cream-500/80 via-cream-500/30 to-cream-500/70"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-cream-500 via-cream-500/30 to-cream-500"></div>
 
       {/* Animated background elements - matching hero */}
       <div className="absolute inset-0">
