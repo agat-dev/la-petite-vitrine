@@ -1,6 +1,9 @@
 import Hero from "@/components/hero";
 import Hero171 from "@/components/atouts";
+import Feature51 from "@/components/features";
+import Gallery from "@/components/gallery";
 import Image from "next/image";
+import FAQ from "@/components/faq";
 
 export default function Home() {
   return (
@@ -8,6 +11,8 @@ export default function Home() {
     <section className="relative min-h-screen bg-gradient-to-b from-slate-50 to-white">
       <Hero />
       <Hero171 />
+      <Gallery />
+      <FAQ />
     </section>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
         <a

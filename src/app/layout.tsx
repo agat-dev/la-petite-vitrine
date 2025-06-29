@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Montserrat, Libre_Baskerville, Urbanist } from 'next/font/google'
+import SmoothFollower from "@/components/ui/cursor";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -57,6 +58,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} ${libreBaskerville.variable} ${urbanist.variable} antialiased`}
       >
+        <SmoothFollower />
         {children}
       </body>
     </html>

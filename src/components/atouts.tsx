@@ -39,34 +39,29 @@ export default function Hero171() {
 
     const timelineData = [
       {
-        year: "2020",
-        title: "Genesis",
+        year: "",
+        title: "Livré en 5 jours maximum",
         desc: "Born from innovation",
-        color: "from-blue-400 to-blue-600",
+        color: "from-coral-500 to-coral-500/70",
       },
       {
-        year: "2021",
-        title: "Momentum",
+        year: "",
+        title: "Seulement 290€ pour un site vitrine",
         desc: "First thousand believers",
-        color: "from-purple-400 to-purple-600",
+        color: "from-blue-500 to-blue-500/70",
+      },
+      
+      {
+        year: "",
+        title: "Maintenance et mises à jour à 49€/an",
+        desc: "AI-driven features launched",
+        color: "from-coral-500 to-coral-500/70",
       },
       {
-        year: "2022",
-        title: "Elevation",
+        year: "",
+        title: "Spécialisé artisans & TPE",
         desc: "Series A breakthrough",
-        color: "from-pink-400 to-pink-600",
-      },
-      {
-        year: "2023",
-        title: "Expansion",
-        desc: "Global footprint established",
-        color: "from-indigo-400 to-indigo-600",
-      },
-      {
-        year: "2024",
-        title: "Revolution",
-        desc: "AI-powered future",
-        color: "from-cyan-400 to-cyan-600",
+        color: "from-blue-500 to-blue-500/70",
       },
     ]
 
@@ -94,11 +89,17 @@ export default function Hero171() {
       <div ref={timelineRef} className="relative">
         {/* Sophisticated Line */}
         <div className="absolute left-6 top-0 bottom-0 w-px">
-          <div className="h-full w-full bg-gradient-to-b from-transparent via-gray-200 to-transparent"></div>
+          <div 
+            className="h-full w-full bg-gradient-to-b from-transparent via-gray-200 to-transparent transition-opacity duration-1000 ease-out"
+            style={{
+              opacity: visibleItems.length > 0 ? 1 : 0,
+            }}
+          ></div>
           <div
-            className="absolute top-0 w-full bg-gradient-to-b from-blue-500 via-purple-500 to-cyan-500 transition-all duration-1000 ease-out"
+            className="absolute top-0 w-full bg-gradient-to-b from-coral-500/30 to-cream-100 transition-all duration-1000 ease-out"
             style={{
               height: `${(visibleItems.length / timelineData.length) * 100}%`,
+              opacity: visibleItems.length > 0 ? 1 : 0,
               boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)",
             }}
           ></div>
@@ -109,20 +110,28 @@ export default function Hero171() {
           {timelineData.map((item, index) => (
             <div
               key={index}
-              ref={(el) => (itemRefs.current[index] = el)}
+              ref={(el) => {
+                itemRefs.current[index] = el
+              }}
               data-index={index}
               className={`relative transition-all duration-700 ease-out ${
                 visibleItems.includes(index) ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              {/* Sophisticated Dot */}
+
 
               {/* Content Card */}
               <div
-                className={`bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 ${
+                className={`ml-12 backdrop-blur-xl bg-white/25 border border-white/40 rounded-xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 ${
                   visibleItems.includes(index) ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
                 }`}
+                style={{
+                  backdropFilter: 'blur(25px) saturate(1.2)',
+                  background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 100%)',
+                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15), 0 4px 16px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.4), inset 0 -1px 0 rgba(255, 255, 255, 0.2)',
+                  border: '1px solid rgba(255, 255, 255, 0.4)',
+                }}
               >
                 <div className="flex items-center space-x-3 mb-2">
                   <span
@@ -133,7 +142,7 @@ export default function Hero171() {
                   <div className="w-8 h-px bg-gray-200"></div>
                 </div>
 
-                <h4 className="text-lg font-semibold text-gray-900 mb-1 tracking-tight">{item.title}</h4>
+                <h4 className="text-xl font-semibold text-gray-900 mb-1 tracking-tight">{item.title}</h4>
 
                 <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
 
@@ -150,27 +159,38 @@ export default function Hero171() {
   }
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-slate-50 to-white py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <div className="space-y-8">
-            <div className="space-y-6">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                Build Amazing
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                  {" "}
-                  Digital Products
-                </span>
-              </h1>
+    <section className="relative min-h-screen py-12 px-8 sm:px-4 lg:px-28 overflow-hidden">
+      {/* Background with subtle gradient - matching hero */}
+      <div className="absolute inset-0 bg-gradient-to-br from-cream-500/80 via-cream-500/30 to-cream-500/70"></div>
 
+      {/* Animated background elements - matching hero */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-20 w-72 h-72 bg-cream-100/40 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-coral-500/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-coral-500/10 rounded-full blur-3xl animate-pulse delay-500"></div>
+      </div>
+
+      <div className="relative z-10 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-3 gap-12 items-center">
+          {/* Left Content */}
+          <div className="space-y-8 md:col-span-2 col-span-1">
+            <div className="space-y-6 pl-2 sm:pl-4 lg:pl-6">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-coral-500">
+                Les 5 
+                <span className="text-transparent font-serif font-light italic bg-clip-text bg-gradient-to-r from-primary/80 to-primary">
+                  {" "}
+                  avantages
+                </span>
+              </h2>
+              {/*}
               <p className="text-xl text-gray-600 leading-relaxed max-w-lg">
                 Create stunning websites and applications with our powerful tools and components. Join thousands of
                 developers who trust our platform.
               </p>
+              */}
             </div>
 
-            {/* Action Buttons */}
+            {/* Action Buttons 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="text-lg px-8 py-3">
                 Get Started Free
@@ -193,8 +213,9 @@ export default function Hero171() {
                 </DialogContent>
               </Dialog>
             </div>
+            */}
 
-            {/* User Testimonials */}
+            {/* User Testimonials
             <div className="space-y-4">
               <div className="flex items-center space-x-2">
                 <div className="flex -space-x-2">
@@ -215,8 +236,9 @@ export default function Hero171() {
                 <span className="font-semibold">Trusted by 10,000+ developers</span> worldwide
               </p>
             </div>
+            */}
 
-            {/* Stats */}
+            {/* Stats 
             <div className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-200">
               {stats.map((stat, index) => (
                 <div key={index} className="text-center">
@@ -228,22 +250,17 @@ export default function Hero171() {
                 </div>
               ))}
             </div>
+            */}
 
             {/* Sophisticated Timeline */}
             <div className="space-y-6 pt-8">
-              <div className="flex items-center space-x-3 mb-8">
-                <div className="w-8 h-0.5 bg-gradient-to-r from-transparent to-blue-500"></div>
-                <h3 className="text-lg font-medium text-gray-900 tracking-wide">Evolution</h3>
-                <div className="flex-1 h-0.5 bg-gradient-to-r from-blue-500 to-transparent"></div>
-              </div>
-
               <TimelineComponent />
             </div>
           </div>
 
           {/* Right Grid */}
           <div className="relative">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 gap-4">
               {gridImages.map((image, index) => (
                 <div
                   key={index}
@@ -264,8 +281,8 @@ export default function Hero171() {
             </div>
 
             {/* Floating Elements */}
-            <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full opacity-20 animate-pulse" />
-            <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-gradient-to-r from-pink-500 to-orange-500 rounded-full opacity-10 animate-pulse delay-1000" />
+            <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-r from-coral-500/20 to-cream-100 rounded-full opacity-20 animate-pulse" />
+            <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-gradient-to-r from-cream-100 to-coral-500/20 rounded-full opacity-10 animate-pulse delay-1000" />
           </div>
         </div>
       </div>
