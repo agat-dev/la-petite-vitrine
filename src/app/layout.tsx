@@ -58,10 +58,6 @@ export default function RootLayout({
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} ${libreBaskerville.variable} ${urbanist.variable} antialiased overflow-x-hidden`}
-        style={{
-          scrollbarWidth: 'none',
-          msOverflowStyle: 'none'
-        }}
       >
         <SmoothFollower />
         <Navbar />

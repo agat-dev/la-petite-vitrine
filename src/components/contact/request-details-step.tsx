@@ -47,13 +47,13 @@ const RequestDetailsStep = ({
     return (
       <div className="space-y-6">
         <div className="text-center">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+          <h2 className="text-2xl font-semibold text-primary/80 mb-4">
             Votre demande d'information
           </h2>
         </div>
 
         <div>
-          <Label htmlFor="subject">Sujet *</Label>
+          <Label htmlFor="subject" className="text-primary">Sujet *</Label>
           <Select onValueChange={(value) => handleInputChange('subject', value)}>
             <SelectTrigger className="mt-1">
               <SelectValue placeholder="Sélectionnez un sujet" />
@@ -70,7 +70,7 @@ const RequestDetailsStep = ({
         </div>
 
         <div>
-          <Label htmlFor="message">Message *</Label>
+          <Label htmlFor="message" className="text-primary">Message *</Label>
           <Textarea
             id="message"
             value={formData.message}
@@ -78,7 +78,7 @@ const RequestDetailsStep = ({
             required
             rows={5}
             placeholder="Décrivez votre demande d'information..."
-            className="mt-1"
+            className="mt-1 bg-white/40 border-white/30 text-primary placeholder:text-primary/40 backdrop-blur-sm"
           />
         </div>
       </div>
@@ -89,18 +89,19 @@ const RequestDetailsStep = ({
     return (
       <div className="space-y-6">
         <div className="text-center">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+          <h2 className="text-2xl font-semibold text-primary/80 mb-4">
             Articles / Services demandés
           </h2>
         </div>
 
         <div className="flex justify-between items-center">
-          <h3 className="text-lg font-semibold text-gray-900">Articles</h3>
+          <h3 className="text-lg font-semibold text-primary">Articles</h3>
           <Button 
             type="button" 
             onClick={addOrderItem}
             variant="outline"
             size="sm"
+            className="bg-white/40 border-white/30 text-primary hover:bg-white/20 backdrop-blur-sm"
           >
             <Plus className="w-4 h-4 mr-1" />
             Ajouter
@@ -108,16 +109,16 @@ const RequestDetailsStep = ({
         </div>
 
         {orderItems.map((item, index) => (
-          <div key={item.id} className="border rounded-lg p-4 bg-gray-50">
+          <div key={item.id} className="border border-white/20 rounded-lg p-4 bg-white/5 backdrop-blur-sm">
             <div className="flex justify-between items-start mb-3">
-              <h4 className="font-medium text-gray-900">Article {index + 1}</h4>
+              <h4 className="font-medium text-primary">Article {index + 1}</h4>
               {orderItems.length > 1 && (
                 <Button
                   type="button"
                   variant="ghost"
                   size="sm"
                   onClick={() => removeOrderItem(item.id)}
-                  className="text-red-600 hover:text-red-700"
+                  className="text-red-600 hover:text-red-700 bg-white/40 hover:bg-white/20 backdrop-blur-sm"
                 >
                   <Trash2 className="w-4 h-4" />
                 </Button>
@@ -126,49 +127,49 @@ const RequestDetailsStep = ({
             
             <div className="grid md:grid-cols-3 gap-3">
               <div className="md:col-span-2">
-                <Label>Produit/Service *</Label>
+                <Label className="text-primary">Produit/Service *</Label>
                 <Input
                   value={item.product}
                   onChange={(e) => updateOrderItem(item.id, 'product', e.target.value)}
                   placeholder="Nom du produit ou service"
                   required
-                  className="mt-1"
+                  className="mt-1 bg-white/40 border-white/30 text-primary placeholder:text-primary/40 backdrop-blur-sm"
                 />
               </div>
               <div>
-                <Label>Quantité</Label>
+                <Label className="text-primary">Quantité</Label>
                 <Input
                   type="number"
                   min="1"
                   value={item.quantity}
                   onChange={(e) => updateOrderItem(item.id, 'quantity', parseInt(e.target.value) || 1)}
-                  className="mt-1"
+                  className="mt-1 bg-white/40 border-white/30 text-primary placeholder:text-primary/40 backdrop-blur-sm"
                 />
               </div>
             </div>
             
             <div className="mt-3">
-              <Label>Spécifications</Label>
+              <Label className="text-primary">Spécifications</Label>
               <Textarea
                 value={item.specifications}
                 onChange={(e) => updateOrderItem(item.id, 'specifications', e.target.value)}
                 placeholder="Détails, options, personnalisations..."
                 rows={2}
-                className="mt-1"
+                className="mt-1 bg-white/40 border-white/30 text-primary placeholder:text-primary/40 backdrop-blur-sm"
               />
             </div>
           </div>
         ))}
 
         <div>
-          <Label htmlFor="description">Description détaillée du projet</Label>
+          <Label htmlFor="description" className="text-primary">Description détaillée du projet</Label>
           <Textarea
             id="description"
             value={formData.description}
             onChange={(e) => handleInputChange('description', e.target.value)}
             rows={4}
             placeholder="Décrivez votre projet, vos objectifs, contraintes particulières..."
-            className="mt-1"
+            className="mt-1 bg-white/40 border-white/30 text-primary placeholder:text-primary/40 backdrop-blur-sm"
           />
         </div>
 
@@ -178,7 +179,7 @@ const RequestDetailsStep = ({
             checked={formData.urgentProject}
             onCheckedChange={(checked) => handleInputChange('urgentProject', !!checked)}
           />
-          <Label htmlFor="urgent" className="text-sm">
+          <Label htmlFor="urgent" className="text-sm text-primary">
             Projet urgent (traitement prioritaire)
           </Label>
         </div>
@@ -189,14 +190,14 @@ const RequestDetailsStep = ({
   return (
     <div className="space-y-6">
       <div className="text-center">
-        <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+        <h2 className="text-2xl font-semibold text-primary/80 mb-4">
           Détails de votre projet
         </h2>
       </div>
 
       <div className="grid md:grid-cols-2 gap-4">
         <div>
-          <Label htmlFor="projectType">Type de projet *</Label>
+          <Label htmlFor="projectType" className="text-primary">Type de projet *</Label>
           <Select onValueChange={(value) => handleInputChange('projectType', value)}>
             <SelectTrigger className="mt-1">
               <SelectValue placeholder="Sélectionnez le type" />
@@ -212,7 +213,7 @@ const RequestDetailsStep = ({
           </Select>
         </div>
         <div>
-          <Label htmlFor="budget">Budget estimé</Label>
+          <Label htmlFor="budget" className="text-primary">Budget estimé</Label>
           <Select onValueChange={(value) => handleInputChange('budget', value)}>
             <SelectTrigger className="mt-1">
               <SelectValue placeholder="Sélectionnez votre budget" />
@@ -229,7 +230,7 @@ const RequestDetailsStep = ({
       </div>
 
       <div>
-        <Label htmlFor="timeline">Délai souhaité</Label>
+        <Label htmlFor="timeline" className="text-primary">Délai souhaité</Label>
         <Select onValueChange={(value) => handleInputChange('timeline', value)}>
           <SelectTrigger className="mt-1">
             <SelectValue placeholder="Quand souhaitez-vous commencer ?" />

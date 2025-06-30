@@ -10,6 +10,7 @@ export default function SmoothFollower() {
 
   const [renderPos, setRenderPos] = useState({ dot: { x: 0, y: 0 }, border: { x: 0, y: 0 } })
   const [isHovering, setIsHovering] = useState(false)
+  const [isOnSystemCursor, setIsOnSystemCursor] = useState(false)
 
   const DOT_SMOOTHNESS = 0.2
   const BORDER_DOT_SMOOTHNESS = 0.1
@@ -22,13 +23,37 @@ export default function SmoothFollower() {
     const handleMouseEnter = () => setIsHovering(true)
     const handleMouseLeave = () => setIsHovering(false)
 
+    const handleSystemCursorEnter = () => setIsOnSystemCursor(true)
+    const handleSystemCursorLeave = () => setIsOnSystemCursor(false)
+
     // Add event listeners
     window.addEventListener("mousemove", handleMouseMove)
 
-    const interactiveElements = document.querySelectorAll("a, button, img, input, textarea, select")
-    interactiveElements.forEach((element) => {
-      element.addEventListener("mouseenter", handleMouseEnter)
-      element.addEventListener("mouseleave", handleMouseLeave)
+    const attachListeners = () => {
+      const interactiveElements = document.querySelectorAll("a, button, img")
+      interactiveElements.forEach((element) => {
+        element.addEventListener("mouseenter", handleMouseEnter)
+        element.addEventListener("mouseleave", handleMouseLeave)
+      })
+
+      const systemCursorElements = document.querySelectorAll("input, textarea, select, [data-radix-select-trigger], [data-radix-select-content], [data-radix-select-item]")
+      systemCursorElements.forEach((element) => {
+        element.addEventListener("mouseenter", handleSystemCursorEnter)
+        element.addEventListener("mouseleave", handleSystemCursorLeave)
+      })
+    }
+
+    // Initial attachment
+    attachListeners()
+
+    // Observer pour les éléments ajoutés dynamiquement (comme les dropdowns)
+    const observer = new MutationObserver(() => {
+      attachListeners()
+    })
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
     })
 
     // Animation function for smooth movement
@@ -58,11 +83,19 @@ export default function SmoothFollower() {
     return () => {
       window.removeEventListener("mousemove", handleMouseMove)
 
-      interactiveElements.forEach((element) => {
+      const allInteractiveElements = document.querySelectorAll("a, button, img")
+      allInteractiveElements.forEach((element) => {
         element.removeEventListener("mouseenter", handleMouseEnter)
         element.removeEventListener("mouseleave", handleMouseLeave)
       })
 
+      const allSystemCursorElements = document.querySelectorAll("input, textarea, select, [data-radix-select-trigger], [data-radix-select-content], [data-radix-select-item]")
+      allSystemCursorElements.forEach((element) => {
+        element.removeEventListener("mouseenter", handleSystemCursorEnter)
+        element.removeEventListener("mouseleave", handleSystemCursorLeave)
+      })
+
+      observer.disconnect()
       cancelAnimationFrame(animationId)
     }
   }, [])
@@ -73,54 +106,85 @@ export default function SmoothFollower() {
     <>
       {/* Style global pour masquer le curseur par défaut */}
       <style jsx global>{`
-        * {
+        body {
           cursor: none !important;
         }
         
-        /* Exceptions pour les éléments système critiques */
-        input[type="text"], 
-        input[type="email"], 
-        input[type="password"], 
-        input[type="search"], 
-        textarea {
+        body * {
+          cursor: none !important;
+        }
+        
+        /* Exceptions pour les éléments système */
+        body input, 
+        body textarea,
+        body select,
+        body [role="listbox"],
+        body [role="option"],
+        body [role="combobox"],
+        body [data-radix-select-trigger],
+        body [data-radix-select-content],
+        body [data-radix-select-item] {
+          cursor: auto !important;
+        }
+        
+        /* Curseur text pour les champs de saisie */
+        body input[type="text"], 
+        body input[type="email"], 
+        body input[type="password"], 
+        body input[type="search"], 
+        body input[type="tel"],
+        body textarea {
           cursor: text !important;
         }
         
-        /* Scrollbars gardent leur curseur */
+        /* Scrollbars gardent leur curseur par défaut */
         ::-webkit-scrollbar {
           cursor: default !important;
         }
         
-        /* Sélection de texte */
-        ::selection {
-          cursor: text !important;
+        /* Assurer la visibilité du curseur personnalisé */
+        .custom-cursor {
+          pointer-events: none !important;
+          position: fixed !important;
+          z-index: 99999 !important;
         }
       `}</style>
       
-      <div className="pointer-events-none fixed inset-0 z-50">
-      <div
-        className="absolute rounded-full dark:bg-white bg-coral-500 "
-        style={{
-          width: "8px",
-          height: "8px",
-          transform: "translate(-50%, -50%)",
-          left: `${renderPos.dot.x}px`,
-          top: `${renderPos.dot.y}px`,
-        }}
-      />
+      <div className="custom-cursor pointer-events-none fixed inset-0 z-[99999]">
+        {/* Curseur central */}
+        <div
+          className="absolute rounded-full bg-coral-500 dark:bg-white"
+          style={{
+            width: "8px",
+            height: "8px",
+            transform: "translate(-50%, -50%)",
+            left: `${renderPos.dot.x}px`,
+            top: `${renderPos.dot.y}px`,
+            opacity: isOnSystemCursor ? 0 : 1,
+            transition: "opacity 0.2s ease",
+            pointerEvents: "none",
+            zIndex: 999999,
+            position: "absolute"
+          }}
+        />
 
-      <div
-        className="absolute rounded-full border dark:border-white border-coral-500 "
-        style={{
-          width: isHovering ? "44px" : "28px",
-          height: isHovering ? "44px" : "28px",
-          transform: "translate(-50%, -50%)",
-          left: `${renderPos.border.x}px`,
-          top: `${renderPos.border.y}px`,
-          transition: "width 0.3s, height 0.3s",
-        }}
-      />
-    </div>
+        {/* Curseur de bordure */}
+        <div
+          className="absolute rounded-full border-2 border-coral-500 dark:border-white"
+          style={{
+            width: isHovering ? "44px" : "28px",
+            height: isHovering ? "44px" : "28px",
+            transform: "translate(-50%, -50%)",
+            left: `${renderPos.border.x}px`,
+            top: `${renderPos.border.y}px`,
+            opacity: isOnSystemCursor ? 0 : 1,
+            transition: "width 0.3s, height 0.3s, opacity 0.2s ease",
+            pointerEvents: "none",
+            zIndex: 999998,
+            position: "absolute"
+          }}
+        />
+      </div>
     </>
   )
 }

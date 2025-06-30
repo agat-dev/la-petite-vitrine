@@ -43,29 +43,29 @@ const PricingSection = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-coral-500/40 via-coral-500/20 to-coral-500/50"></div>
 
       {/* SVG Background sophistiqué */}
-      <div className="absolute inset-0 opacity-20">
+      <div className="absolute inset-0 opacity-60">
         {/* Courbe élégante principale */}
         <svg className="absolute top-0 left-0 w-full h-full" viewBox="0 0 1200 800" preserveAspectRatio="none">
           <path 
             d="M0,200 Q300,100 600,150 T1200,200 L1200,0 L0,0 Z" 
             fill="url(#gradient1)" 
-            opacity="0.3"
+            opacity="0.6"
           />
           <path 
             d="M0,600 Q400,500 800,550 T1200,600 L1200,800 L0,800 Z" 
             fill="url(#gradient2)" 
-            opacity="0.2"
+            opacity="0.5"
           />
           <defs>
             <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#f97316" stopOpacity="0.4" />
-              <stop offset="50%" stopColor="#ec4899" stopOpacity="0.2" />
-              <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.3" />
+              <stop offset="0%" stopColor="#C9645A" stopOpacity="0.7" />
+              <stop offset="50%" stopColor="#F6E6D7" stopOpacity="0.5" />
+              <stop offset="100%" stopColor="#69AFC8" stopOpacity="0.6" />
             </linearGradient>
             <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.3" />
-              <stop offset="50%" stopColor="#f97316" stopOpacity="0.2" />
-              <stop offset="100%" stopColor="#ec4899" stopOpacity="0.4" />
+              <stop offset="0%" stopColor="#69AFC8" stopOpacity="0.6" />
+              <stop offset="50%" stopColor="#C9645A" stopOpacity="0.5" />
+              <stop offset="100%" stopColor="#F6E6D7" stopOpacity="0.7" />
             </linearGradient>
           </defs>
         </svg>
@@ -74,14 +74,14 @@ const PricingSection = () => {
         <svg className="absolute top-1/4 right-0 w-2/3 h-1/2" viewBox="0 0 400 300" preserveAspectRatio="none">
           <path 
             d="M0,150 Q100,50 200,100 T400,150 L400,0 L0,0 Z" 
-            fill="rgba(251, 146, 60, 0.1)" 
+            fill="rgba(201, 100, 90, 0.3)" 
           />
         </svg>
 
         <svg className="absolute bottom-1/4 left-0 w-1/2 h-1/3" viewBox="0 0 300 200" preserveAspectRatio="none">
           <path 
             d="M0,100 Q75,25 150,75 T300,100 L300,200 L0,200 Z" 
-            fill="rgba(59, 130, 246, 0.1)" 
+            fill="rgba(105, 175, 200, 0.3)" 
           />
         </svg>
 
@@ -89,15 +89,15 @@ const PricingSection = () => {
         <svg className="absolute top-1/3 left-1/4 w-96 h-96" viewBox="0 0 200 200">
           <path 
             d="M20,100 Q60,20 100,100 T180,100" 
-            stroke="rgba(251, 146, 60, 0.2)" 
-            strokeWidth="2" 
+            stroke="rgba(201, 100, 90, 0.6)" 
+            strokeWidth="3" 
             fill="none"
             className="animate-pulse"
           />
           <path 
             d="M10,120 Q50,40 90,120 T170,120" 
-            stroke="rgba(59, 130, 246, 0.15)" 
-            strokeWidth="1.5" 
+            stroke="rgba(105, 175, 200, 0.5)" 
+            strokeWidth="2" 
             fill="none"
             className="animate-pulse"
             style={{ animationDelay: '1s' }}
@@ -107,16 +107,16 @@ const PricingSection = () => {
         <svg className="absolute bottom-1/3 right-1/4 w-80 h-80" viewBox="0 0 200 200">
           <path 
             d="M180,100 Q140,20 100,100 T20,100" 
-            stroke="rgba(236, 72, 153, 0.2)" 
-            strokeWidth="2" 
+            stroke="rgba(246, 230, 215, 0.7)" 
+            strokeWidth="3" 
             fill="none"
             className="animate-pulse"
             style={{ animationDelay: '2s' }}
           />
           <path 
             d="M190,80 Q150,0 110,80 T30,80" 
-            stroke="rgba(251, 146, 60, 0.15)" 
-            strokeWidth="1.5" 
+            stroke="rgba(201, 100, 90, 0.5)" 
+            strokeWidth="2" 
             fill="none"
             className="animate-pulse"
             style={{ animationDelay: '0.5s' }}

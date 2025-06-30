@@ -19,46 +19,101 @@
   }
 }
 
-body {
+/* Prevent scrollbar shift and hide main body scrollbar */
+html, body {
   background: var(--color-background);
   color: var(--color-foreground);
+  /* Completely prevent any scrollbar appearance on body */
+  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+  overflow-x: hidden; /* Prevent horizontal scrollbar */
 }
 
-/* Custom scrollbar styles */
-* {
+/* Hide scrollbar for body on WebKit browsers */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Ensure body never shows any scrollbar */
+body {
+  scrollbar-gutter: none !important;
+}
+
+/* Custom scrollbar styles for other elements (not body/html) */
+*:not(html):not(body) {
   scrollbar-width: thin;
   scrollbar-color: var(--color-coral-500) var(--color-cream-100);
 }
 
-*::-webkit-scrollbar {
+*:not(html):not(body)::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 
-*::-webkit-scrollbar-track {
+*:not(html):not(body)::-webkit-scrollbar-track {
   background: transparent;
 }
 
-*::-webkit-scrollbar-thumb {
+*:not(html):not(body)::-webkit-scrollbar-thumb {
   background: rgba(201, 100, 90, 0.3);
   border-radius: 10px;
   border: 2px solid transparent;
   background-clip: content-box;
 }
 
-*::-webkit-scrollbar-thumb:hover {
+*:not(html):not(body)::-webkit-scrollbar-thumb:hover {
   background: rgba(201, 100, 90, 0.5);
   background-clip: content-box;
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-body::-webkit-scrollbar {
-  display: none;
+/* Specific styles for Radix components to prevent black scrollbar */
+[data-radix-portal],
+[data-radix-portal] *,
+[data-radix-select-content],
+[data-radix-select-content] *,
+[data-radix-select-viewport],
+[data-radix-select-viewport] * {
+  scrollbar-width: thin !important;
+  scrollbar-color: rgba(201, 100, 90, 0.3) transparent !important;
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
-body {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+[data-radix-portal]::-webkit-scrollbar,
+[data-radix-portal] *::-webkit-scrollbar,
+[data-radix-select-content]::-webkit-scrollbar,
+[data-radix-select-content] *::-webkit-scrollbar,
+[data-radix-select-viewport]::-webkit-scrollbar,
+[data-radix-select-viewport] *::-webkit-scrollbar {
+  width: 6px !important;
+  height: 6px !important;
+}
+
+[data-radix-portal]::-webkit-scrollbar-track,
+[data-radix-portal] *::-webkit-scrollbar-track,
+[data-radix-select-content]::-webkit-scrollbar-track,
+[data-radix-select-content] *::-webkit-scrollbar-track,
+[data-radix-select-viewport]::-webkit-scrollbar-track,
+[data-radix-select-viewport] *::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+[data-radix-portal]::-webkit-scrollbar-thumb,
+[data-radix-portal] *::-webkit-scrollbar-thumb,
+[data-radix-select-content]::-webkit-scrollbar-thumb,
+[data-radix-select-content] *::-webkit-scrollbar-thumb,
+[data-radix-select-viewport]::-webkit-scrollbar-thumb,
+[data-radix-select-viewport] *::-webkit-scrollbar-thumb {
+  background: rgba(201, 100, 90, 0.3) !important;
+  border-radius: 6px !important;
+  border: 1px solid transparent !important;
+  background-clip: content-box !important;
+}
+
+/* Prevent any black scrollbar on viewport changes */
+* {
+  scrollbar-gutter: stable;
 }
 
 @keyframes slideInFromLeft {
@@ -91,3 +146,105 @@ body {
     transform: translateY(-10px);
   }
 }
+
+/* Prevent black scrollbar during dropdown/modal opening */
+body.overflow-hidden {
+  overflow: hidden !important;
+}
+
+/* Override any potential black scrollbar on select components */
+.select-content,
+[role="listbox"],
+[role="combobox"],
+[data-state="open"] {
+  scrollbar-width: thin !important;
+  scrollbar-color: rgba(201, 100, 90, 0.3) transparent !important;
+}
+
+.select-content::-webkit-scrollbar,
+[role="listbox"]::-webkit-scrollbar,
+[role="combobox"]::-webkit-scrollbar,
+[data-state="open"]::-webkit-scrollbar {
+  width: 6px !important;
+  background: transparent !important;
+}
+
+.select-content::-webkit-scrollbar-thumb,
+[role="listbox"]::-webkit-scrollbar-thumb,
+[role="combobox"]::-webkit-scrollbar-thumb,
+[data-state="open"]::-webkit-scrollbar-thumb {
+  background: rgba(201, 100, 90, 0.3) !important;
+  border-radius: 6px !important;
+}
+
+/* Specific fix for Chrome/Safari scrollbar flash */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  body {
+    overflow-y: scroll !important;
+    scrollbar-width: none !important;
+  }
+  
+  body::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+  }
+}
+
+/* Force hide any system scrollbar on body */
+body, html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* Additional fixes for form components and dropdowns */
+form, fieldset, .form-control {
+  scrollbar-gutter: stable;
+}
+
+/* Prevent scrollbar flicker on dynamic content */
+.container, .content, main, section, article, aside, nav, header, footer {
+  scrollbar-gutter: stable;
+}
+
+/* Ensure modals and overlays don't show black scrollbar */
+[data-state="open"],
+[data-state="closed"],
+.modal, .overlay, .backdrop {
+  scrollbar-width: thin !important;
+  scrollbar-color: rgba(201, 100, 90, 0.3) transparent !important;
+}
+
+[data-state="open"]::-webkit-scrollbar,
+[data-state="closed"]::-webkit-scrollbar,
+.modal::-webkit-scrollbar, 
+.overlay::-webkit-scrollbar, 
+.backdrop::-webkit-scrollbar {
+  width: 6px !important;
+  background: transparent !important;
+}
+
+[data-state="open"]::-webkit-scrollbar-thumb,
+[data-state="closed"]::-webkit-scrollbar-thumb,
+.modal::-webkit-scrollbar-thumb, 
+.overlay::-webkit-scrollbar-thumb, 
+.backdrop::-webkit-scrollbar-thumb {
+  background: rgba(201, 100, 90, 0.3) !important;
+  border-radius: 6px !important;
+}
+
+/* Fix for any potential scrollbar issues with Tailwind components */
+.tw-scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.tw-scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+

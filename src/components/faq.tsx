@@ -97,6 +97,116 @@ const FAQ: React.FC = () => {
       {/* Background with subtle gradient - matching atouts */}
       <div className="absolute inset-0 bg-gradient-to-br from-cream-500 via-cream-500/30 to-cream-500"></div>
 
+      {/* SVG Background sophistiqué - thème ondulant zen */}
+      <div className="absolute inset-0 opacity-25">
+        {/* Vagues zen concentriques */}
+        <svg className="absolute top-0 left-0 w-full h-full" viewBox="0 0 1200 800" preserveAspectRatio="none">
+          <path 
+            d="M0,180 Q300,80 600,160 Q900,240 1200,140 L1200,0 L0,0 Z" 
+            fill="url(#faqGradient1)" 
+            opacity="0.6"
+          />
+          <path 
+            d="M0,320 Q400,220 800,300 Q1000,350 1200,280 L1200,800 L0,800 Z" 
+            fill="url(#faqGradient2)" 
+            opacity="0.4"
+          />
+          <path 
+            d="M0,500 Q200,400 500,480 Q800,560 1200,460 L1200,800 L0,800 Z" 
+            fill="url(#faqGradient3)" 
+            opacity="0.3"
+          />
+          <defs>
+            <linearGradient id="faqGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#F6E6D7" stopOpacity="0.8" />
+              <stop offset="50%" stopColor="#C9645A" stopOpacity="0.4" />
+              <stop offset="100%" stopColor="#F6E6D7" stopOpacity="0.6" />
+            </linearGradient>
+            <linearGradient id="faqGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#C9645A" stopOpacity="0.5" />
+              <stop offset="100%" stopColor="#F6E6D7" stopOpacity="0.7" />
+            </linearGradient>
+            <linearGradient id="faqGradient3" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#F6E6D7" stopOpacity="0.4" />
+              <stop offset="100%" stopColor="#C9645A" stopOpacity="0.3" />
+            </linearGradient>
+          </defs>
+        </svg>
+
+        {/* Cercles concentriques flottants */}
+        <svg className="absolute top-1/5 left-1/6 w-1/3 h-1/3" viewBox="0 0 200 200">
+          <circle cx="100" cy="100" r="80" stroke="rgba(201, 100, 90, 0.3)" strokeWidth="1.5" fill="none" 
+                  className="animate-pulse" style={{ animationDelay: '1s' }} />
+          <circle cx="100" cy="100" r="60" stroke="rgba(246, 230, 215, 0.4)" strokeWidth="1.5" fill="none" 
+                  className="animate-pulse" style={{ animationDelay: '2s' }} />
+          <circle cx="100" cy="100" r="40" stroke="rgba(201, 100, 90, 0.2)" strokeWidth="1.5" fill="none" 
+                  className="animate-pulse" style={{ animationDelay: '3s' }} />
+          <circle cx="100" cy="100" r="20" fill="rgba(246, 230, 215, 0.3)" />
+        </svg>
+
+        {/* Motifs de question stylisés */}
+        <svg className="absolute bottom-1/5 right-1/6 w-2/5 h-2/5" viewBox="0 0 300 250">
+          <path 
+            d="M100,50 Q130,30 160,50 Q170,80 160,110 Q150,130 130,140 L130,160 M125,180 Q130,185 135,180 Q130,175 125,180" 
+            stroke="rgba(201, 100, 90, 0.4)" 
+            strokeWidth="3" 
+            fill="none"
+            className="animate-pulse"
+            style={{ animationDelay: '1.5s' }}
+          />
+          <path 
+            d="M200,80 Q230,60 260,80 Q270,110 260,140 Q250,160 230,170 L230,190 M225,210 Q230,215 235,210 Q230,205 225,210" 
+            stroke="rgba(246, 230, 215, 0.5)" 
+            strokeWidth="2.5" 
+            fill="none"
+            className="animate-pulse"
+            style={{ animationDelay: '2.5s' }}
+          />
+        </svg>
+
+        {/* Lignes de réflexion courbes */}
+        <svg className="absolute top-1/2 left-1/8 w-72 h-72" viewBox="0 0 180 180">
+          <path 
+            d="M20,90 Q60,30 100,90 Q140,150 180,90" 
+            stroke="rgba(201, 100, 90, 0.3)" 
+            strokeWidth="2" 
+            fill="none"
+            className="animate-pulse"
+            style={{ animationDelay: '0.8s' }}
+          />
+          <path 
+            d="M10,60 Q50,10 90,60 Q130,110 170,60" 
+            stroke="rgba(246, 230, 215, 0.4)" 
+            strokeWidth="1.5" 
+            fill="none"
+            className="animate-pulse"
+            style={{ animationDelay: '1.8s' }}
+          />
+          <path 
+            d="M30,120 Q70,70 110,120 Q150,170 190,120" 
+            stroke="rgba(201, 100, 90, 0.25)" 
+            strokeWidth="1.5" 
+            fill="none"
+            className="animate-pulse"
+            style={{ animationDelay: '2.8s' }}
+          />
+        </svg>
+
+        {/* Points de méditation */}
+        <svg className="absolute bottom-1/3 left-1/3 w-48 h-48" viewBox="0 0 120 120">
+          <circle cx="30" cy="30" r="4" fill="rgba(201, 100, 90, 0.4)" 
+                  className="animate-pulse" style={{ animationDelay: '1s' }} />
+          <circle cx="90" cy="30" r="4" fill="rgba(246, 230, 215, 0.5)" 
+                  className="animate-pulse" style={{ animationDelay: '2s' }} />
+          <circle cx="60" cy="60" r="5" fill="rgba(201, 100, 90, 0.5)" 
+                  className="animate-pulse" style={{ animationDelay: '1.5s' }} />
+          <circle cx="30" cy="90" r="4" fill="rgba(246, 230, 215, 0.4)" 
+                  className="animate-pulse" style={{ animationDelay: '2.5s' }} />
+          <circle cx="90" cy="90" r="4" fill="rgba(201, 100, 90, 0.3)" 
+                  className="animate-pulse" style={{ animationDelay: '3s' }} />
+        </svg>
+      </div>
+
       {/* Animated background elements - matching atouts */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-20 w-72 h-72 bg-cream-100/40 rounded-full blur-3xl animate-pulse"></div>

@@ -16,6 +16,91 @@ const Hero = () => {
       {/* Background with subtle gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/60 via-blue-500/30 to-blue-500/80"></div>
 
+      {/* SVG Background sophistiqué - thème bleu héroïque */}
+      <div className="absolute inset-0 opacity-40">
+        {/* Vagues dynamiques principales */}
+        <svg className="absolute top-0 left-0 w-full h-full" viewBox="0 0 1200 800" preserveAspectRatio="none">
+          <path 
+            d="M0,300 Q200,150 400,250 T800,200 Q1000,150 1200,300 L1200,0 L0,0 Z" 
+            fill="url(#heroGradient1)" 
+            opacity="0.5"
+          />
+          <path 
+            d="M0,500 Q300,350 600,450 T1200,400 L1200,800 L0,800 Z" 
+            fill="url(#heroGradient2)" 
+            opacity="0.4"
+          />
+          <defs>
+            <linearGradient id="heroGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#69AFC8" stopOpacity="0.8" />
+              <stop offset="30%" stopColor="#F6E6D7" stopOpacity="0.4" />
+              <stop offset="70%" stopColor="#C9645A" stopOpacity="0.3" />
+              <stop offset="100%" stopColor="#69AFC8" stopOpacity="0.6" />
+            </linearGradient>
+            <linearGradient id="heroGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#C9645A" stopOpacity="0.4" />
+              <stop offset="50%" stopColor="#69AFC8" stopOpacity="0.7" />
+              <stop offset="100%" stopColor="#F6E6D7" stopOpacity="0.5" />
+            </linearGradient>
+          </defs>
+        </svg>
+
+        {/* Formes géométriques flottantes */}
+        <svg className="absolute top-1/6 left-0 w-1/2 h-1/2" viewBox="0 0 300 250" preserveAspectRatio="none">
+          <path 
+            d="M0,125 Q75,50 150,125 Q225,200 300,125 L300,0 L0,0 Z" 
+            fill="rgba(105, 175, 200, 0.3)" 
+          />
+        </svg>
+
+        <svg className="absolute bottom-1/6 right-0 w-3/5 h-2/5" viewBox="0 0 400 200" preserveAspectRatio="none">
+          <path 
+            d="M400,100 Q300,25 200,75 Q100,125 0,50 L0,200 L400,200 Z" 
+            fill="rgba(246, 230, 215, 0.4)" 
+          />
+        </svg>
+
+        {/* Spirales et courbes organiques */}
+        <svg className="absolute top-1/4 right-1/4 w-72 h-72" viewBox="0 0 200 200">
+          <path 
+            d="M100,50 Q150,75 125,125 Q75,150 100,100 Q125,75 100,50" 
+            stroke="rgba(105, 175, 200, 0.6)" 
+            strokeWidth="2.5" 
+            fill="none"
+            className="animate-pulse"
+            style={{ animationDelay: '0.5s' }}
+          />
+          <path 
+            d="M80,70 Q120,90 100,130 Q60,140 80,110 Q100,90 80,70" 
+            stroke="rgba(201, 100, 90, 0.5)" 
+            strokeWidth="2" 
+            fill="none"
+            className="animate-pulse"
+            style={{ animationDelay: '1.2s' }}
+          />
+        </svg>
+
+        {/* Lignes de connexion élégantes */}
+        <svg className="absolute bottom-1/4 left-1/6 w-64 h-64" viewBox="0 0 150 150">
+          <path 
+            d="M20,75 Q50,25 75,75 Q100,125 130,75" 
+            stroke="rgba(246, 230, 215, 0.7)" 
+            strokeWidth="3" 
+            fill="none"
+            className="animate-pulse"
+            style={{ animationDelay: '2s' }}
+          />
+          <path 
+            d="M10,50 Q40,10 70,50 Q100,90 130,50" 
+            stroke="rgba(105, 175, 200, 0.4)" 
+            strokeWidth="1.5" 
+            fill="none"
+            className="animate-pulse"
+            style={{ animationDelay: '0.8s' }}
+          />
+        </svg>
+      </div>
+
       {/* Animated background elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-20 w-72 h-72 bg-cream-100/40 rounded-full blur-3xl animate-pulse"></div>

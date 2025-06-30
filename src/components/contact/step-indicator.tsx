@@ -20,12 +20,12 @@ const StepIndicator = ({ currentStep, totalSteps }: StepIndicatorProps) => {
           return (
             <React.Fragment key={stepNumber}>
               <motion.div
-                className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium ${
+                className={`w-10 h-10 rounded-full flex items-center justify-center bg-coral-500 text-sm font-medium ${
                   isCompleted
-                    ? 'bg-white text-green-600'
+                    ? 'bg-white text-coral-500'
                     : isCurrent
-                    ? 'bg-white text-blue-600'
-                    : 'bg-blue-400 text-white opacity-50'
+                    ? 'bg-white text-coral-500'
+                    : 'bg-coral-500 text-white opacity-50'
                 }`}
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ 
@@ -35,7 +35,7 @@ const StepIndicator = ({ currentStep, totalSteps }: StepIndicatorProps) => {
                     ? '#ffffff' 
                     : isCurrent 
                     ? '#ffffff' 
-                    : 'rgb(96 165 250 / 0.5)'
+                    : '#C9645ADD'
                 }}
                 transition={{ 
                   duration: 0.3, 
@@ -70,12 +70,12 @@ const StepIndicator = ({ currentStep, totalSteps }: StepIndicatorProps) => {
               {stepNumber < totalSteps && (
                 <motion.div
                   className={`w-12 h-0.5 ${
-                    isCompleted ? 'bg-white' : 'bg-blue-400 opacity-50'
+                    isCompleted ? 'bg-white' : 'bg-coral-500 opacity-50'
                   }`}
                   initial={{ scaleX: 0 }}
                   animate={{ 
                     scaleX: 1,
-                    backgroundColor: isCompleted ? '#ffffff' : 'rgb(96 165 250 / 0.5)'
+                    backgroundColor: isCompleted ? '#ffffff' : 'bg-coral-500 opacity-80'
                   }}
                   transition={{ 
                     duration: 0.4, 

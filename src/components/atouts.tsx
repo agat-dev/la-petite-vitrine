@@ -163,6 +163,87 @@ export default function Hero171() {
       {/* Background with subtle gradient - matching hero */}
       <div className="absolute inset-0 bg-gradient-to-br from-cream-500 via-cream-500/30 to-cream-500"></div>
 
+      {/* SVG Background sophistiqué - thème crème naturel */}
+      <div className="absolute inset-0 opacity-35">
+        {/* Motifs organiques ondulants */}
+        <svg className="absolute top-0 left-0 w-full h-full" viewBox="0 0 1200 800" preserveAspectRatio="none">
+          <path 
+            d="M0,250 Q400,100 800,200 Q1000,250 1200,150 L1200,0 L0,0 Z" 
+            fill="url(#atoutsGradient1)" 
+            opacity="0.6"
+          />
+          <path 
+            d="M0,550 Q200,400 500,500 Q800,600 1200,450 L1200,800 L0,800 Z" 
+            fill="url(#atoutsGradient2)" 
+            opacity="0.4"
+          />
+          <defs>
+            <linearGradient id="atoutsGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#F6E6D7" stopOpacity="0.7" />
+              <stop offset="40%" stopColor="#C9645A" stopOpacity="0.3" />
+              <stop offset="100%" stopColor="#F6E6D7" stopOpacity="0.5" />
+            </linearGradient>
+            <linearGradient id="atoutsGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#C9645A" stopOpacity="0.4" />
+              <stop offset="60%" stopColor="#F6E6D7" stopOpacity="0.6" />
+              <stop offset="100%" stopColor="#C9645A" stopOpacity="0.3" />
+            </linearGradient>
+          </defs>
+        </svg>
+
+        {/* Motifs en losange et triangulaires */}
+        <svg className="absolute top-1/5 right-1/6 w-2/5 h-2/5" viewBox="0 0 350 300" preserveAspectRatio="none">
+          <path 
+            d="M0,150 L100,50 L200,150 L150,250 L50,200 Z" 
+            fill="rgba(201, 100, 90, 0.25)" 
+          />
+          <path 
+            d="M150,75 L250,25 L350,100 L300,200 L200,175 Z" 
+            fill="rgba(246, 230, 215, 0.35)" 
+          />
+        </svg>
+
+        {/* Courbes entrelacées */}
+        <svg className="absolute bottom-1/5 left-1/8 w-1/3 h-1/3" viewBox="0 0 250 200" preserveAspectRatio="none">
+          <path 
+            d="M0,100 Q62,40 125,100 Q187,160 250,100 L250,200 L0,200 Z" 
+            fill="rgba(246, 230, 215, 0.4)" 
+          />
+        </svg>
+
+        {/* Lignes fluides interconnectées */}
+        <svg className="absolute top-1/3 left-1/4 w-96 h-96" viewBox="0 0 200 200">
+          <path 
+            d="M30,60 Q80,10 130,60 Q180,110 150,160 Q100,190 50,140 Q20,90 30,60" 
+            stroke="rgba(201, 100, 90, 0.5)" 
+            strokeWidth="2.5" 
+            fill="none"
+            className="animate-pulse"
+            style={{ animationDelay: '1s' }}
+          />
+          <path 
+            d="M20,100 Q70,50 120,100 Q170,150 140,180 Q90,160 40,120 Q10,80 20,100" 
+            stroke="rgba(246, 230, 215, 0.6)" 
+            strokeWidth="2" 
+            fill="none"
+            className="animate-pulse"
+            style={{ animationDelay: '2.5s' }}
+          />
+        </svg>
+
+        {/* Motifs en étoile */}
+        <svg className="absolute bottom-1/3 right-1/5 w-80 h-80" viewBox="0 0 180 180">
+          <path 
+            d="M90,20 L100,70 L150,80 L110,110 L120,160 L90,140 L60,160 L70,110 L30,80 L80,70 Z" 
+            stroke="rgba(246, 230, 215, 0.4)" 
+            strokeWidth="1.5" 
+            fill="rgba(201, 100, 90, 0.1)"
+            className="animate-pulse"
+            style={{ animationDelay: '3s' }}
+          />
+        </svg>
+      </div>
+
       {/* Animated background elements - matching hero */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-20 w-72 h-72 bg-cream-100/40 rounded-full blur-3xl animate-pulse"></div>

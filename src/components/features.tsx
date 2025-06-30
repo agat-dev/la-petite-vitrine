@@ -125,6 +125,91 @@ const Features = () => {
       {/* Background with gradient transition from atouts section */}
       <div className="absolute inset-0 bg-gradient-to-br from-cream-500/70 via-cream-500/40 to-cream-500/80"></div>
 
+      {/* SVG Background sophistiqué - thème géométrique moderne */}
+      <div className="absolute inset-0 opacity-30">
+        {/* Lignes géométriques croisées */}
+        <svg className="absolute top-0 left-0 w-full h-full" viewBox="0 0 1200 800" preserveAspectRatio="none">
+          <path 
+            d="M0,200 L400,50 L800,180 L1200,100 L1200,0 L0,0 Z" 
+            fill="url(#featuresGradient1)" 
+            opacity="0.5"
+          />
+          <path 
+            d="M0,600 L300,450 L700,580 L1200,400 L1200,800 L0,800 Z" 
+            fill="url(#featuresGradient2)" 
+            opacity="0.4"
+          />
+          <defs>
+            <linearGradient id="featuresGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#69AFC8" stopOpacity="0.4" />
+              <stop offset="30%" stopColor="#F6E6D7" stopOpacity="0.6" />
+              <stop offset="70%" stopColor="#C9645A" stopOpacity="0.3" />
+              <stop offset="100%" stopColor="#69AFC8" stopOpacity="0.5" />
+            </linearGradient>
+            <linearGradient id="featuresGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#C9645A" stopOpacity="0.3" />
+              <stop offset="50%" stopColor="#69AFC8" stopOpacity="0.5" />
+              <stop offset="100%" stopColor="#F6E6D7" stopOpacity="0.4" />
+            </linearGradient>
+          </defs>
+        </svg>
+
+        {/* Hexagones et formes polygonales */}
+        <svg className="absolute top-1/6 left-1/8 w-1/3 h-1/3" viewBox="0 0 200 200" preserveAspectRatio="none">
+          <polygon 
+            points="100,20 160,60 160,140 100,180 40,140 40,60" 
+            fill="rgba(105, 175, 200, 0.25)" 
+            stroke="rgba(105, 175, 200, 0.4)" 
+            strokeWidth="1"
+          />
+          <polygon 
+            points="100,40 140,70 140,130 100,160 60,130 60,70" 
+            fill="rgba(246, 230, 215, 0.3)" 
+          />
+        </svg>
+
+        {/* Grille de points connectés */}
+        <svg className="absolute bottom-1/6 right-1/8 w-2/5 h-2/5" viewBox="0 0 300 250" preserveAspectRatio="none">
+          <g stroke="rgba(201, 100, 90, 0.3)" strokeWidth="1.5" fill="none">
+            <line x1="50" y1="50" x2="150" y2="80" className="animate-pulse" style={{ animationDelay: '0.5s' }} />
+            <line x1="150" y1="80" x2="250" y2="60" className="animate-pulse" style={{ animationDelay: '1s' }} />
+            <line x1="50" y1="150" x2="150" y2="120" className="animate-pulse" style={{ animationDelay: '1.5s' }} />
+            <line x1="150" y1="120" x2="250" y2="140" className="animate-pulse" style={{ animationDelay: '2s' }} />
+            <line x1="50" y1="50" x2="50" y2="150" className="animate-pulse" style={{ animationDelay: '0.8s' }} />
+            <line x1="150" y1="80" x2="150" y2="120" className="animate-pulse" style={{ animationDelay: '1.3s' }} />
+          </g>
+          <circle cx="50" cy="50" r="3" fill="rgba(105, 175, 200, 0.6)" />
+          <circle cx="150" cy="80" r="3" fill="rgba(201, 100, 90, 0.6)" />
+          <circle cx="250" cy="60" r="3" fill="rgba(246, 230, 215, 0.8)" />
+          <circle cx="50" cy="150" r="3" fill="rgba(105, 175, 200, 0.6)" />
+          <circle cx="150" cy="120" r="3" fill="rgba(201, 100, 90, 0.6)" />
+          <circle cx="250" cy="140" r="3" fill="rgba(246, 230, 215, 0.8)" />
+        </svg>
+
+        {/* Spirales technologiques */}
+        <svg className="absolute top-1/3 right-1/3 w-64 h-64" viewBox="0 0 150 150">
+          <path 
+            d="M75,75 Q75,25 125,75 Q75,125 25,75 Q75,25 100,75 Q75,100 50,75 Q75,50 87,75" 
+            stroke="rgba(69, 175, 200, 0.5)" 
+            strokeWidth="2" 
+            fill="none"
+            className="animate-pulse"
+            style={{ animationDelay: '2.5s' }}
+          />
+        </svg>
+
+        {/* Motifs de circuits */}
+        <svg className="absolute bottom-1/4 left-1/4 w-72 h-72" viewBox="0 0 180 180">
+          <g stroke="rgba(201, 100, 90, 0.4)" strokeWidth="1.5" fill="none">
+            <rect x="20" y="20" width="30" height="30" rx="5" className="animate-pulse" style={{ animationDelay: '1s' }} />
+            <rect x="130" y="130" width="30" height="30" rx="5" className="animate-pulse" style={{ animationDelay: '1.5s' }} />
+            <path d="M50,35 L130,35 L130,130" className="animate-pulse" style={{ animationDelay: '2s' }} />
+            <circle cx="90" cy="35" r="5" fill="rgba(246, 230, 215, 0.6)" />
+            <circle cx="130" cy="82" r="5" fill="rgba(105, 175, 200, 0.6)" />
+          </g>
+        </svg>
+      </div>
+
       {/* Animated background elements - matching atouts style */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-20 w-72 h-72 bg-cream-100/40 rounded-full blur-3xl animate-pulse"></div>

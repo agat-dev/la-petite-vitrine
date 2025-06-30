@@ -134,8 +134,8 @@ const InformationRequestForm = ({ onBack }: InformationRequestFormProps) => {
                     <SelectValue placeholder="Sélectionnez un sujet" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="produits">Informations sur les produits</SelectItem>
-                    <SelectItem value="services">Informations sur les services</SelectItem>
+                    <SelectItem value="produits">Informations sur les sites web</SelectItem>
+                    <SelectItem value="services">Informations sur les maintenances</SelectItem>
                     <SelectItem value="tarifs">Questions sur les tarifs</SelectItem>
                     <SelectItem value="support">Support technique</SelectItem>
                     <SelectItem value="partenariat">Opportunités de partenariat</SelectItem>
