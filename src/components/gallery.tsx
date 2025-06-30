@@ -24,7 +24,7 @@ const Gallery = () => {
   ];
 
   return (
-    <section id="demos" className="relative min-h-screen flex items-center justify-center overflow-hidden py-16 md:py-24 lg:py-36 bg-cream-50/50 backdrop-blur-xl border-y border-white/30 shadow-2xl">
+    <section id="demos" className="relative min-h-screen flex items-center justify-center overflow-hidden py-16 md:py-24 lg:py-36 bg-cream-50/50 backdrop-blur-xl border-y border-white/30">
       {/* Background with subtle gradient - tons crème avec glassmorphism */}
       <div className="absolute inset-0 bg-gradient-to-br from-cream-100/60 via-cream-200/40 to-cream-300/50 backdrop-blur-sm"></div>
 

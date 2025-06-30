@@ -13,33 +13,28 @@ interface FAQItem {
 const faqData: FAQItem[] = [
   {
     id: 1,
-    question: "Qu'est-ce que notre service ?",
-    answer: "Notre service est une plateforme innovante qui vous permet de gérer facilement vos projets et de collaborer avec votre équipe. Nous offrons des outils intuitifs et des fonctionnalités avancées pour optimiser votre productivité."
+    question: "Qu'est-ce qui est compris dans le site à 390€ ?",
+    answer: "Le tarif comprend tout ce qu'il faut pour être visible, professionnel et crédible :\n– La création d'un site vitrine 1 page responsive (adapté mobile)\n– Le design personnalisé\n– Le formulaire de contact\n– L'hébergement et le nom de domaine pour 1 an\n– L'optimisation pour Google (SEO local, balises, vitesse)\n– La mise en ligne en 5 jours ouvrés\n\n Aucun coût caché, aucun abonnement obligatoire."
   },
   {
     id: 2,
-    question: "Comment commencer ?",
-    answer: "Il suffit de créer un compte gratuit en quelques clics. Une fois inscrit, vous pouvez explorer toutes nos fonctionnalités avec notre guide d'intégration personnalisé qui vous accompagnera pas à pas."
+    question: "L'hébergement et le nom de domaine sont-ils compris ?",
+    answer: "Oui, tout est inclus pendant 1 an :\n– Le nom de domaine personnalisé (en .fr, .com, etc.)\n– L'hébergement sécurisé et optimisé\n\nAucune démarche technique à faire. Ensuite, vous pouvez renouveler l'hébergement chez nous ou transférer votre site si vous le souhaitez."
   },
   {
     id: 3,
-    question: "Quels sont les prix ?",
-    answer: "Nous proposons plusieurs formules adaptées à vos besoins : un plan gratuit pour débuter, un plan Pro à 19€/mois pour les équipes, et un plan Enterprise sur mesure pour les grandes organisations."
+    question: "Qui s'occupe de la maintenance du site ?",
+    answer: "C'est nous.\nSi vous choisissez l'option maintenance à 9€/mois, nous assurons :\n– Les mises à jour techniques\n– Les sauvegardes régulières\n– Les modifications simples (textes, images…)\n– Le support par e-mail sous 48h\n\nRien à gérer, votre site reste toujours à jour."
   },
   {
     id: 4,
-    question: "Y a-t-il un support technique ?",
-    answer: "Oui, notre équipe de support est disponible 24h/24 et 7j/7 pour vous aider. Vous pouvez nous contacter par chat en direct, email ou téléphone. Nous proposons également une base de connaissances complète."
+    question: "Qui crée les textes et contenus du site ?",
+    answer: "Vous pouvez nous fournir votre texte, mais si vous préfére, nous rédigeons le contenu à partir de quelques infos simples (votre métier, vos services, votre zone géographique).\n\nNotre objectif : un site clair, pro, et bien référencé, même si vous ne voulez pas rédiger vous-même."
   },
   {
     id: 5,
-    question: "Mes données sont-elles sécurisées ?",
-    answer: "Absolument. Nous utilisons un chiffrement de niveau bancaire (SSL 256-bit), nos serveurs sont certifiés ISO 27001, et nous respectons scrupuleusement le RGPD. Vos données sont sauvegardées quotidiennement."
-  },
-  {
-    id: 6,
-    question: "Peut-on intégrer des outils tiers ?",
-    answer: "Oui, nous proposons plus de 100 intégrations avec les outils les plus populaires comme Slack, Google Workspace, Microsoft 365, Trello, et bien d'autres. Notre API REST permet aussi des intégrations personnalisées."
+    question: "Qui s'occupe du logo et du design du site ?",
+    answer: "Vous avez déjà un logo ? Parfait, on l'intègre.\nVous n'en as pas ? Aucun souci : nous pouvons créer un visuel simple et propre adapté à votre activité.\n\nLe design du site est toujours personnalisé : couleurs, typographie, style sobre ou dynamique selon votre profil."
   }
 ];
 
@@ -56,7 +51,7 @@ const FAQItem: React.FC<{ item: FAQItem; index: number }> = ({ item, index }) =>
       ref={ref}
       className={`transform transition-all duration-700 delay-${index * 100} ${animationClass}`}
     >
-      <div className="backdrop-blur-xl bg-white/15 border border-white/30 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-white/20 hover:border-white/40"
+      <div className="backdrop-blur-xl bg-white/15 border border-white/30 rounded-2xl p-6 hover:bg-white/20 hover:border-white/40 transition-all duration-300"
         style={{
           backdropFilter: 'blur(20px) saturate(1.2)',
           background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.10) 100%)',
@@ -67,22 +62,22 @@ const FAQItem: React.FC<{ item: FAQItem; index: number }> = ({ item, index }) =>
           className="w-full text-left flex justify-between items-center focus:outline-none group"
           onClick={() => setIsOpen(!isOpen)}
         >
-          <h3 className="text-lg font-semibold text-primary pr-4 group-hover:text-primary/80 transition-colors drop-shadow-sm">
+          <h3 className="text-lg font-semibold text-primary pr-4 group-hover:text-primary/80 transition-colors">
             {item.question}
           </h3>
           <ChevronDown 
-            className={`w-5 h-5 text-primary/70 transition-transform duration-300 flex-shrink-0 drop-shadow-sm ${
+            className={`w-5 h-5 text-primary/70 transition-transform duration-300 flex-shrink-0 ${
               isOpen ? 'rotate-180' : ''
             }`}
           />
         </button>
         
         <div className={`overflow-hidden transition-all duration-300 ${
-          isOpen ? 'max-h-96 mt-4' : 'max-h-0'
+          isOpen ? 'max-h-[500px] mt-4' : 'max-h-0'
         }`}>
-          <p className="text-primary/80 leading-relaxed drop-shadow-sm">
+          <div className="text-primary/80 leading-relaxed whitespace-pre-line">
             {item.answer}
-          </p>
+          </div>
         </div>
       </div>
     </div>
@@ -239,20 +234,20 @@ const FAQ: React.FC = () => {
         </div>
 
         <div className="mt-16 text-center">
-          <div className="backdrop-blur-xl bg-white/25 border border-white/40 rounded-3xl p-8 shadow-lg"
+          <div className="backdrop-blur-xl bg-white/25 border border-white/40 rounded-3xl p-8"
             style={{
               backdropFilter: 'blur(24px) saturate(1.3)',
               background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.15) 100%)',
               boxShadow: '0 6px 20px rgba(0, 0, 0, 0.08), 0 3px 10px rgba(0, 0, 0, 0.05), inset 0 2px 0 rgba(255, 255, 255, 0.4), inset 0 -2px 0 rgba(255, 255, 255, 0.25)',
             }}
           >
-            <h3 className="text-2xl font-bold text-primary mb-4 drop-shadow-sm">
-              Vous n'avez pas trouvé votre réponse ?
+            <h3 className="text-2xl font-bold text-primary mb-4">
+              Vous n&apos;avez pas trouvé votre réponse ?
             </h3>
-            <p className="text-primary/80 mb-6 drop-shadow-sm">
+            <p className="text-primary/80 mb-6">
               Notre équipe est là pour vous aider ! Contactez-nous et nous vous répondrons rapidement.
             </p>
-            <button className="bg-gradient-to-r from-coral-500 to-primary text-white px-8 py-3 rounded-full font-semibold hover:from-coral-600 hover:to-primary/90 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg backdrop-blur-sm">
+            <button className="bg-gradient-to-r from-coral-500 to-primary text-white px-8 py-3 rounded-full font-semibold hover:from-coral-600 hover:to-primary/90 transition-all duration-300 transform hover:scale-105 backdrop-blur-sm">
               Nous contacter
             </button>
           </div>

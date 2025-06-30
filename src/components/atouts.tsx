@@ -125,7 +125,7 @@ export default function Hero171() {
             >
               {/* Content Card */}
               <div
-                className={`ml-12 backdrop-blur-xl bg-white/25 border border-white/40 rounded-xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 ${
+                className={`ml-12 backdrop-blur-xl bg-white/25 border border-white/40 rounded-xl p-6 hover:bg-white/30 transition-all duration-300 ${
                   visibleItems.includes(index)
                     ? "translate-y-0 opacity-100"
                     : "translate-y-4 opacity-0"

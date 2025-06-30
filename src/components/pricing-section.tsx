@@ -121,7 +121,7 @@ const PricingSection = () => {
 
       <div className="relative z-10 max-w-5xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-24">
           <h1 className="text-5xl font-bold text-center mb-8 animate-fade-in">
             <span className="font-display font-medium bg-coral-500 bg-clip-text text-transparent">
               Construisons votre
@@ -129,7 +129,7 @@ const PricingSection = () => {
             <span className="font-serif font-light italic text-primary ml-4">vitrine</span>
           </h1>
           <p className="text-xl text-primary/80 max-w-2xl mx-auto">
-            Commencez à construire votre présence en ligne. Contenus et design sont créés et optimisés pour Google et pour vos clients. 
+            Nous créons votre site, vos contenus et design optimisés pour Google et pour vos clients. 
           </p>
         </div>
 

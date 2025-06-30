@@ -249,7 +249,7 @@ const MultiStepForm = () => {
 
       case 'details':
         return (
-          <div className="relative backdrop-blur-xl bg-white/30 border border-white/40 rounded-3xl p-6 sm:p-8 lg:p-12 xl:p-16 shadow-2xl">
+          <div className="relative backdrop-blur-xl bg-white/30 border border-white/40 rounded-3xl p-6 sm:p-8 lg:p-12 xl:p-16">
             {/* Inner glow effect */}
             <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/40 via-white/10 to-transparent"></div>
             
@@ -273,7 +273,7 @@ const MultiStepForm = () => {
                 </button>
                 <button
                   onClick={handleNext}
-                  className="px-8 py-3 bg-coral-500 hover:bg-coral-500/80 text-white rounded-xl font-medium transition-colors shadow-lg"
+                  className="px-8 py-3 bg-coral-500 hover:bg-coral-500/80 text-white rounded-xl font-medium transition-colors"
                 >
                   Suivant
                 </button>
@@ -284,7 +284,7 @@ const MultiStepForm = () => {
 
       case 'summary':
         return (
-          <div className="relative backdrop-blur-xl bg-white/30 border border-white/40 rounded-3xl p-6 sm:p-8 lg:p-12 xl:p-16 shadow-2xl">
+          <div className="relative backdrop-blur-xl bg-white/30 border border-white/40 rounded-3xl p-6 sm:p-8 lg:p-12 xl:p-16">
             {/* Inner glow effect */}
             <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/40 via-white/10 to-transparent"></div>
             
@@ -499,7 +499,7 @@ const MultiStepForm = () => {
                 <button
                   type="button"
                   onClick={() => alert('Commande envoyée !')}
-                  className="px-8 py-3 bg-coral-500 hover:bg-coral-500/80 text-white rounded-xl font-medium transition-colors shadow-lg"
+                  className="px-8 py-3 bg-coral-500 hover:bg-coral-500/80 text-white rounded-xl font-medium transition-colors"
                 >
                   Commander
                 </button>
@@ -598,7 +598,7 @@ const MultiStepForm = () => {
             </div>
             <div className="w-full bg-white/20 backdrop-blur-sm rounded-full h-2 border border-white/30">
               <motion.div
-                className="bg-coral-500 h-2 rounded-full shadow-lg"
+                className="bg-coral-500 h-2 rounded-full"
                 initial={{ width: 0 }}
                 animate={{ width: `${getProgressPercentage()}%` }}
                 transition={{ duration: 0.3 }}

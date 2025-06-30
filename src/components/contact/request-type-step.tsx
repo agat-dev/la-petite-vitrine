@@ -9,7 +9,7 @@ interface RequestTypeStepProps {
 
 const RequestTypeStep = ({ requestType, setRequestType }: RequestTypeStepProps) => {
   return (
-    <div className="relative backdrop-blur-xl bg-white/30 border border-white/40 rounded-3xl p-8 lg:p-12 shadow-2xl">
+    <div className="relative backdrop-blur-xl bg-white/30 border border-white/40 rounded-3xl p-8 lg:p-12">
       {/* Inner glow effect */}
       <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/40 via-white/10 to-transparent"></div>
       
@@ -33,8 +33,8 @@ const RequestTypeStep = ({ requestType, setRequestType }: RequestTypeStepProps) 
             onClick={() => setRequestType('information')}
             className={`group relative flex-1 cursor-pointer transition-all duration-500 hover:scale-[1.02] ${
               requestType === 'information' 
-                ? 'ring-2 ring-cream-100 rounded-3xl shadow-2xl shadow-cream-100/30' 
-                : 'hover:shadow-xl hover:shadow-cream-100/20'
+                ? 'ring-2 ring-cream-100 rounded-3xl' 
+                : 'hover:bg-white/20'
             }`}
           >
             <div className="relative backdrop-blur-xl bg-white/50 border border-white/50 rounded-3xl p-8 lg:p-10 h-full overflow-hidden">
@@ -89,8 +89,8 @@ const RequestTypeStep = ({ requestType, setRequestType }: RequestTypeStepProps) 
             onClick={() => setRequestType('quote')}
             className={`group relative flex-1 cursor-pointer transition-all duration-500 hover:scale-[1.02] ${
               requestType === 'quote' 
-                ? 'ring-2 ring-coral-500/50 rounded-3xl shadow-2xl shadow-coral-500/20' 
-                : 'hover:shadow-xl hover:shadow-primary/10'
+                ? 'ring-2 ring-coral-500/50 rounded-3xl' 
+                : 'hover:bg-white/25'
             }`}
           >
             <div className="relative backdrop-blur-xl bg-white/50 border border-white/50 rounded-3xl p-8 lg:p-10 h-full overflow-hidden">

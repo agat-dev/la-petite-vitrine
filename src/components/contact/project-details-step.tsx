@@ -215,7 +215,7 @@ export const ProjectDetailsStep = ({ projectDetails, setProjectDetails, validati
           />
           <ErrorMessage error={validationErrors.city} />
           {showCitySuggestions && filteredCities.length > 0 && (
-            <div className="absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-md shadow-lg max-h-40 overflow-y-auto">
+            <div className="absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-md max-h-40 overflow-y-auto">
               {filteredCities.slice(0, 5).map((item, index) => (
                 <button
                   key={index}
@@ -370,6 +370,15 @@ export const ProjectDetailsStep = ({ projectDetails, setProjectDetails, validati
           className="mt-1 bg-white/40 border-white/30 text-primary placeholder:text-primary/40 backdrop-blur-sm"
           rows={4}
         />
+      </div>
+
+      <div className="flex justify-end mt-6">
+        <Button
+          type="button"
+          className="rounded-full"
+        >
+          Suivant
+        </Button>
       </div>
     </motion.div>
   );

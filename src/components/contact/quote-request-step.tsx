@@ -31,7 +31,7 @@ const QuoteRequestStep = ({ formData, setFormData, onNext, onBack }: QuoteReques
   const isFormValid = formData.projectType && formData.budget && formData.timeline && formData.description;
 
   return (
-    <div className="relative backdrop-blur-xl bg-white/30 border border-white/40 rounded-3xl p-8 lg:p-12 shadow-2xl">
+    <div className="relative backdrop-blur-xl bg-white/30 border border-white/40 rounded-3xl p-8 lg:p-12">
       {/* Inner glow effect */}
       <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/40 via-white/10 to-transparent"></div>
       
@@ -91,7 +91,7 @@ const QuoteRequestStep = ({ formData, setFormData, onNext, onBack }: QuoteReques
                 <SelectValue placeholder="Sélectionnez le délai" className="placeholder:text-primary/40" />
               </SelectTrigger>
               <SelectContent className="bg-white/95 backdrop-blur-sm border-white/30">
-                <SelectItem value="urgent">Urgent (moins d'1 mois)</SelectItem>
+                <SelectItem value="urgent">Urgent (moins d&apos;1 mois)</SelectItem>
                 <SelectItem value="1-2-mois">1-2 mois</SelectItem>
                 <SelectItem value="2-3-mois">2-3 mois</SelectItem>
                 <SelectItem value="3-6-mois">3-6 mois</SelectItem>
@@ -143,14 +143,14 @@ const QuoteRequestStep = ({ formData, setFormData, onNext, onBack }: QuoteReques
               type="button"
               onClick={onBack}
               variant="outline"
-              className="bg-white/20 border-white/30 text-primary hover:bg-white/30 backdrop-blur-sm"
+              className="bg-white/20 border-white/30 text-primary hover:bg-white/30 backdrop-blur-sm rounded-full"
             >
               Précédent
             </Button>
             <Button
               type="submit"
               disabled={!isFormValid}
-              className="bg-white/80 text-primary hover:bg-white disabled:opacity-50 disabled:cursor-not-allowed backdrop-blur-sm font-medium"
+              className="bg-white/80 text-primary hover:bg-white disabled:opacity-50 disabled:cursor-not-allowed backdrop-blur-sm font-medium rounded-full"
             >
               Continuer
             </Button>

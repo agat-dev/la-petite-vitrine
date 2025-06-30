@@ -72,7 +72,7 @@ const InformationRequestStep = ({ setFormData, onNext, onBack }: InformationRequ
   };
 
   return (
-    <div className="relative backdrop-blur-xl bg-white/30 border border-white/40 rounded-3xl p-8 lg:p-12 shadow-2xl">
+    <div className="relative backdrop-blur-xl bg-white/30 border border-white/40 rounded-3xl p-8 lg:p-12">
       {/* Inner glow effect */}
       <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/40 via-white/10 to-transparent"></div>
       
@@ -143,7 +143,7 @@ const InformationRequestStep = ({ setFormData, onNext, onBack }: InformationRequ
           <button
             type="button"
             onClick={handleNext}
-            className="px-8 py-3 bg-coral-500 hover:bg-coral-500/80 text-white rounded-xl font-medium transition-colors shadow-lg"
+            className="px-8 py-3 bg-coral-500 hover:bg-coral-500/80 text-white rounded-xl font-medium transition-colors"
           >
             Envoyer la demande
           </button>

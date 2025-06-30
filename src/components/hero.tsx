@@ -112,7 +112,7 @@ const Hero = () => {
       <div className="relative z-10 max-w-6xl mx-auto px-6">
         <div className="relative">
           {/* Main glass panel */}
-          <div className="relative backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl p-12 lg:p-24 shadow-2xl">
+          <div className="relative backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl p-12 lg:p-24">
             {/* Inner glow effect */}
             <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/20 via-transparent to-transparent"></div>
 
@@ -152,15 +152,14 @@ const Hero = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Button
                   size="lg"
-                  className="bg-primary/90 hover:bg-primary/60 text-white border-0 px-8 py-4 text-lg font-regular font-display shadow-xl hover:shadow-2xl transition-all duration-600"
+                  className="bg-primary/90 hover:bg-primary/60 text-white border-0 px-8 py-4 text-lg font-regular font-display transition-all duration-600 rounded-full"
                 >
                   Voir une démo
                 </Button>
-
                 <Button
                   variant="outline"
                   size="lg"
-                  className="backdrop-blur-sm bg-cream-100/90 border-white/30 text-primary hover:bg-cream-100/60 px-8 py-4 text-lg font-regular font-display transition-all duration-600"
+                  className="backdrop-blur-sm bg-cream-100/90 border-white/30 text-primary hover:bg-cream-100/60 px-8 py-4 text-lg font-regular font-display transition-all duration-600 rounded-full"
                 >
                   Voir les tarifs
                 </Button>
@@ -171,12 +170,7 @@ const Hero = () => {
             <div className="absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-br from-cream-100/80 to-transparent rounded-full blur-xl"></div>
             <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-gradient-to-tr from-blue-400/20 to-transparent rounded-full blur-xl"></div>
           </div>
-
-          {/* Secondary glass panels for depth */}
-          <div className="absolute -z-10 top-4 left-4 right-4 bottom-4 backdrop-blur-md bg-white/5 border border-white/10 rounded-3xl"></div>
-          <div className="absolute -z-20 top-8 left-8 right-8 bottom-8 backdrop-blur-sm bg-white/5 border border-white/5 rounded-3xl"></div>
         </div>
-
         {/* Floating elements around the glass */}
         <div
           className="absolute top-20 -left-20 lg:block hidden transition-all duration-300 ease-out"
@@ -185,7 +179,7 @@ const Hero = () => {
             opacity: elementsOpacity,
           }}
         >
-          <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-2xl p-6 shadow-xl animate-float">
+          <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-2xl p-6 animate-float">
             <div className="w-12 h-12 bg-coral-500 rounded-xl flex items-center justify-center"></div>
             <p className="text-primary/80 mt-3 font-medium text-lg">
               Page web + <br />
@@ -195,7 +189,6 @@ const Hero = () => {
             </p>
           </div>
         </div>
-
         <div
           className="absolute bottom-20 -right-20 lg:block hidden transition-all duration-300 ease-out"
           style={{
@@ -203,7 +196,7 @@ const Hero = () => {
             opacity: elementsOpacity,
           }}
         >
-          <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-2xl p-6 shadow-xl animate-float">
+          <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-2xl p-6 animate-float">
             <div className="w-12 h-12 bg-cream-100 rounded-xl flex items-center justify-center"></div>
             <p className="text-primary/80 mt-3 font-medium text-lg">
               Livraison

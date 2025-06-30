@@ -42,7 +42,7 @@ const ProductSelectionStep = ({ formData, setFormData, onNext, onBack }: Product
   };
 
   return (
-    <div className="relative backdrop-blur-xl bg-white/30 border border-white/40 rounded-3xl p-8 lg:p-12 shadow-2xl">
+    <div className="relative backdrop-blur-xl bg-white/30 border border-white/40 rounded-3xl p-8 lg:p-12">
       {/* Inner glow effect */}
       <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/40 via-white/10 to-transparent"></div>
       
@@ -68,7 +68,7 @@ const ProductSelectionStep = ({ formData, setFormData, onNext, onBack }: Product
             
             {/* Badge populaire */}
             <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-              <div className="bg-gradient-to-r from-coral-500 to-coral-600 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg">
+              <div className="bg-gradient-to-r from-coral-500 to-coral-600 text-white px-6 py-2 rounded-full text-sm font-semibold">
                 ⭐ Recommandé
               </div>
             </div>
@@ -155,7 +155,7 @@ const ProductSelectionStep = ({ formData, setFormData, onNext, onBack }: Product
           <button
             type="button"
             onClick={handleProductSelection}
-            className="px-8 py-3 bg-coral-500 hover:bg-coral-500/80 text-white rounded-xl font-medium transition-colors shadow-lg"
+            className="px-8 py-3 bg-coral-500 hover:bg-coral-500/80 text-white rounded-xl font-medium transition-colors"
           >
             Continuer avec ce produit
           </button>
