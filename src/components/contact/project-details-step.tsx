@@ -10,32 +10,13 @@ import { Button } from '../ui/button';
 import { Upload, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 
+import { ProjectDetails } from './types';
+
 interface ProjectDetailsStepProps {
   projectDetails: ProjectDetails;
   setProjectDetails: (details: ProjectDetails) => void;
   onNext: () => void;
   onBack: () => void;
-}
-
-export interface ProjectDetails {
-  artisanType: string;
-  location: string;
-  companyAddress: string;
-  city: string;
-  postalCode: string;
-  servicesOffered: string;
-  specialty: string;
-  targetClients: string;
-  contentTone: string;
-  uploadedFiles: File[];
-  sections: {
-    about: boolean;
-    services: boolean;
-    portfolio: boolean;
-    practicalInfo: boolean;
-    contactForm: boolean;
-  };
-  additionalInfo: string;
 }
 
 // Liste des villes françaises avec codes postaux (échantillon)
@@ -79,7 +60,7 @@ const ARTISAN_TYPES = [
   'Autre'
 ];
 
-const ProjectDetailsStep = ({ projectDetails, setProjectDetails, onNext, onBack }: ProjectDetailsStepProps) => {
+export const ProjectDetailsStep = ({ projectDetails, setProjectDetails, onNext, onBack }: ProjectDetailsStepProps) => {
   const [filteredCities, setFilteredCities] = useState<typeof FRENCH_CITIES>([]);
   const [showCitySuggestions, setShowCitySuggestions] = useState(false);
 
@@ -146,7 +127,7 @@ const ProjectDetailsStep = ({ projectDetails, setProjectDetails, onNext, onBack 
   };
 
   const removeFile = (index: number) => {
-    const newFiles = projectDetails.uploadedFiles.filter((_, i) => i !== index);
+    const newFiles = projectDetails.uploadedFiles.filter((_: File, i: number) => i !== index);
     handleInputChange('uploadedFiles', newFiles);
   };
 
@@ -326,7 +307,7 @@ const ProjectDetailsStep = ({ projectDetails, setProjectDetails, onNext, onBack 
         {/* Fichiers uploadés */}
         {projectDetails.uploadedFiles.length > 0 && (
           <div className="mt-2 space-y-2">
-            {projectDetails.uploadedFiles.map((file, index) => (
+            {projectDetails.uploadedFiles.map((file: File, index: number) => (
               <div key={index} className="flex items-center justify-between bg-white/60 backdrop-blur-sm p-2 rounded border border-white/30">
                 <span className="text-sm text-primary">{file.name}</span>
                 <Button
@@ -385,4 +366,4 @@ const ProjectDetailsStep = ({ projectDetails, setProjectDetails, onNext, onBack 
   );
 };
 
-export default ProjectDetailsStep;
+export { default as MultiStepForm } from './multi-step-form';

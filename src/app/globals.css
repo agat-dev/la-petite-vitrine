@@ -14,108 +14,103 @@
 
 @media (prefers-color-scheme: dark) {
   @theme inline {
-    --color-background: #0a0a0a;
-    --color-foreground: #ededed;
+    --color-background: #ffffff;
+    --color-foreground: #171717;
   }
 }
 
-/* Prevent scrollbar shift and hide main body scrollbar */
-html, body {
-  background: var(--color-background);
-  color: var(--color-foreground);
-  /* Completely prevent any scrollbar appearance on body */
-  scrollbar-width: none;  /* Firefox */
-  -ms-overflow-style: none;  /* IE and Edge */
-  overflow-x: hidden; /* Prevent horizontal scrollbar */
-}
-
-/* Hide scrollbar for body on WebKit browsers */
-html::-webkit-scrollbar,
-body::-webkit-scrollbar {
-  display: none !important;
-  width: 0 !important;
-  height: 0 !important;
-}
-
-/* Ensure body never shows any scrollbar */
-body {
-  scrollbar-gutter: none !important;
-}
-
-/* Custom scrollbar styles for other elements (not body/html) */
-*:not(html):not(body) {
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-coral-500) var(--color-cream-100);
-}
-
-*:not(html):not(body)::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-*:not(html):not(body)::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-*:not(html):not(body)::-webkit-scrollbar-thumb {
-  background: rgba(201, 100, 90, 0.3);
-  border-radius: 10px;
-  border: 2px solid transparent;
-  background-clip: content-box;
-}
-
-*:not(html):not(body)::-webkit-scrollbar-thumb:hover {
-  background: rgba(201, 100, 90, 0.5);
-  background-clip: content-box;
-}
-
-/* Specific styles for Radix components to prevent black scrollbar */
-[data-radix-portal],
-[data-radix-portal] *,
-[data-radix-select-content],
-[data-radix-select-content] *,
-[data-radix-select-viewport],
-[data-radix-select-viewport] * {
-  scrollbar-width: thin !important;
-  scrollbar-color: rgba(201, 100, 90, 0.3) transparent !important;
-}
-
-[data-radix-portal]::-webkit-scrollbar,
-[data-radix-portal] *::-webkit-scrollbar,
-[data-radix-select-content]::-webkit-scrollbar,
-[data-radix-select-content] *::-webkit-scrollbar,
-[data-radix-select-viewport]::-webkit-scrollbar,
-[data-radix-select-viewport] *::-webkit-scrollbar {
-  width: 6px !important;
-  height: 6px !important;
-}
-
-[data-radix-portal]::-webkit-scrollbar-track,
-[data-radix-portal] *::-webkit-scrollbar-track,
-[data-radix-select-content]::-webkit-scrollbar-track,
-[data-radix-select-content] *::-webkit-scrollbar-track,
-[data-radix-select-viewport]::-webkit-scrollbar-track,
-[data-radix-select-viewport] *::-webkit-scrollbar-track {
-  background: transparent !important;
-}
-
-[data-radix-portal]::-webkit-scrollbar-thumb,
-[data-radix-portal] *::-webkit-scrollbar-thumb,
-[data-radix-select-content]::-webkit-scrollbar-thumb,
-[data-radix-select-content] *::-webkit-scrollbar-thumb,
-[data-radix-select-viewport]::-webkit-scrollbar-thumb,
-[data-radix-select-viewport] *::-webkit-scrollbar-thumb {
-  background: rgba(201, 100, 90, 0.3) !important;
-  border-radius: 6px !important;
-  border: 1px solid transparent !important;
-  background-clip: content-box !important;
-}
-
-/* Prevent any black scrollbar on viewport changes */
+/* Force light mode globally */
 * {
-  scrollbar-gutter: stable;
+  color-scheme: light !important;
 }
 
+html {
+  color-scheme: light !important;
+  background: #ffffff !important;
+  color: #171717 !important;
+}
+
+body {
+  background: #ffffff !important;
+  color: #171717 !important;
+  overflow-x: hidden !important;
+}
+
+/* Cache les scrollbars sur tous les navigateurs */
+html, body, * {
+  scrollbar-width: none !important;           /* Firefox */
+  -ms-overflow-style: none !important;        /* IE/Edge */
+}
+
+*::-webkit-scrollbar {
+  display: none !important;                   /* Chrome/Safari */
+}
+
+/* Override any potential navbar/header scrollbar styles */
+nav::-webkit-scrollbar,
+header::-webkit-scrollbar,
+.navbar::-webkit-scrollbar,
+[data-navbar]::-webkit-scrollbar {
+  display: none !important;
+}
+
+/* Force hide scrollbar for any element with overflow */
+.overflow-auto::-webkit-scrollbar,
+.overflow-scroll::-webkit-scrollbar,
+.overflow-y-auto::-webkit-scrollbar,
+.overflow-x-auto::-webkit-scrollbar {
+  display: none !important;
+}
+
+/* Modifier les ombres de la navbar en blanc */
+nav,
+header,
+.navbar,
+[data-navbar] {
+  box-shadow: 0 8px 32px rgba(255, 255, 255, 0.3) !important;
+  filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.2)) !important;
+}
+
+/* Ombres blanches pour les éléments de navigation au scroll */
+nav[data-scrolled="true"],
+header[data-scrolled="true"],
+.navbar[data-scrolled="true"],
+[data-navbar][data-scrolled="true"] {
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.15), 
+              0 1px 1px rgba(255, 255, 255, 0.1), 
+              0 0 0 1px rgba(255, 255, 255, 0.08), 
+              0 0 4px rgba(255, 255, 255, 0.12), 
+              0 16px 68px rgba(255, 255, 255, 0.1), 
+              0 1px 0 rgba(255, 255, 255, 0.2) inset !important;
+}
+
+/* Ombres blanches pour les boutons et liens de navigation */
+nav button,
+nav a,
+header button,
+header a,
+.navbar button,
+.navbar a,
+[data-navbar] button,
+[data-navbar] a {
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2) !important;
+  filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.15)) !important;
+}
+
+/* Ombres blanches au hover sur les éléments de navigation */
+nav button:hover,
+nav a:hover,
+header button:hover,
+header a:hover,
+.navbar button:hover,
+.navbar a:hover,
+[data-navbar] button:hover,
+[data-navbar] a:hover {
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.3) !important;
+  filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.25)) !important;
+}
+
+/* Animations */
 @keyframes slideInFromLeft {
   0% {
     transform: translateX(-100px);
@@ -145,106 +140,6 @@ body {
   50% {
     transform: translateY(-10px);
   }
-}
-
-/* Prevent black scrollbar during dropdown/modal opening */
-body.overflow-hidden {
-  overflow: hidden !important;
-}
-
-/* Override any potential black scrollbar on select components */
-.select-content,
-[role="listbox"],
-[role="combobox"],
-[data-state="open"] {
-  scrollbar-width: thin !important;
-  scrollbar-color: rgba(201, 100, 90, 0.3) transparent !important;
-}
-
-.select-content::-webkit-scrollbar,
-[role="listbox"]::-webkit-scrollbar,
-[role="combobox"]::-webkit-scrollbar,
-[data-state="open"]::-webkit-scrollbar {
-  width: 6px !important;
-  background: transparent !important;
-}
-
-.select-content::-webkit-scrollbar-thumb,
-[role="listbox"]::-webkit-scrollbar-thumb,
-[role="combobox"]::-webkit-scrollbar-thumb,
-[data-state="open"]::-webkit-scrollbar-thumb {
-  background: rgba(201, 100, 90, 0.3) !important;
-  border-radius: 6px !important;
-}
-
-/* Specific fix for Chrome/Safari scrollbar flash */
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-  body {
-    overflow-y: scroll !important;
-    scrollbar-width: none !important;
-  }
-  
-  body::-webkit-scrollbar {
-    display: none !important;
-    width: 0 !important;
-  }
-}
-
-/* Force hide any system scrollbar on body */
-body, html {
-  overflow-x: hidden;
-}
-
-body {
-  overflow-y: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-/* Additional fixes for form components and dropdowns */
-form, fieldset, .form-control {
-  scrollbar-gutter: stable;
-}
-
-/* Prevent scrollbar flicker on dynamic content */
-.container, .content, main, section, article, aside, nav, header, footer {
-  scrollbar-gutter: stable;
-}
-
-/* Ensure modals and overlays don't show black scrollbar */
-[data-state="open"],
-[data-state="closed"],
-.modal, .overlay, .backdrop {
-  scrollbar-width: thin !important;
-  scrollbar-color: rgba(201, 100, 90, 0.3) transparent !important;
-}
-
-[data-state="open"]::-webkit-scrollbar,
-[data-state="closed"]::-webkit-scrollbar,
-.modal::-webkit-scrollbar, 
-.overlay::-webkit-scrollbar, 
-.backdrop::-webkit-scrollbar {
-  width: 6px !important;
-  background: transparent !important;
-}
-
-[data-state="open"]::-webkit-scrollbar-thumb,
-[data-state="closed"]::-webkit-scrollbar-thumb,
-.modal::-webkit-scrollbar-thumb, 
-.overlay::-webkit-scrollbar-thumb, 
-.backdrop::-webkit-scrollbar-thumb {
-  background: rgba(201, 100, 90, 0.3) !important;
-  border-radius: 6px !important;
-}
-
-/* Fix for any potential scrollbar issues with Tailwind components */
-.tw-scrollbar-hide {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.tw-scrollbar-hide::-webkit-scrollbar {
-  display: none;
 }
 
 

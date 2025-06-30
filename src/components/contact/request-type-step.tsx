@@ -2,7 +2,7 @@
 import React from 'react';
 import { Label } from '../ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { RequestType } from './contact-form';
+import { RequestType } from './types';
 
 interface RequestTypeStepProps {
   requestType: RequestType;

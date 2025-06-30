@@ -9,24 +9,24 @@ const Gallery = () => {
   const images = [
     {
       id: 1,
-      src: "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?w=800&h=600&fit=crop",
-      alt: "Rivière entre les montagnes sous des nuages blancs",
-      title: "Paysage montagneux",
-      url: "https://unsplash.com/photos/water-between-green-leafed-trees-sALqbthUj6A"
+      src: "/artisan-plombier.jpg",
+      alt: "Site web d'artisan plombier",
+      title: "Site web d'artisan plombier",
+      url: "https://lapetitevitrine.com/artisan-renov"
     },
     {
       id: 2,
-      src: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=600&fit=crop",
-      alt: "Photographie de paysage de montagne frappée par les rayons du soleil",
-      title: "Rayons dorés",
-      url: "https://unsplash.com/photos/landscape-photography-of-mountain-hit-by-golden-sunlight-qC2n6RQU4Vw"
+      src: "/artisan-coiffeur.jpg",
+      alt: "Site web d'artisan coiffeur",
+      title: "Site web d'artisan coiffeur",
+      url: "https://lapetitevitrine.com/artisan-coiffeur"
     },
     {
       id: 3,
-      src: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&h=600&fit=crop",
-      alt: "Sommet de montagne brumeux",
-      title: "Sommet brumeux",
-      url: "https://unsplash.com/photos/fog-covered-mountain-peak-siQgni-AkGs"
+      src: "/artisan-paysagiste.jpg",
+      alt: "Site web d'artisan paysagiste",
+      title: "Site web d'artisan paysagiste",
+      url: ""
     },
     {
       id: 4,

@@ -47,7 +47,7 @@ const GalleryItem: React.FC<GalleryItemProps> = ({ image, index }) => {
         {/* Placeholder pendant le chargement */}
         {!isLoaded && (
           <div className="aspect-[4/3] flex items-center justify-center bg-white/5">
-            <Image className="w-12 h-12 text-white/50 animate-pulse" />
+            <Image className="w-full h-full object-cover text-white/50 animate-pulse" />
           </div>
         )}
         
@@ -55,25 +55,24 @@ const GalleryItem: React.FC<GalleryItemProps> = ({ image, index }) => {
         <img
           src={image.src}
           alt={image.alt}
-          className={`w-full aspect-[4/3] object-cover transition-all duration-500 ${
+          className={`w-fit aspect-[4/3] object-cover object-center transition-all duration-500 ${
             isLoaded ? 'opacity-100' : 'opacity-0'
-          } ${isHovered ? 'scale-[1.03]' : 'scale-100'}`}
+          } ${isHovered ? 'scale-[1.2]' : 'scale-110'}`}
           onLoad={() => setIsLoaded(true)}
         />
         
         {/* Overlay avec titre - Nouvelle approche */}
         <div className="absolute inset-0 pointer-events-none">
           {/* Gradient bottom pour lisibilité */}
-          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
           
           {/* Titre toujours visible avec glassmorphism */}
           <div className="absolute bottom-4 left-4 right-4">
             <div className="backdrop-blur-md bg-white/50 border border-white/20 rounded-xl px-4 py-3 shadow-lg transition-all duration-300 group-hover:bg-white/15 group-hover:border-white/30">
-              <h3 className="text-primary font-semibold text-lg leading-tight transition-all duration-300 group-hover:text-white">
+              <h3 className="text-primary font-semibold text-lg leading-tight transition-all duration-300 group-hover:text-coral-500">
                 {image.title}
               </h3>
               <div className="flex items-center justify-between mt-1 ">
-                <p className="text-primary group-hover:text-white text-sm transition-colors duration-300">Portfolio</p>
+                <p className="text-primary group-hover:text-coral-500 text-sm transition-colors duration-300">Portfolio</p>
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-coral-500 rounded-full opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
                   {image.url && (

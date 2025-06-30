@@ -19,7 +19,7 @@ interface PricingCardProps {
 const PricingCard = ({ plan, index }: PricingCardProps) => {
   return (
     <div
-      className={`relative group transition-all duration-700 hover:scale-[1.02] ${
+      className={`h-max relative group transition-all duration-700 hover:scale-[1.02] ${
         index === 1 ? "md:-translate-y-8" : ""
       }`}
       style={{ animationDelay: `${index * 100}ms` }}
@@ -57,10 +57,10 @@ const PricingCard = ({ plan, index }: PricingCardProps) => {
           {/* Price */}
           <div className="text-center mb-8">
             <div className="flex items-baseline justify-center">
+              <span className="text-primary/70 ml-2">{plan.period}</span>
               <span className="text-5xl font-bold text-primary transition-colors duration-500 group-hover:text-primary/80">
-                ${plan.price}
+                {plan.price}€
               </span>
-              <span className="text-primary/70 ml-2">/{plan.period}</span>
             </div>
           </div>
 
@@ -69,7 +69,7 @@ const PricingCard = ({ plan, index }: PricingCardProps) => {
             {plan.features.map((feature, featureIndex) => (
               <li key={featureIndex} className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-coral-500 mt-0.5 flex-shrink-0 transition-colors duration-500 group-hover:text-coral-400" />
-                <span className="text-primary/80 text-sm transition-colors duration-500 group-hover:text-primary/90">
+                <span className="text-primary/80 transition-colors duration-500 group-hover:text-primary/90">
                   {feature}
                 </span>
               </li>
@@ -80,13 +80,15 @@ const PricingCard = ({ plan, index }: PricingCardProps) => {
           <Button
             className={`w-full py-6 text-lg font-semibold transition-all duration-500 ${
               plan.popular
-                ? "bg-gradient-to-r from-cream-100/80 to-cream-100 hover:from-cream-100/60 hover:to-cream-100/80 text-white shadow-lg hover:shadow-coral-500/20"
+                ? "bg-gradient-to-r from-coral-500/80 to-coral-500 hover:from-coral-500/60 hover:to-coral-500/80 text-white shadow-lg hover:shadow-coral-500/20"
                 : "hover:bg-primary/80"
             }`}
           >
             {plan.buttonText}
           </Button>
         </div>
+
+        <p className="pt-4 text-primary/70">Puis 9€ par mois : Hébergement, Nom de domaine et maintenance</p>
 
         {/* Subtle inner glow */}
         <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-transparent via-transparent to-white/3 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>

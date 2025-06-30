@@ -34,7 +34,7 @@ export default function NavbarDemo() {
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className="flex items-center gap-3">
-            <NavbarButton variant="secondary" className="hover:bg-primary/80">Commander</NavbarButton>
+            <NavbarButton>Commander</NavbarButton>
           </div>
         </NavBody>
 

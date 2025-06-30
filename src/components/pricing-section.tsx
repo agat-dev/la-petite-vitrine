@@ -4,35 +4,20 @@ const PricingSection = () => {
   const pricingPlans = [
     {
       name: "Essentiel",
-      price: 15,
-      period: "mois",
-      description: "Pour commencer sans complications",
+      price: 390,
+      period: "",
+      description: "Pour être visible en ligne",
       features: [
-        "Jusqu'à 3 projets",
-        "5GB de stockage",
-        "Support par email",
-        "Modèles de base",
+        "Site web d'1 page",
+        "Identité visuelle",
+        "Section Services",
+        "Section A propos",
+        "Formulaire de contact",
+        "Hébergement 1 an",
+        "Nom de domaine 1 an",
+        "Maintenance 1 an",
       ],
       popular: false,
-      buttonText: "Commander",
-    },
-    {
-      name: "Premium",
-      price: 45,
-      period: "mois",
-      description: "Toutes les fonctionnalités avancées incluses",
-      features: [
-        "Projets illimités",
-        "100GB de stockage",
-        "Support prioritaire 24/7",
-        "Modèles premium",
-        "Analytics avancés",
-        "Collaboration d'équipe",
-        "Intégrations personnalisées",
-        "Sauvegardes automatiques",
-        "API access",
-      ],
-      popular: true,
       buttonText: "Commander",
     },
   ];
@@ -136,9 +121,9 @@ const PricingSection = () => {
         <div className="text-center mb-16">
           <h1 className="text-5xl font-bold text-center mb-8 animate-fade-in">
             <span className="font-display font-medium bg-coral-500 bg-clip-text text-transparent">
-              Choisissez votre
+              Commandez
             </span>
-            <span className="font-serif font-light italic text-primary ml-4">Plan</span>
+            <span className="font-serif font-light italic text-primary ml-4">votre Vitrine</span>
           </h1>
           <p className="text-xl text-primary/80 max-w-2xl mx-auto">
             Sélectionnez le plan parfait pour vos besoins. Simple ou complet.

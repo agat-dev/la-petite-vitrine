@@ -1,22 +1,19 @@
 import Hero from "@/components/hero";
-import Hero171 from "@/components/atouts";
-import PrincingSection from "@/components/pricing-section";
-import Gallery from "@/components/gallery";
-import Image from "next/image";
-import FAQ from "@/components/faq";
+import Atouts from "@/components/atouts";
+import PricingSection from "@/components/pricing-section";
+import NavbarDemo from "@/components/navbar";
 import ContactForm from "@/components/contact/contact-form";
+import FAQ from "@/components/faq";
 
 export default function Home() {
   return (
-    <>
-    <section className="relative min-h-screen bg-gradient-to-b from-slate-50 to-white">
+    <main className="relative">
+      <NavbarDemo />
       <Hero />
-      <Hero171 />
-      <Gallery />
-      <PrincingSection />
+      <Atouts />
+      <PricingSection />
       <ContactForm />
       <FAQ />
-    </section>
-    </>
+    </main>
   );
 }

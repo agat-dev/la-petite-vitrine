@@ -1,16 +1,17 @@
-
 import React from 'react';
 import { Input } from '../ui/input';
 import { Label } from '../ui/label';
-import { FormData, RequestType } from './contact-form';
+import { FormData, RequestType } from './types';
 
 interface ContactInfoStepProps {
   formData: FormData;
   handleInputChange: (field: keyof FormData, value: string | boolean) => void;
   requestType: RequestType;
+  onNext: () => void;
+  onBack: () => void;
 }
 
-const ContactInfoStep = ({ formData, handleInputChange, requestType }: ContactInfoStepProps) => {
+const ContactInfoStep = ({ formData, handleInputChange, requestType, onNext, onBack }: ContactInfoStepProps) => {
   return (
     <div className="space-y-6">
       <div className="text-center">
@@ -87,6 +88,24 @@ const ContactInfoStep = ({ formData, handleInputChange, requestType }: ContactIn
           />
         </div>
       )}
+
+      {/* Boutons de navigation */}
+      <div className="flex justify-between mt-8">
+        <button
+          type="button"
+          onClick={onBack}
+          className="px-4 py-2 text-primary border border-primary/30 rounded hover:bg-primary/10 transition-colors"
+        >
+          Retour
+        </button>
+        <button
+          type="button"
+          onClick={onNext}
+          className="px-6 py-2 bg-primary text-white rounded hover:bg-primary/90 transition-colors"
+        >
+          Suivant
+        </button>
+      </div>
     </div>
   );
 };

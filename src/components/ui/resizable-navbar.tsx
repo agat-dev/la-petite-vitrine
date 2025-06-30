@@ -103,7 +103,7 @@ export const NavBody = ({ children, className, isScrolled }: NavBodyProps) => {
         minWidth: "800px",
       }}
       className={cn(
-        "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center self-start rounded-full bg-white/10 backdrop-blur-lg border border-white/20 px-4 py-2 lg:flex shadow-xl",
+        "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center self-start rounded-full bg-white/10 backdrop-blur-lg border border-white/20 px-4 py-2 lg:flex",
         isScrolled ? "justify-between" : "justify-between",
         isScrolled && "bg-white/20 border-white/30",
         className,
@@ -121,7 +121,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
     <motion.div
       onMouseLeave={() => setHovered(null)}
       className={cn(
-        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium text-white/80 transition duration-200 hover:text-white lg:flex lg:space-x-2",
+        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-lg font-regular text-white/80 transition duration-200 hover:text-white lg:flex lg:space-x-2",
         className,
       )}
     >
@@ -269,11 +269,11 @@ export const NavbarButton = ({
 
   const variantStyles = {
     primary:
-      "shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]",
+      "shadow-none bg-primary text-white hover:bg-primary/80 focus:bg-primary/80 active:bg-primary/90",
     secondary: "bg-transparent shadow-none dark:text-white",
-    dark: "bg-black text-white shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]",
+    dark: "bg-black text-white shadow-none",
     gradient:
-      "bg-gradient-to-b from-blue-500 to-blue-700 text-white shadow-[0px_2px_0px_0px_rgba(255,255,255,0.3)_inset]",
+      "bg-gradient-to-b from-blue-500 to-blue-700 text-white shadow-none",
   };
 
   return (
