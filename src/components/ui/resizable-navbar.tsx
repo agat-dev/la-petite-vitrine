@@ -99,7 +99,7 @@ export const NavBody = ({ children, className, isScrolled }: NavBodyProps) => {
         minWidth: "800px",
       }}
       className={cn(
-        "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center self-start rounded-full bg-white/30 border border-white/30 px-4 py-2 lg:flex",
+        "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center self-start rounded-full bg-white/10 border border-white/30 mt-2 px-4 py-2 lg:flex",
         isScrolled ? "justify-between" : "justify-between",
         isScrolled && "bg-white/50 border-white/30",
         className,

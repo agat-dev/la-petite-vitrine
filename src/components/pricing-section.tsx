@@ -22,6 +22,7 @@ const PricingSection = () => {
       ],
       popular: true,
       buttonText: "Commander",
+      buttonLink: "/#contact",
     },
   ];
 

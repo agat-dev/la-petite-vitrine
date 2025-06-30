@@ -34,7 +34,9 @@ export default function NavbarDemo() {
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className="flex items-center gap-3">
-            <NavbarButton className="rounded-full">Commander</NavbarButton>
+            <NavbarButton 
+            href="#contact"
+            className="rounded-full">Commander</NavbarButton>
           </div>
         </NavBody>
 

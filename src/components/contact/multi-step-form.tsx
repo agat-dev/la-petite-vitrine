@@ -257,7 +257,7 @@ const MultiStepForm = () => {
             <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-white/60 via-white/20 to-transparent"></div>
             <div className="absolute top-0 right-1/3 w-px h-full bg-gradient-to-b from-white/50 via-white/15 to-transparent"></div>
             
-            <div className="relative z-10">
+            <div className="relative z-10" id="form">
               <ProjectDetailsStep
                 projectDetails={formData.projectDetails}
                 setProjectDetails={handleProjectDetailsChange}

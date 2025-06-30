@@ -1,5 +1,6 @@
 import { Check, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 interface PricingPlan {
   name: string;
@@ -77,6 +78,7 @@ const PricingCard = ({ plan, index }: PricingCardProps) => {
           </ul>
 
           {/* CTA Button */}
+          <Link href={plan.buttonLink} className="w-full">
           <Button
             className={`w-full py-6 text-lg font-semibold transition-all duration-500 ${
               plan.popular
@@ -86,6 +88,7 @@ const PricingCard = ({ plan, index }: PricingCardProps) => {
           >
             {plan.buttonText}
           </Button>
+          </Link>
         </div>
 
         <p className="pt-4 text-primary/70">Puis 9€ par mois : Hébergement, Nom de domaine et maintenance</p>
