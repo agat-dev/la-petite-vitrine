@@ -10,6 +10,7 @@ import QuoteRequestStep from "./quote-request-step";
 import { ProjectDetailsStep } from "./project-details-step";
 import SummaryStep from "./summary-step";
 import StepIndicator from "./step-indicator";
+import ConfirmationStep from "./confirmation-step";
 
 export type RequestType = 'information' | 'quote';
 
@@ -55,6 +56,7 @@ export interface FormData {
 const ContactForm = () => {
   const { toast } = useToast();
   const [currentStep, setCurrentStep] = useState(0);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState<FormData>({
     firstName: '',
     lastName: '',
@@ -121,15 +123,94 @@ const ContactForm = () => {
     }
   };
 
-  const handleSubmit = () => {
-    console.log('Form submitted:', formData);
-    toast({
-      title: "Formulaire envoyé !",
-      description: "Nous vous recontacterons sous 24h.",
+  const handleSubmit = async () => {
+    try {
+      // Affichage d'un état de chargement
+      toast({
+        title: "Envoi en cours...",
+        description: "Veuillez patienter pendant l'envoi de votre demande.",
+      });
+
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        console.log('Form submitted:', formData);
+        toast({
+          title: "Formulaire envoyé !",
+          description: formData.requestType === 'quote' 
+            ? "Votre commande a été envoyée. Nous vous recontacterons sous 24h."
+            : "Votre demande a été envoyée. Nous vous répondrons sous 24h.",
+        });
+        
+        setIsSubmitted(true);
+        
+        // Optionnel : rediriger vers une page de remerciement
+        // window.location.href = '/merci';
+      } else {
+        throw new Error(result.error || 'Erreur lors de l\'envoi');
+      }
+    } catch (error) {
+      console.error('Erreur lors de l\'envoi:', error);
+      toast({
+        title: "Erreur",
+        description: "Une erreur est survenue lors de l'envoi. Veuillez réessayer.",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const handleNewRequest = () => {
+    setIsSubmitted(false);
+    setCurrentStep(0);
+    setFormData({
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      company: '',
+      requestType: 'information',
+      subject: '',
+      message: '',
+      projectType: '',
+      budget: '',
+      timeline: '',
+      description: '',
+      urgentProject: false,
+      businessName: '',
+      activity: '',
+      city: '',
+      postalCode: '',
+      targetAudience: '',
+      currentWebsite: '',
+      sections: {
+        about: false,
+        services: false,
+        portfolio: false,
+        practicalInfo: false,
+        contactForm: false,
+      },
+      additionalInfo: '',
     });
   };
 
   const renderStepContent = () => {
+    if (isSubmitted) {
+      return (
+        <ConfirmationStep
+          requestType={formData.requestType}
+          onBack={() => setCurrentStep(4)}
+        />
+      );
+    }
+
     switch (currentStep) {
       case 0:
         return (
@@ -198,51 +279,61 @@ const ContactForm = () => {
   return (
     <div className="min-h-screen py-16 px-4">
       <div className="max-w-2xl mx-auto">
-        <StepIndicator 
-          currentStep={currentStep} 
-          totalSteps={totalSteps}
-          requestType={formData.requestType}
-        />
-        
-        <motion.div
-          key={currentStep}
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -20 }}
-          transition={{ duration: 0.3 }}
-          className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl p-8"
-        >
-          {renderStepContent()}
-          
-          {currentStep !== 1 && (
-            <div className="flex justify-between mt-8 pt-6 border-t border-white/20">
-              <button
-                onClick={handleBack}
-                disabled={currentStep === 0}
-                className="px-6 py-3 text-primary/70 hover:text-primary disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-              >
-                Retour
-              </button>
+        {isSubmitted ? (
+          <ConfirmationStep
+            requestType={formData.requestType}
+            clientName={`${formData.firstName} ${formData.lastName}`}
+            email={formData.email}
+            onNewRequest={handleNewRequest}
+          />
+        ) : (
+          <>
+            <StepIndicator 
+              currentStep={currentStep} 
+              totalSteps={totalSteps}
+            />
+            
+            <motion.div
+              key={currentStep}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.3 }}
+              className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl p-8"
+            >
+              {renderStepContent()}
               
-              {currentStep < totalSteps - 1 ? (
-                <button
-                  onClick={handleNext}
-                  disabled={!isStepValid(currentStep)}
-                  className="px-8 py-3 bg-coral-500 hover:bg-coral-500/80 text-white rounded-xl font-medium disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-                >
-                  Suivant
-                </button>
-              ) : (
-                <button
-                  onClick={handleSubmit}
-                  className="px-8 py-3 bg-coral-500 hover:bg-coral-500/80 text-white rounded-xl font-medium transition-colors"
-                >
-                  Envoyer
-                </button>
+              {currentStep !== 1 && (
+                <div className="flex justify-between mt-8 pt-6 border-t border-white/20">
+                  <button
+                    onClick={handleBack}
+                    disabled={currentStep === 0}
+                    className="px-6 py-3 text-primary/70 hover:text-primary disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  >
+                    Retour
+                  </button>
+                  
+                  {currentStep < totalSteps - 1 ? (
+                    <button
+                      onClick={handleNext}
+                      disabled={!isStepValid(currentStep)}
+                      className="px-8 py-3 bg-coral-500 hover:bg-coral-500/80 text-white rounded-full font-medium disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    >
+                      Suivant
+                    </button>
+                  ) : (
+                    <button
+                      onClick={handleSubmit}
+                      className="px-8 py-3 bg-coral-500 hover:bg-coral-500/80 text-white rounded-full font-medium transition-colors"
+                    >
+                      Envoyer
+                    </button>
+                  )}
+                </div>
               )}
-            </div>
-          )}
-        </motion.div>
+            </motion.div>
+          </>
+        )}
       </div>
     </div>
   );

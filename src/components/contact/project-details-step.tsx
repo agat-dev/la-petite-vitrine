@@ -372,14 +372,6 @@ export const ProjectDetailsStep = ({ projectDetails, setProjectDetails, validati
         />
       </div>
 
-      <div className="flex justify-end mt-6">
-        <Button
-          type="button"
-          className="rounded-full"
-        >
-          Suivant
-        </Button>
-      </div>
     </motion.div>
   );
 };
