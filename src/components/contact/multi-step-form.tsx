@@ -5,48 +5,9 @@ import { motion } from 'framer-motion';
 import RequestTypeStep from './request-type-step';
 import ContactInfoStep from './contact-info-step';
 import InformationRequestStep from './information-request-step-new';
-import { ProjectDetails } from './types';
+import { ProjectDetails, MultiStepFormData, RequestType } from './types';
 import QuoteRequestStep from './quote-request-step';
 import ProjectDetailsStep from './project-details-step';
-
-type RequestType = 'information' | 'quote';
-
-interface MultiStepFormData {
-  requestType: RequestType | '';
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-  company: string;
-  subject: string;
-  message: string;
-  projectType: string;
-  budget: string;
-  timeline: string;
-  description: string;
-  urgentProject: boolean;
-  additionalInfo: string;
-  projectDetails: {
-    artisanType: string;
-    location: string;
-    companyAddress: string;
-    city: string;
-    postalCode: string;
-    servicesOffered: string;
-    specialty: string;
-    targetClients: string;
-    contentTone: string;
-    uploadedFiles: File[];
-    sections: {
-      about: boolean;
-      services: boolean;
-      portfolio: boolean;
-      practicalInfo: boolean;
-      contactForm: boolean;
-    };
-    additionalInfo: string;
-  };
-}
 
 const MultiStepForm = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -173,7 +134,7 @@ const MultiStepForm = () => {
         return (
           <QuoteRequestStep
             formData={formData}
-            setFormData={(updatedData) => setFormData(updatedData)}
+            setFormData={setFormData}
             onNext={handleNext}
             onBack={handleBack}
           />
