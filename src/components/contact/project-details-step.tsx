@@ -366,4 +366,4 @@ export const ProjectDetailsStep = ({ projectDetails, setProjectDetails, onNext, 
   );
 };
 
-export { default as MultiStepForm } from './multi-step-form';
+export default ProjectDetailsStep;

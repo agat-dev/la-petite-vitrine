@@ -62,54 +62,6 @@ header::-webkit-scrollbar,
   display: none !important;
 }
 
-/* Modifier les ombres de la navbar en blanc */
-nav,
-header,
-.navbar,
-[data-navbar] {
-  box-shadow: 0 8px 32px rgba(255, 255, 255, 0.3) !important;
-  filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.2)) !important;
-}
-
-/* Ombres blanches pour les éléments de navigation au scroll */
-nav[data-scrolled="true"],
-header[data-scrolled="true"],
-.navbar[data-scrolled="true"],
-[data-navbar][data-scrolled="true"] {
-  box-shadow: 0 0 24px rgba(255, 255, 255, 0.15), 
-              0 1px 1px rgba(255, 255, 255, 0.1), 
-              0 0 0 1px rgba(255, 255, 255, 0.08), 
-              0 0 4px rgba(255, 255, 255, 0.12), 
-              0 16px 68px rgba(255, 255, 255, 0.1), 
-              0 1px 0 rgba(255, 255, 255, 0.2) inset !important;
-}
-
-/* Ombres blanches pour les boutons et liens de navigation */
-nav button,
-nav a,
-header button,
-header a,
-.navbar button,
-.navbar a,
-[data-navbar] button,
-[data-navbar] a {
-  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2) !important;
-  filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.15)) !important;
-}
-
-/* Ombres blanches au hover sur les éléments de navigation */
-nav button:hover,
-nav a:hover,
-header button:hover,
-header a:hover,
-.navbar button:hover,
-.navbar a:hover,
-[data-navbar] button:hover,
-[data-navbar] a:hover {
-  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.3) !important;
-  filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.25)) !important;
-}
-
 /* Animations */
 @keyframes slideInFromLeft {
   0% {

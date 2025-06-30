@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { Label } from '../ui/label';
 import { Textarea } from '../ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
-import { Button } from '../ui/button';
 
 interface InformationRequestStepProps {
   formData: {
@@ -28,71 +27,81 @@ const InformationRequestStep = ({ setFormData, onNext, onBack }: InformationRequ
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, x: 20 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.3 }}
-      className="space-y-8 bg-white p-8 rounded-lg shadow-xl"
-    >
-      <div className="text-center">
-        <h2 className="text-2xl font-semibold text-primary/80 mb-4">
-          Votre demande d&apos;information
-        </h2>
-        <p className="text-primary/70">
-          Décrivez votre demande et nous vous répondrons rapidement
-        </p>
-      </div>
-
-      <div className="space-y-6">
-        {/* Sujet */}
-        <div>
-          <Label htmlFor="subject" className="text-primary">Sujet de votre demande *</Label>
-          <Select value={subject} onValueChange={setSubject}>
-            <SelectTrigger className="mt-1">
-              <SelectValue placeholder="Sélectionnez un sujet" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="informations-services">Informations sur nos services</SelectItem>
-              <SelectItem value="tarifs">Questions sur les tarifs</SelectItem>
-              <SelectItem value="support">Support technique</SelectItem>
-              <SelectItem value="partenariat">Opportunités de partenariat</SelectItem>
-              <SelectItem value="conseils">Demande de conseils</SelectItem>
-              <SelectItem value="autre">Autre</SelectItem>
-            </SelectContent>
-          </Select>
+    <div className="relative backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl p-8 lg:p-12 shadow-2xl">
+      {/* Inner glow effect */}
+      <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/20 via-transparent to-transparent"></div>
+      
+      {/* Reflection lines */}
+      <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-white/40 via-transparent to-transparent"></div>
+      <div className="absolute top-0 right-1/3 w-px h-full bg-gradient-to-b from-white/30 via-transparent to-transparent"></div>
+      
+      <motion.div
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.3 }}
+        className="relative z-10 space-y-8"
+      >
+        <div className="text-center">
+          <h2 className="text-2xl font-semibold text-white mb-4">
+            Votre demande d&apos;information
+          </h2>
+          <p className="text-white/70">
+            Décrivez votre demande et nous vous répondrons rapidement
+          </p>
         </div>
 
-        {/* Message */}
-        <div>
-          <Label htmlFor="message" className="text-primary">Votre message *</Label>
-          <Textarea
-            id="message"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            placeholder="Décrivez votre demande en détail..."
-            rows={6}
-            className="mt-1"
-          />
-        </div>
-      </div>
+        <div className="space-y-6">
+          {/* Sujet */}
+          <div>
+            <Label htmlFor="subject" className="text-white font-medium">Sujet de votre demande *</Label>
+            <Select value={subject} onValueChange={setSubject}>
+              <SelectTrigger className="mt-1 bg-white/40 border-white/30 text-white placeholder:text-white/40 backdrop-blur-sm">
+                <SelectValue placeholder="Sélectionnez un sujet" />
+              </SelectTrigger>
+              <SelectContent className="bg-white/90 backdrop-blur-xl border-white/30">
+                <SelectItem value="informations-services">Informations sur nos services</SelectItem>
+                <SelectItem value="tarifs">Questions sur les tarifs</SelectItem>
+                <SelectItem value="support">Support technique</SelectItem>
+                <SelectItem value="partenariat">Opportunités de partenariat</SelectItem>
+                <SelectItem value="conseils">Demande de conseils</SelectItem>
+                <SelectItem value="autre">Autre</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
 
-      {/* Boutons de navigation */}
-      <div className="flex justify-between mt-8">
-        <Button
-          type="button"
-          variant="outline"
-          onClick={onBack}
-        >
-          Retour
-        </Button>
-        <Button
-          type="button"
-          onClick={handleNext}
-        >
-          Envoyer la demande
-        </Button>
-      </div>
-    </motion.div>
+          {/* Message */}
+          <div>
+            <Label htmlFor="message" className="text-white font-medium">Votre message *</Label>
+            <Textarea
+              id="message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              placeholder="Décrivez votre demande en détail..."
+              rows={6}
+              className="mt-1 bg-white/40 border-white/30 text-white placeholder:text-white/40 backdrop-blur-sm"
+            />
+          </div>
+        </div>
+
+        {/* Boutons de navigation */}
+        <div className="flex justify-between mt-8 pt-6 border-t border-white/20">
+          <button
+            type="button"
+            onClick={onBack}
+            className="px-6 py-3 text-white/70 hover:text-white transition-colors backdrop-blur-sm bg-white/10 border border-white/20 rounded-xl"
+          >
+            Retour
+          </button>
+          <button
+            type="button"
+            onClick={handleNext}
+            className="px-8 py-3 bg-coral-500 hover:bg-coral-500/80 text-white rounded-xl font-medium transition-colors shadow-lg"
+          >
+            Envoyer la demande
+          </button>
+        </div>
+      </motion.div>
+    </div>
   );
 };
 
