@@ -24,12 +24,12 @@ export default function Hero171() {
   ];
 
   const gridImages = [
-    { src: "/modern-abstract-design.png", alt: "Design 1" },
-    { src: "/colorful-geometric-pattern.png", alt: "Design 2" },
-    { src: "/minimalist-vector-art.png", alt: "Design 3" },
-    { src: "/abstract-geometric-illustration.png", alt: "Design 4" },
-    { src: "/abstract-digital-art.png", alt: "Design 5" },
-    { src: "/modern-graphics.png", alt: "Design 6" },
+    { src: "/tourisme-mobile.jpg", alt: "Landing page artisan du tourisme" },
+    { src: "/artisan-batiment.jpg", alt: "Landing page artisan du bâtiment" },
+    { src: "/artisan-plombier.jpg", alt: "Landing page artisan plombier" },
+    { src: "/artisan-ebeniste.jpg", alt: "Landing page artisan ébeniste" },
+    { src: "/artisan-mobile.jpg", alt: "Landing page artisan paysagiste sur mobile" },
+    { src: "/artisan-paysagiste.jpg", alt: "Landing page artisan paysagiste" },
   ];
 
   function TimelineComponent() {
@@ -396,7 +396,7 @@ export default function Hero171() {
                     alt={image.alt}
                     width={200}
                     height={200}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover hover:scale-100 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                 </div>

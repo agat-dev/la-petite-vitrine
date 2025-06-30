@@ -3,6 +3,7 @@
 import React from 'react';
 import { ChevronDown } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import Link from 'next/link';
 
 interface FAQItem {
   id: number;
@@ -88,7 +89,7 @@ const FAQ: React.FC = () => {
   const { ref: titleRef, isIntersecting: titleVisible } = useIntersectionObserver<HTMLDivElement>({ threshold: 0.5 });
 
   return (
-    <section className="relative min-h-screen py-16 md:py-24 lg:py-36 px-4 overflow-hidden">
+    <section className="relative min-h-screen py-16 md:py-24 lg:py-36 px-4">
       {/* Background with subtle gradient - matching atouts */}
       <div className="absolute inset-0 bg-gradient-to-br from-cream-500 via-cream-500/30 to-cream-500"></div>
 
@@ -247,9 +248,13 @@ const FAQ: React.FC = () => {
             <p className="text-primary/80 mb-6">
               Notre équipe est là pour vous aider ! Contactez-nous et nous vous répondrons rapidement.
             </p>
-            <button className="bg-gradient-to-r from-coral-500 to-primary text-white px-8 py-3 rounded-full font-semibold hover:from-coral-600 hover:to-primary/90 transition-all duration-300 transform hover:scale-105 backdrop-blur-sm">
+            <a 
+            href="#contact">
+            <button 
+            className="bg-gradient-to-r from-coral-500 to-coral-500/70 text-white px-8 py-3 rounded-full font-semibold hover:from-coral-600 hover:to-coral-500/90 transition-all duration-300 transform hover:scale-105 backdrop-blur-sm">
               Nous contacter
             </button>
+            </a>
           </div>
         </div>
       </div>

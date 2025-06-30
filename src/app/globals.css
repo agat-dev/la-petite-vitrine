@@ -30,37 +30,39 @@ html {
   color: #171717 !important;
 }
 
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C9645A;
+  border-radius: 6px;
+  border: 2px solid #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b55550;
+}
+
+/* Firefox scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #C9645A #f1f1f1;
+}
+
 body {
   background: #ffffff !important;
   color: #171717 !important;
   overflow-x: hidden !important;
 }
 
-/* Cache les scrollbars sur tous les navigateurs */
-html, body, * {
-  scrollbar-width: none !important;           /* Firefox */
-  -ms-overflow-style: none !important;        /* IE/Edge */
-}
 
-*::-webkit-scrollbar {
-  display: none !important;                   /* Chrome/Safari */
-}
-
-/* Override any potential navbar/header scrollbar styles */
-nav::-webkit-scrollbar,
-header::-webkit-scrollbar,
-.navbar::-webkit-scrollbar,
-[data-navbar]::-webkit-scrollbar {
-  display: none !important;
-}
-
-/* Force hide scrollbar for any element with overflow */
-.overflow-auto::-webkit-scrollbar,
-.overflow-scroll::-webkit-scrollbar,
-.overflow-y-auto::-webkit-scrollbar,
-.overflow-x-auto::-webkit-scrollbar {
-  display: none !important;
-}
 
 /* Animations */
 @keyframes slideInFromLeft {
