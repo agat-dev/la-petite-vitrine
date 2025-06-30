@@ -1,44 +1,7 @@
 import React from 'react';
 import { Input } from '../ui/input';
 import { Label } from '../ui/label';
-import { RequestType } from './types';
-
-type MultiStepFormData = {
-  requestType: RequestType | '';
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-  company: string;
-  subject: string;
-  message: string;
-  projectType: string;
-  budget: string;
-  timeline: string;
-  description: string;
-  urgentProject: boolean;
-  additionalInfo: string;
-  projectDetails: {
-    artisanType: string;
-    location: string;
-    companyAddress: string;
-    city: string;
-    postalCode: string;
-    servicesOffered: string;
-    specialty: string;
-    targetClients: string;
-    contentTone: string;
-    uploadedFiles: File[];
-    sections: {
-      about: boolean;
-      services: boolean;
-      portfolio: boolean;
-      practicalInfo: boolean;
-      contactForm: boolean;
-    };
-    additionalInfo: string;
-  };
-};
+import { RequestType, MultiStepFormData } from './types';
 
 interface ContactInfoStepProps {
   formData: MultiStepFormData;
