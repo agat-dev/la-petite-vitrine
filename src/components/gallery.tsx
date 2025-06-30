@@ -20,20 +20,6 @@ const Gallery = () => {
       alt: "Site web d'artisan coiffeur",
       title: "Site web d'artisan coiffeur",
       url: "https://lapetitevitrine.com/artisan-coiffeur"
-    },
-    {
-      id: 3,
-      src: "/artisan-paysagiste.jpg",
-      alt: "Site web d'artisan paysagiste",
-      title: "Site web d'artisan paysagiste",
-      url: ""
-    },
-    {
-      id: 4,
-      src: "https://images.unsplash.com/photo-1458668383970-8ddd3927deed?w=800&h=600&fit=crop",
-      alt: "Photo de paysage des Alpes de montagne",
-      title: "Alpes majestueuses",
-      url: "https://unsplash.com/photos/landscape-photo-of-mountain-alps-d2MSDujJl2g"
     }
   ];
 
@@ -146,14 +132,18 @@ const Gallery = () => {
       <div className="relative z-10 w-full max-w-6xl mx-auto px-6">
         <h1 className="text-5xl font-bold text-center mb-8 animate-fade-in">
           <span className="font-display font-medium bg-coral-500 bg-clip-text text-transparent">
-            Un site web pour chaque
+            Quelques
             </span>
-          <span className="font-serif font-light italic text-slate-700 ml-4">artisans</span>
+          <span className="font-serif font-light italic text-slate-700 ml-4">démos</span>
         </h1>
+        <p className="text-center text-primary/80 text-xl mb-24">
+          Découvrez nos réalisations pour les artisans et commerçants. <br />
+          Chaque site est conçu pour mettre en valeur votre savoir-faire.
+        </p>
     
         
         {/* Grille des vignettes sans container */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
           {images.map((image, index) => (
             <GalleryItem 
               key={image.id} 

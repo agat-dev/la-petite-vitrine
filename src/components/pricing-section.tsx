@@ -3,39 +3,18 @@ import PricingCard from "./pricing-card";
 const PricingSection = () => {
   const pricingPlans = [
     {
-      name: "Essentiel",
+      name: "Votre site web d'artisan",
       price: 390,
-      period: "",
-      description: "Pour être visible en ligne",
-      features: [
-        "Site web d'1 page",
-        "Identité visuelle",
-        "Contenu optimisé",
-        "Section Services",
-        "Section Informations pratiques",
-        "Section A propos",
-        "Formulaire de contact",
-        "Hébergement 1 an",
-        "Nom de domaine 1 an",
-        "Maintenance 1 an",
-      ],
-      popular: false,
-      buttonText: "Commander",
-    },
-    {
-      name: "Premium",
-      price: 590,
       period: "",
       description: "Toutes les fonctionnalités personnalisées",
       features: [
-        "Site web d'1 page",
+        "Site web d'une page",
         "Identité visuelle",
         "Contenu optimisé premium",
         "Section Services",
+        "Section Avis clients",
         "Section A propos",
-        "Section Témoignages",
         "Section FAQ",
-        "Section personnalisée",
         "Formulaire de contact",
         "Hébergement 1 an",
         "Nom de domaine 1 an",
@@ -145,17 +124,17 @@ const PricingSection = () => {
         <div className="text-center mb-16">
           <h1 className="text-5xl font-bold text-center mb-8 animate-fade-in">
             <span className="font-display font-medium bg-coral-500 bg-clip-text text-transparent">
-              Choisissez votre
+              Construisons votre
             </span>
-            <span className="font-serif font-light italic text-primary ml-4">Plan</span>
+            <span className="font-serif font-light italic text-primary ml-4">vitrine</span>
           </h1>
           <p className="text-xl text-primary/80 max-w-2xl mx-auto">
-            Sélectionnez le plan parfait pour vos besoins. Simple ou complet.
+            Commencez à construire votre présence en ligne. Contenus et design sont créés et optimisés pour Google et pour vos clients. 
           </p>
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-1 gap-8 lg:gap-12 max-w-4xl mx-auto">
           {pricingPlans.map((plan, index) => (
             <PricingCard key={plan.name} plan={plan} index={index} />
           ))}

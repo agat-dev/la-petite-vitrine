@@ -191,7 +191,7 @@ const Hero = () => {
               Page web + <br />
               1 an de maintenance
               <br />
-              490€
+              390€
             </p>
           </div>
         </div>

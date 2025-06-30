@@ -15,8 +15,7 @@ import { ProjectDetails } from './types';
 interface ProjectDetailsStepProps {
   projectDetails: ProjectDetails;
   setProjectDetails: (details: ProjectDetails) => void;
-  onNext: () => void;
-  onBack: () => void;
+  validationErrors?: {[key: string]: string};
 }
 
 // Liste des villes françaises avec codes postaux (échantillon)
@@ -60,11 +59,24 @@ const ARTISAN_TYPES = [
   'Autre'
 ];
 
-export const ProjectDetailsStep = ({ projectDetails, setProjectDetails, onNext, onBack }: ProjectDetailsStepProps) => {
+export const ProjectDetailsStep = ({ projectDetails, setProjectDetails, validationErrors = {} }: ProjectDetailsStepProps) => {
   const [filteredCities, setFilteredCities] = useState<typeof FRENCH_CITIES>([]);
   const [showCitySuggestions, setShowCitySuggestions] = useState(false);
 
-  const handleInputChange = (field: keyof ProjectDetails, value: any) => {
+  // Composant pour afficher les messages d'erreur
+  const ErrorMessage = ({ error }: { error?: string }) => {
+    return (
+      <div className="h-6 mt-1">
+        {error && (
+          <p className="text-sm text-coral-500">
+            {error}
+          </p>
+        )}
+      </div>
+    );
+  };
+
+  const handleInputChange = (field: keyof ProjectDetails, value: string | string[] | boolean | File[]) => {
     setProjectDetails({ ...projectDetails, [field]: value });
   };
 
@@ -131,14 +143,6 @@ export const ProjectDetailsStep = ({ projectDetails, setProjectDetails, onNext, 
     handleInputChange('uploadedFiles', newFiles);
   };
 
-  const handleNext = () => {
-    if (!projectDetails.artisanType || !projectDetails.location || !projectDetails.city) {
-      alert('Veuillez remplir tous les champs obligatoires.');
-      return;
-    }
-    onNext();
-  };
-
   return (
     <motion.div
       initial={{ opacity: 0, x: 20 }}
@@ -147,7 +151,7 @@ export const ProjectDetailsStep = ({ projectDetails, setProjectDetails, onNext, 
       className="space-y-8"
     >
       <div className="text-center">
-        <h2 className="text-2xl font-semibold text-primary/80 mb-4">
+        <h2 className="text-2xl font-semibold text-primary mb-4">
           Informations détaillées sur votre projet
         </h2>
         <p className="text-primary/70">
@@ -155,10 +159,10 @@ export const ProjectDetailsStep = ({ projectDetails, setProjectDetails, onNext, 
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
         {/* Type d'artisan */}
         <div>
-          <Label htmlFor="artisanType" className="text-primary">Type d'artisan *</Label>
+          <Label htmlFor="artisanType" className="text-primary font-medium">Type d&apos;artisan *</Label>
           <Select value={projectDetails.artisanType} onValueChange={(value) => handleInputChange('artisanType', value)}>
             <SelectTrigger className="mt-1 bg-white/40 border-white/30 text-primary backdrop-blur-sm">
               <SelectValue placeholder="Sélectionnez votre métier" />
@@ -169,23 +173,26 @@ export const ProjectDetailsStep = ({ projectDetails, setProjectDetails, onNext, 
               ))}
             </SelectContent>
           </Select>
+          <ErrorMessage error={validationErrors.artisanType} />
         </div>
 
         {/* Zone d'intervention */}
         <div>
-          <Label htmlFor="location" className="text-primary">Zone d'intervention *</Label>
+          <Label htmlFor="location" className="text-primary font-medium">Zone d&apos;intervention *</Label>
           <Input
             id="location"
             value={projectDetails.location}
             onChange={(e) => handleInputChange('location', e.target.value)}
             placeholder="Ex: Paris et banlieue, Département 13..."
+            required
             className="mt-1 bg-white/40 border-white/30 text-primary placeholder:text-primary/40 backdrop-blur-sm"
           />
+          <ErrorMessage error={validationErrors.location} />
         </div>
 
         {/* Adresse de l'entreprise */}
         <div>
-          <Label htmlFor="companyAddress" className="text-primary">Adresse de l'entreprise</Label>
+          <Label htmlFor="companyAddress" className="text-primary font-medium">Adresse de l&apos;entreprise</Label>
           <Input
             id="companyAddress"
             value={projectDetails.companyAddress}
@@ -197,14 +204,16 @@ export const ProjectDetailsStep = ({ projectDetails, setProjectDetails, onNext, 
 
         {/* Ville avec suggestions */}
         <div className="relative">
-          <Label htmlFor="city" className="text-primary">Ville *</Label>
+          <Label htmlFor="city" className="text-primary font-medium">Ville *</Label>
           <Input
             id="city"
             value={projectDetails.city}
             onChange={(e) => handleCitySearch(e.target.value)}
             placeholder="Tapez le nom de votre ville"
+            required
             className="mt-1 bg-white/40 border-white/30 text-primary placeholder:text-primary/40 backdrop-blur-sm"
           />
+          <ErrorMessage error={validationErrors.city} />
           {showCitySuggestions && filteredCities.length > 0 && (
             <div className="absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-md shadow-lg max-h-40 overflow-y-auto">
               {filteredCities.slice(0, 5).map((item, index) => (
@@ -214,21 +223,21 @@ export const ProjectDetailsStep = ({ projectDetails, setProjectDetails, onNext, 
                   className="w-full px-3 py-2 text-left hover:bg-gray-100 flex justify-between"
                   onClick={() => selectCity(item.city, item.postalCode)}
                 >
-                  <span>{item.city}</span>
+                  <span className="text-gray-800">{item.city}</span>
                   <span className="text-gray-500">{item.postalCode}</span>
                 </button>
               ))}
             </div>
           )}
           {projectDetails.postalCode && (
-            <p className="text-sm text-gray-600 mt-1">Code postal: {projectDetails.postalCode}</p>
+            <p className="text-sm text-primary/60 mt-1">Code postal: {projectDetails.postalCode}</p>
           )}
         </div>
       </div>
 
       {/* Services proposés */}
       <div>
-        <Label htmlFor="servicesOffered" className="text-primary">Services proposés</Label>
+        <Label htmlFor="servicesOffered" className="text-primary font-medium">Services proposés</Label>
         <Textarea
           id="servicesOffered"
           value={projectDetails.servicesOffered}
@@ -239,10 +248,10 @@ export const ProjectDetailsStep = ({ projectDetails, setProjectDetails, onNext, 
         />
       </div>
 
-      <div className="grid md:grid-cols-2 gap-4">
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4">
         {/* Spécificité */}
         <div>
-          <Label htmlFor="specialty" className="text-primary">Votre spécificité</Label>
+          <Label htmlFor="specialty" className="text-primary font-medium">Votre spécificité</Label>
           <Input
             id="specialty"
             value={projectDetails.specialty}
@@ -254,7 +263,7 @@ export const ProjectDetailsStep = ({ projectDetails, setProjectDetails, onNext, 
 
         {/* Type de clients ciblés */}
         <div>
-          <Label htmlFor="targetClients" className="text-primary">Type de clients ciblés</Label>
+          <Label htmlFor="targetClients" className="text-primary font-medium">Type de clients ciblés</Label>
           <Input
             id="targetClients"
             value={projectDetails.targetClients}
@@ -267,7 +276,7 @@ export const ProjectDetailsStep = ({ projectDetails, setProjectDetails, onNext, 
 
       {/* Ton du contenu */}
       <div>
-        <Label htmlFor="contentTone" className="text-primary">Ton du contenu souhaité</Label>
+        <Label htmlFor="contentTone" className="text-primary font-medium">Ton du contenu souhaité</Label>
         <Textarea
           id="contentTone"
           value={projectDetails.contentTone}
@@ -280,7 +289,7 @@ export const ProjectDetailsStep = ({ projectDetails, setProjectDetails, onNext, 
 
       {/* Upload de fichiers */}
       <div>
-        <Label className="text-primary">Fichiers à joindre (3 max)</Label>
+        <Label className="text-primary font-medium">Fichiers à joindre (3 max)</Label>
         <div className="mt-1 border-2 border-dashed border-white/30 rounded-lg p-6 bg-white/40 backdrop-blur-sm">
           <input
             type="file"
@@ -316,7 +325,7 @@ export const ProjectDetailsStep = ({ projectDetails, setProjectDetails, onNext, 
                   size="sm"
                   onClick={() => removeFile(index)}
                 >
-                  <X className="w-4 h-4" />
+                  <X className="w-4 h-4 text-primary" />
                 </Button>
               </div>
             ))}
@@ -326,8 +335,8 @@ export const ProjectDetailsStep = ({ projectDetails, setProjectDetails, onNext, 
 
       {/* Sections à inclure */}
       <div>
-        <Label className="text-primary">Sections à inclure sur le site</Label>
-        <div className="mt-2 grid grid-cols-2 md:grid-cols-3 gap-4">
+        <Label className="text-primary font-medium">Sections à inclure sur le site</Label>
+        <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {[
             { key: 'about', label: 'À propos' },
             { key: 'services', label: 'Services' },
@@ -352,7 +361,7 @@ export const ProjectDetailsStep = ({ projectDetails, setProjectDetails, onNext, 
 
       {/* Autres informations */}
       <div>
-        <Label htmlFor="additionalInfo" className="text-primary">Autres informations utiles</Label>
+        <Label htmlFor="additionalInfo" className="text-primary font-medium">Autres informations utiles</Label>
         <Textarea
           id="additionalInfo"
           value={projectDetails.additionalInfo}
