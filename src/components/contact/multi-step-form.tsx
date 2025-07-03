@@ -521,7 +521,7 @@ const MultiStepForm = () => {
   return (
     <section id="contact" className="relative min-h-screen flex items-center justify-center p-3 sm:px-4 py-16 md:py-24 lg:py-36">
       {/* Background with subtle gradient - same as hero */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/60 via-blue-500/30 to-blue-500/80"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-coral-500/10 via-coral-500/15 to-coral-500/40"></div>
 
       {/* SVG Background sophistiqué - thème bleu héroïque */}
       <div className="absolute inset-0 opacity-40">
@@ -570,7 +570,7 @@ const MultiStepForm = () => {
 
       {/* Animated background elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-cream-100/40 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-20 left-20 w-72 h-72 bg-cream-100/15 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-20 right-20 w-96 h-96 bg-coral-500/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
         <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-coral-500/10 rounded-full blur-3xl animate-pulse delay-500"></div>
       </div>
@@ -579,7 +579,7 @@ const MultiStepForm = () => {
         {/* Header */}
         <div className="text-center mb-16 mx-auto">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-center mb-8 animate-fade-in break-words">
-            <span className="font-display font-medium bg-coral-500 bg-clip-text text-transparent">
+            <span className="font-display font-medium bg-brown-500 bg-clip-text text-transparent">
               Réalisons
             </span>
             <span className="font-serif font-light italic text-primary ml-2 sm:ml-4">Ensemble</span>

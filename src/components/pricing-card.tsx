@@ -82,7 +82,7 @@ const PricingCard = ({ plan, index }: PricingCardProps) => {
           <Button
             className={`w-full py-6 text-lg font-semibold transition-all duration-500 ${
               plan.popular
-                ? "bg-gradient-to-r from-coral-500/80 to-coral-500 hover:from-coral-500/60 hover:to-coral-500/80 text-white"
+                ? "bg-brown-500 hover:from-brown-500/80 hover:to-brown-500/90 text-white"
                 : "hover:bg-primary/80"
             }`}
           >

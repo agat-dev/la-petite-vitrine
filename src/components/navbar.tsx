@@ -36,7 +36,7 @@ export default function NavbarDemo() {
           <div className="flex items-center gap-3">
             <NavbarButton 
             href="#contact"
-            className="rounded-full">Commander</NavbarButton>
+            className="rounded-full bg-brown-500 hover:bg-brown-500/80">Commander</NavbarButton>
           </div>
         </NavBody>
 
@@ -118,7 +118,7 @@ export default function NavbarDemo() {
                     <NavbarButton
                       href="#contact"
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className="w-full rounded-full text-lg py-3 bg-primary/90 backdrop-blur-sm border border-white/30 hover:bg-primary text-white shadow-lg"
+                      className="w-full rounded-full text-lg py-3 bg-brown-500 backdrop-blur-sm border border-white/30 hover:bg-primary text-white shadow-lg"
                     >
                       Commander
                     </NavbarButton>

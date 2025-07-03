@@ -7,10 +7,12 @@ export default function Hero171() {
 
   const gridImages = [
     { src: "/artisan-coiffeur.jpg", alt: "Artisan Coiffeur" },
-    { src: "/artisan-batiment.jpg", alt: "Artisan du bâtiment" },
+    { src: "/artisan-batiment.jpg", alt: "Artisan du bâtiment" },  
+    { src: "/artisan-paysagiste.jpg", alt: "Artisan plombier" },    
     { src: "/artisan-plombier.jpg", alt: "Artisan paysagiste" },
-    { src: "/artisan-paysagiste.jpg", alt: "Artisan plombier" },
+    { src: "/artisan-mobile.jpg", alt: "Artisan mobile" },
     { src: "/artisan-ebeniste.jpg", alt: "Artisan ébéniste" },
+
   ]
 
   function TimelineComponent() {
@@ -227,9 +229,9 @@ export default function Hero171() {
 
       {/* Animated background elements - matching hero */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-cream-100/40 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-coral-500/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-coral-500/10 rounded-full blur-3xl animate-pulse delay-500"></div>
+        <div className="absolute top-20 left-20 w-72 h-72 bg-cream-100/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-cream-100/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-cream-100/10 rounded-full blur-3xl animate-pulse delay-500"></div>
       </div>
 
       <div className="relative z-10 md:max-w-6xl mx-auto">
@@ -320,26 +322,67 @@ export default function Hero171() {
             </div>
           </div>
 
-          {/* Right Grid */}
+          {/* Right Grid - Bento Layout */}
           <div className="relative col-span-2">
-            <div className="grid grid-cols-1 gap-4">
-              {gridImages.map((image, index) => (
-                <div
-                  key={index}
-                  className={`relative overflow-hidden rounded-2xl ${
-                    index === 0 ? "row-span-2 md:block hidden" : ""
-                  } ${index === 3 ? "col-span-2 md:block hidden" : ""}`}
-                >
-                  <Image
-                    src={image.src || "/placeholder.svg"}
-                    alt={image.alt}
-                    width={200}
-                    height={200}
-                    className="w-full h-full object-cover object-center-top hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                </div>
-              ))}
+            <div className="grid grid-cols-6 grid-rows-4 gap-4 h-full min-h-[600px]">
+              {/* Image 1 - 2 lignes/1 colonne (position: col 1, rows 1-2) */}
+              <div className="relative overflow-hidden rounded-2xl col-span-1">
+                <div className="absolute inset-0 bg-brown-500" />
+              </div>
+
+              {/* Image 2 - 5 colonnes/1 ligne (position: cols 2-6, row 1) */}
+              <div className="h-max relative overflow-hidden rounded-2xl col-span-5 row-span-1">
+                <Image
+                  src={gridImages[1]?.src || "/placeholder.svg"}
+                  alt={gridImages[1]?.alt || "Artisan"}
+                  width={800}
+                  height={300}
+                  className="w-full h-full object-contain object-center-top hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+              </div>
+
+              {/* Image 3 - 5 colonnes/1 ligne (position: cols 2-6, row 2) */}
+              <div className="h-max w-full relative overflow-hidden rounded-2xl col-span-6 row-span-1">
+                <Image
+                  src={gridImages[2]?.src || "/placeholder.svg"}
+                  alt={gridImages[2]?.alt || "Artisan"}
+                  width={800}
+                  height={300}
+                  className="w-full h-full object-contain object-center-top hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+              </div>
+
+              {/* Images 4 et 5 - Colonne de gauche combinée */}
+              {/* Image 4 - 3 colonnes/1 ligne (position: cols 1-3, row 3) */}
+              <div className="h-max relative overflow-hidden rounded-2xl col-span-5 row-span-1 bg-gray-100">
+                <Image
+                  src={gridImages[3]?.src || "/placeholder.svg"}
+                  alt={gridImages[3]?.alt || "Artisan"}
+                  width={500}
+                  height={250}
+                  className="w-full h-full object-contain hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
+              </div>
+
+              {/* Image 6 - 3 colonnes/2 lignes (position: cols 4-6, rows 3-4) */}
+              <div className="relative overflow-hidden rounded-2xl col-span-1 row-span-2">
+                <div className="absolute inset-0 bg-coral-500" />
+              </div>
+
+              {/* Image 5 - 3 colonnes/1 ligne (position: cols 1-3, row 4) */}
+              <div className="h-max relative overflow-hidden rounded-2xl col-span-5 row-span-1 bg-gray-100">
+                <Image
+                  src={gridImages[5]?.src || "/placeholder.svg"}
+                  alt={gridImages[5]?.alt || "Artisan"}
+                  width={500}
+                  height={250}
+                  className="w-full h-full object-contain hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
+              </div>
             </div>
 
             {/* Floating Elements */}
