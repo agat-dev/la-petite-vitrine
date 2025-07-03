@@ -27,7 +27,7 @@ const PricingSection = () => {
   ];
 
   return (
-    <section id="tarifs" className="relative min-h-screen flex items-center justify-center py-16 md:py-24 lg:py-36 overflow-hidden">
+    <section id="tarifs" className="relative min-h-screen flex items-center justify-center p-3 sm:px-8 py-16 md:py-24 lg:py-36 overflow-hidden">
       {/* Background with subtle gradient - coral theme éclairci */}
       <div className="absolute inset-0 bg-gradient-to-br from-coral-500/40 via-coral-500/20 to-coral-500/50"></div>
 
@@ -123,13 +123,13 @@ const PricingSection = () => {
       <div className="relative z-10 max-w-5xl mx-auto">
         {/* Header */}
         <div className="text-center mb-24">
-          <h1 className="text-5xl font-bold text-center mb-8 animate-fade-in">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-center mb-8 animate-fade-in break-words">
             <span className="font-display font-medium bg-coral-500 bg-clip-text text-transparent">
               Construisons votre
             </span>
-            <span className="font-serif font-light italic text-primary ml-4">vitrine</span>
+            <span className="font-serif font-light italic text-primary ml-2 sm:ml-4">vitrine</span>
           </h1>
-          <p className="text-xl text-primary/80 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-primary/80 max-w-2xl mx-auto leading-relaxed">
             Nous créons votre site, vos contenus et design optimisés pour Google et pour vos clients. 
           </p>
         </div>

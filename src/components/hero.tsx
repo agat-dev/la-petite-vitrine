@@ -2,6 +2,7 @@
 
 import { Button } from "./ui/button";
 import { useScrollEffect } from "../hooks/useScrollEffect";
+import  Link from "next/link";
 
 const Hero = () => {
   const scrollY = useScrollEffect();
@@ -109,7 +110,7 @@ const Hero = () => {
       </div>
 
       {/* Glass container - the main showcase */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6">
+      <div className="relative z-10 max-w-6xl mx-auto md:px-6 px-3">
         <div className="relative">
           {/* Main glass panel */}
           <div className="relative backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl p-12 lg:p-24">
@@ -150,12 +151,19 @@ const Hero = () => {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <Link
+                  href="#demos"
+                  >
                 <Button
                   size="lg"
                   className="bg-primary/90 hover:bg-primary/60 text-white border-0 px-8 py-4 text-lg font-regular font-display transition-all duration-600 rounded-full"
                 >
                   Voir une démo
                 </Button>
+                </Link>
+                <Link
+                  href="#tarifs"
+                  >
                 <Button
                   variant="outline"
                   size="lg"
@@ -163,6 +171,7 @@ const Hero = () => {
                 >
                   Voir les tarifs
                 </Button>
+                </Link>
               </div>
             </div>
 

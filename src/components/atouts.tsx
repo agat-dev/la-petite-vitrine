@@ -24,12 +24,11 @@ export default function Hero171() {
   ]
 
   const gridImages = [
-    { src: "/modern-abstract-design.png", alt: "Design 1" },
-    { src: "/colorful-geometric-pattern.png", alt: "Design 2" },
-    { src: "/minimalist-vector-art.png", alt: "Design 3" },
-    { src: "/abstract-geometric-illustration.png", alt: "Design 4" },
-    { src: "/abstract-digital-art.png", alt: "Design 5" },
-    { src: "/modern-graphics.png", alt: "Design 6" },
+    { src: "/artisan-coiffeur.jpg", alt: "Artisan Coiffeur" },,
+    { src: "/artisan-batiment.jpg", alt: "Artisan du bâtiment" },
+    { src: "/artisan-plombier.jpg", alt: "Artisan paysagiste" },
+    { src: "/artisan-paysagiste.jpg", alt: "Artisan plombier" },
+    { src: "/artisan-ebeniste.jpg", alt: "Artisan ébéniste" },
   ]
 
   function TimelineComponent() {
@@ -159,7 +158,7 @@ export default function Hero171() {
   }
 
   return (
-    <section className="relative min-h-screen py-16 md:py-24 lg:py-36 px-8 sm:px-4 lg:px-28 overflow-hidden">
+    <section className="relative min-h-screen py-16 md:py-24 lg:py-36 p-3 sm:px-4 lg:px-28 overflow-hidden">
       {/* Background with subtle gradient - matching hero */}
       <div className="absolute inset-0 bg-gradient-to-br from-cream-500 via-cream-500/30 to-cream-500"></div>
 
@@ -251,8 +250,8 @@ export default function Hero171() {
         <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-coral-500/10 rounded-full blur-3xl animate-pulse delay-500"></div>
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto">
-        <div className="grid lg:grid-cols-5 gap-12 items-center">
+      <div className="relative z-10 md:max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-5 grid-cols-1 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-8 md:col-span-3 col-span-1">
             <div className="space-y-6 pl-2 sm:pl-4 lg:pl-6">
@@ -346,15 +345,15 @@ export default function Hero171() {
                 <div
                   key={index}
                   className={`relative overflow-hidden rounded-2xl ${
-                    index === 0 ? "row-span-2" : ""
-                  } ${index === 3 ? "col-span-2" : ""}`}
+                    index === 0 ? "row-span-2 md:block hidden" : ""
+                  } ${index === 3 ? "col-span-2 md:block hidden" : ""}`}
                 >
                   <Image
                     src={image.src || "/placeholder.svg"}
                     alt={image.alt}
                     width={200}
                     height={200}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover object-center-top hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                 </div>

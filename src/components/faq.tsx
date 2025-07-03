@@ -89,7 +89,7 @@ const FAQ: React.FC = () => {
   const { ref: titleRef, isIntersecting: titleVisible } = useIntersectionObserver<HTMLDivElement>({ threshold: 0.5 });
 
   return (
-    <section className="relative min-h-screen py-16 md:py-24 lg:py-36 px-4">
+    <section className="relative min-h-screen py-16 md:py-24 lg:py-36 p-3 sm:px-4">
       {/* Background with subtle gradient - matching atouts */}
       <div className="absolute inset-0 bg-gradient-to-br from-cream-500 via-cream-500/30 to-cream-500"></div>
 
@@ -217,13 +217,13 @@ const FAQ: React.FC = () => {
             titleVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-10'
           }`}
         >
-          <h2 className="text-5xl font-bold text-center mb-8 animate-fade-in">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-center mb-8 animate-fade-in break-words">
             <span className="font-display font-medium bg-coral-500 bg-clip-text text-transparent">
               Foire aux
             </span>
-            <span className="font-serif font-light italic text-primary ml-4">Questions</span>
+            <span className="font-serif font-light italic text-primary ml-2 sm:ml-4">Questions</span>
           </h2>
-          <p className="text-xl text-primary/70 max-w-2xl mx-auto text-center">
+          <p className="text-lg sm:text-xl text-primary/70 max-w-2xl mx-auto text-center leading-relaxed">
             Trouvez rapidement les réponses à vos questions les plus fréquentes
           </p>
         </div>

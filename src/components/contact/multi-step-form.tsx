@@ -519,7 +519,7 @@ const MultiStepForm = () => {
   };
 
   return (
-    <section id="contact" className="relative min-h-screen flex items-center justify-center overflow-hidden py-16 md:py-24 lg:py-36">
+    <section id="contact" className="relative min-h-screen flex items-center justify-center p-3 sm:px-4 py-16 md:py-24 lg:py-36">
       {/* Background with subtle gradient - same as hero */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/60 via-blue-500/30 to-blue-500/80"></div>
 
@@ -575,16 +575,16 @@ const MultiStepForm = () => {
         <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-coral-500/10 rounded-full blur-3xl animate-pulse delay-500"></div>
       </div>
 
-      <div ref={formRef} className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div ref={formRef} className="relative z-10 max-w-6xl mx-auto p-3 sm:px-4 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold text-center mb-8 animate-fade-in">
+        <div className="text-center mb-16 mx-auto">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-center mb-8 animate-fade-in break-words">
             <span className="font-display font-medium bg-coral-500 bg-clip-text text-transparent">
               Réalisons
             </span>
-            <span className="font-serif font-light italic text-primary ml-4">Ensemble</span>
+            <span className="font-serif font-light italic text-primary ml-2 sm:ml-4">Ensemble</span>
           </h1>
-          <p className="text-xl text-primary/80 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-primary/80 max-w-2xl mx-auto leading-relaxed">
             Démarrez votre projet dès aujourd&apos;hui. Choisissez votre parcours et laissez-nous vous accompagner dans votre réussite.
           </p>
         </div>

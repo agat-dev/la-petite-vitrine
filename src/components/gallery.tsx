@@ -24,7 +24,7 @@ const Gallery = () => {
   ];
 
   return (
-    <section id="demos" className="relative min-h-screen flex items-center justify-center overflow-hidden py-16 md:py-24 lg:py-36 bg-cream-50/50 backdrop-blur-xl border-y border-white/30">
+    <section id="demos" className="relative min-h-screen flex items-center justify-center overflow-hidden py-16 md:py-24 lg:py-36 p-3 sm:px-3 bg-cream-50/50 backdrop-blur-xl border-y border-white/30">
       {/* Background with subtle gradient - tons crème avec glassmorphism */}
       <div className="absolute inset-0 bg-gradient-to-br from-cream-100/60 via-cream-200/40 to-cream-300/50 backdrop-blur-sm"></div>
 
@@ -129,14 +129,14 @@ const Gallery = () => {
         <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-coral-100/15 rounded-full blur-3xl animate-pulse delay-500"></div>
       </div>
 
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-6">
-        <h1 className="text-5xl font-bold text-center mb-8 animate-fade-in">
+      <div className="relative z-10 w-full max-w-6xl mx-auto md:px-6 px-0">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-center mb-8 animate-fade-in break-words">
           <span className="font-display font-medium bg-coral-500 bg-clip-text text-transparent">
             Quelques
             </span>
-          <span className="font-serif font-light italic text-slate-700 ml-4">démos</span>
+          <span className="font-serif font-light italic text-slate-700 ml-2 sm:ml-4">démos</span>
         </h1>
-        <p className="text-center text-primary/80 text-xl mb-24">
+        <p className="text-center text-primary/80 text-lg sm:text-xl mb-24 leading-relaxed max-w-3xl mx-auto">
           Découvrez nos réalisations pour les artisans et commerçants. <br />
           Chaque site est conçu pour mettre en valeur votre savoir-faire.
         </p>
