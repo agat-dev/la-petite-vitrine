@@ -63,9 +63,23 @@ const ConfirmationStep: React.FC<ConfirmationStepProps> = ({
           </p>
           
           {isOrder ? (
-            <div className="space-y-3 text-primary/70">
-              <p>Votre commande de site web a été envoyée avec succès.</p>
-              <p>Nous avons envoyé une confirmation à <span className="font-medium text-primary">{email}</span></p>
+            <div className="space-y-4">
+              <div className="backdrop-blur-sm bg-coral-500/10 border border-coral-500/30 rounded-xl p-4">
+                <h4 className="text-xl font-semibold text-coral-600 mb-2">🎉 Commande confirmée !</h4>
+                <p className="text-primary/80">Votre commande de site web professionnel a été envoyée avec succès.</p>
+              </div>
+              
+              <div className="space-y-3 text-primary/70">
+                <p>✅ Confirmation envoyée à <span className="font-medium text-primary">{email}</span></p>
+                <p>✅ Notre équipe a reçu votre demande</p>
+                <p>✅ Votre projet est maintenant en cours de traitement</p>
+              </div>
+              
+              <div className="backdrop-blur-sm bg-green-500/10 border border-green-500/30 rounded-xl p-4 mt-4">
+                <p className="text-green-700 font-medium text-center">
+                  📧 Vous recevrez un email de notre équipe dans les prochaines heures
+                </p>
+              </div>
             </div>
           ) : (
             <div className="space-y-3 text-primary/70">
@@ -83,18 +97,45 @@ const ConfirmationStep: React.FC<ConfirmationStepProps> = ({
           </h3>
           
           {isOrder ? (
-            <div className="space-y-3 text-left max-w-md mx-auto">
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-coral-500 text-white text-sm flex items-center justify-center flex-shrink-0 mt-0.5">1</div>
-                <p className="text-primary/70">Notre équipe analyse votre projet (24-48h)</p>
+            <div className="space-y-4">
+              <div className="backdrop-blur-sm bg-coral-500/5 border border-coral-500/20 rounded-xl p-4">
+                <h4 className="font-semibold text-coral-600 mb-3 text-center">🚀 Processus de création de votre site</h4>
+                <div className="space-y-3 text-left max-w-lg mx-auto">
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-full bg-coral-500 text-white text-sm flex items-center justify-center flex-shrink-0 mt-0.5 font-medium">1</div>
+                    <div>
+                      <p className="text-primary font-medium">Analyse de votre projet</p>
+                      <p className="text-primary/60 text-sm">Notre équipe étudie vos besoins (24-48h)</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-full bg-coral-500 text-white text-sm flex items-center justify-center flex-shrink-0 mt-0.5 font-medium">2</div>
+                    <div>
+                      <p className="text-primary font-medium">Contact et finalisation</p>
+                      <p className="text-primary/60 text-sm">Nous vous contactons pour les derniers détails</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-full bg-coral-500 text-white text-sm flex items-center justify-center flex-shrink-0 mt-0.5 font-medium">3</div>
+                    <div>
+                      <p className="text-primary font-medium">Création de votre site</p>
+                      <p className="text-primary/60 text-sm">Développement en 5 jours ouvrés maximum</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-full bg-green-500 text-white text-sm flex items-center justify-center flex-shrink-0 mt-0.5 font-medium">4</div>
+                    <div>
+                      <p className="text-primary font-medium">Livraison et mise en ligne</p>
+                      <p className="text-primary/60 text-sm">Votre site est prêt et accessible !</p>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-coral-500 text-white text-sm flex items-center justify-center flex-shrink-0 mt-0.5">2</div>
-                <p className="text-primary/70">Nous vous contactons pour finaliser les détails</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-coral-500 text-white text-sm flex items-center justify-center flex-shrink-0 mt-0.5">3</div>
-                <p className="text-primary/70">Création de votre site en 5 jours ouvrés</p>
+              
+              <div className="backdrop-blur-sm bg-blue-500/10 border border-blue-500/30 rounded-xl p-4">
+                <p className="text-center text-primary/70">
+                  <span className="font-medium text-blue-600">💡 Astuce :</span> Préparez vos textes, images et informations de contact pour accélérer le processus
+                </p>
               </div>
             </div>
           ) : (
@@ -121,15 +162,24 @@ const ConfirmationStep: React.FC<ConfirmationStepProps> = ({
             onClick={onNewRequest}
             className="px-8 py-3 bg-coral-500 hover:bg-coral-500/80 text-white rounded-full font-medium transition-colors"
           >
-            {isOrder ? 'Nouvelle commande' : 'Nouvelle demande'}
+            {isOrder ? '🚀 Nouvelle commande' : 'Nouvelle demande'}
           </button>
           
           <a
             href="#"
             className="px-8 py-3 backdrop-blur-sm bg-white/20 border border-white/30 text-primary hover:bg-white/25 rounded-full font-medium transition-colors"
           >
-            Retour à l&apos;accueil
+            🏠 Retour à l&apos;accueil
           </a>
+          
+          {isOrder && (
+            <a
+              href="mailto:contact@lapetitevitrine.com"
+              className="px-8 py-3 backdrop-blur-sm bg-blue-500/10 border border-blue-500/30 text-blue-600 hover:bg-blue-500/15 rounded-full font-medium transition-colors"
+            >
+              📧 Nous contacter
+            </a>
+          )}
         </div>
       </div>
     </div>

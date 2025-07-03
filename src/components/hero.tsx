@@ -15,7 +15,7 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16 md:pb-24 lg:pb-36">
       {/* Background with subtle gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/30 via-blue-500/10 to-blue-500/40"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-coral-500/30 via-coral-500/10 to-coral-500/40"></div>
 
       {/* SVG Background sophistiqué - thème bleu héroïque */}
       <div className="absolute inset-0 opacity-40">
@@ -206,7 +206,7 @@ const Hero = () => {
           }}
         >
           <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-2xl p-6 animate-float">
-            <div className="w-12 h-12 bg-cream-100 rounded-xl flex items-center justify-center"></div>
+            <div className="w-12 h-12 bg-coral-500 rounded-xl flex items-center justify-center"></div>
             <p className="text-primary/80 mt-3 font-medium text-lg">
               Livraison
               <br /> sous 5 jours

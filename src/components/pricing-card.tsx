@@ -37,9 +37,9 @@ const PricingCard = ({ plan, index }: PricingCardProps) => {
 
       {/* Glass card */}
       <div
-        className={`relative backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl p-8 h-full transition-all duration-700 group-hover:bg-white/12 group-hover:border-white/25 ${
+        className={`relative backdrop-blur-xl bg-white/40 border border-white/20 rounded-3xl p-8 h-full transition-all duration-700 group-hover:bg-white/50 group-hover:border-white/25 ${
           plan.popular
-            ? "ring-2 ring-coral-500/20"
+            ? "ring-2 ring-coral-500/70"
             : ""
         }`}
       >

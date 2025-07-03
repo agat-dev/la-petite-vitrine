@@ -5,12 +5,15 @@ import { motion } from 'framer-motion';
 import RequestTypeStep from './request-type-step';
 import ContactInfoStep from './contact-info-step';
 import InformationRequestStep from './information-request-step-new';
+import ConfirmationStep from './confirmation-step';
+import SummaryStep from './summary-step';
 import { ProjectDetails, MultiStepFormData, RequestType } from './types';
 import ProductSelectionStep from './product-selection-step';
 import ProjectDetailsStep from './project-details-step';
 
 const MultiStepForm = () => {
   const [currentStep, setCurrentStep] = useState(0);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const formRef = useRef<HTMLDivElement>(null);
   const [validationErrors, setValidationErrors] = useState<{[key: string]: string}>({});
   const [formData, setFormData] = useState<MultiStepFormData>({
@@ -81,7 +84,8 @@ const MultiStepForm = () => {
       return [
         'choix', // Étape 0: Choix de l'objet de la demande
         'contact', // Étape 1: Informations de contact
-        'information' // Étape 2: Demande d'information
+        'information', // Étape 2: Demande d'information
+        'confirmation' // Étape 3: Confirmation
       ];
     } else if (formData.requestType === 'quote') {
       return [
@@ -89,7 +93,8 @@ const MultiStepForm = () => {
         'contact', // Étape 1: Informations de contact
         'product', // Étape 2: Sélection du produit
         'details', // Étape 3: Détails du projet
-        'summary' // Étape 4: Récapitulatif avec CTA commander
+        'summary', // Étape 4: Récapitulatif avec CTA commander
+        'confirmation' // Étape 5: Confirmation
       ];
     } else {
       return ['choix']; // Par défaut, seule l'étape de choix
@@ -194,6 +199,68 @@ const MultiStepForm = () => {
     }
   };
 
+  // Fonction pour gérer le succès de l'envoi
+  const handleSubmitSuccess = () => {
+    setIsSubmitted(true);
+    setCurrentStep(currentStep + 1); // Passer à l'étape de confirmation
+    setTimeout(() => {
+      scrollToFormTop();
+    }, 150);
+  };
+
+  // Fonction pour gérer les erreurs d'envoi
+  const handleSubmitError = (error: string) => {
+    // Ici vous pouvez afficher une erreur si nécessaire
+    console.error('Erreur d\'envoi:', error);
+  };
+
+  // Fonction pour commencer une nouvelle demande
+  const handleNewRequest = () => {
+    // Réinitialiser le formulaire
+    setCurrentStep(0);
+    setIsSubmitted(false);
+    setValidationErrors({});
+    setFormData({
+      requestType: '',
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      company: '',
+      subject: '',
+      message: '',
+      projectType: '',
+      budget: '',
+      timeline: '',
+      description: '',
+      urgentProject: false,
+      additionalInfo: '',
+      projectDetails: {
+        artisanType: '',
+        location: '',
+        companyAddress: '',
+        city: '',
+        postalCode: '',
+        servicesOffered: '',
+        specialty: '',
+        targetClients: '',
+        contentTone: '',
+        uploadedFiles: [],
+        sections: {
+          about: false,
+          services: false,
+          portfolio: false,
+          practicalInfo: false,
+          contactForm: false,
+        },
+        additionalInfo: '',
+      },
+    });
+    setTimeout(() => {
+      scrollToFormTop();
+    }, 150);
+  };
+
   const handleRequestTypeSelection = (type: RequestType) => {
     setFormData({ ...formData, requestType: type });
     setCurrentStep(1); // Aller directement à l'étape "contact"
@@ -283,6 +350,23 @@ const MultiStepForm = () => {
         );
 
       case 'summary':
+        return (
+          <SummaryStep
+            formData={formData}
+            onSubmitSuccess={handleSubmitSuccess}
+            onSubmitError={handleSubmitError}
+          />
+        );
+
+      case 'confirmation':
+        return (
+          <ConfirmationStep
+            requestType={formData.requestType as RequestType}
+            clientName={`${formData.firstName} ${formData.lastName}`}
+            email={formData.email}
+            onNewRequest={handleNewRequest}
+          />
+        );
         return (
           <div className="relative backdrop-blur-xl bg-white/30 border border-white/40 rounded-3xl p-6 sm:p-8 lg:p-12 xl:p-16">
             {/* Inner glow effect */}
