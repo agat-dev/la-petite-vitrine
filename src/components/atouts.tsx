@@ -237,7 +237,7 @@ export default function Hero171() {
           {/* Left Content */}
           <div className="space-y-8 md:col-span-3 col-span-1">
             <div className="space-y-6 pl-2 sm:pl-4 lg:pl-6">
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-coral-500">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-brown-500">
                 Les 5 
                 <span className="text-transparent font-serif font-light italic bg-clip-text bg-gradient-to-r from-primary/80 to-primary">
                   {" "}

@@ -132,7 +132,7 @@ const Hero = () => {
 
               {/* Main heading */}
               <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-                <span className="font-display font-medium bg-coral-500 bg-clip-text text-transparent">
+                <span className="font-display font-medium bg-brown-500 bg-clip-text text-transparent">
                   Vitrine numérique
                 </span>
                 <br />
