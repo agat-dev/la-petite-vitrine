@@ -10,7 +10,6 @@ import {
   NavbarButton,
   MobileNavHeader,
   MobileNavToggle,
-  MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
 
 export default function NavbarDemo() {

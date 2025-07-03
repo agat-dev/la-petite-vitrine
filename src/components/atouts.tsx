@@ -1,30 +1,12 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar" 
-import { Play, Star, Users, TrendingUp, Award } from "lucide-react"
 import Image from "next/image"
 
 export default function Hero171() {
-  const [isVideoOpen, setIsVideoOpen] = useState(false)
-
-  const stats = [
-    { icon: Users, value: "10K+", label: "Active Users" },
-    { icon: TrendingUp, value: "98%", label: "Success Rate" },
-    { icon: Award, value: "50+", label: "Awards Won" },
-  ]
-
-  const testimonialAvatars = [
-    { src: "/professional-woman-diverse.png", alt: "User 1" },
-    { src: "/professional-man.png", alt: "User 2" },
-    { src: "/professional-person.png", alt: "User 3" },
-    { src: "/professional-woman-2.png", alt: "User 4" },
-  ]
 
   const gridImages = [
-    { src: "/artisan-coiffeur.jpg", alt: "Artisan Coiffeur" },,
+    { src: "/artisan-coiffeur.jpg", alt: "Artisan Coiffeur" },
     { src: "/artisan-batiment.jpg", alt: "Artisan du bâtiment" },
     { src: "/artisan-plombier.jpg", alt: "Artisan paysagiste" },
     { src: "/artisan-paysagiste.jpg", alt: "Artisan plombier" },

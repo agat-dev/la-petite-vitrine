@@ -69,7 +69,7 @@ const ConfirmationStep: React.FC<ConfirmationStepProps> = ({
             </div>
           ) : (
             <div className="space-y-3 text-primary/70">
-              <p>Votre demande d'information a été envoyée avec succès.</p>
+              <p>Votre demande d&apos;information a été envoyée avec succès.</p>
               <p>Nous avons envoyé une confirmation à <span className="font-medium text-primary">{email}</span></p>
             </div>
           )}
@@ -128,7 +128,7 @@ const ConfirmationStep: React.FC<ConfirmationStepProps> = ({
             href="#"
             className="px-8 py-3 backdrop-blur-sm bg-white/20 border border-white/30 text-primary hover:bg-white/25 rounded-full font-medium transition-colors"
           >
-            Retour à l'accueil
+            Retour à l&apos;accueil
           </a>
         </div>
       </div>

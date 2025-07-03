@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
-import { FormData, RequestType } from '@/components/contact/contact-form';
+import { FormData } from '@/components/contact/contact-form';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 

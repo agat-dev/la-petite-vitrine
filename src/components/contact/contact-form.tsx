@@ -12,7 +12,7 @@ import SummaryStep from "./summary-step";
 import StepIndicator from "./step-indicator";
 import ConfirmationStep from "./confirmation-step";
 
-export type RequestType = 'information' | 'quote';
+export type RequestType = 'information' | 'quote' | '';
 
 export interface FormData {
   // Contact Info
@@ -206,7 +206,41 @@ const ContactForm = () => {
       return (
         <ConfirmationStep
           requestType={formData.requestType}
-          onBack={() => setCurrentStep(4)}
+          clientName={`${formData.firstName} ${formData.lastName}`}
+          email={formData.email}
+          onNewRequest={() => {
+            setIsSubmitted(false);
+            setCurrentStep(0);
+            setFormData({
+              firstName: '',
+              lastName: '',
+              email: '',
+              phone: '',
+              company: '',
+              requestType: '',
+              subject: '',
+              message: '',
+              projectType: '',
+              budget: '',
+              timeline: '',
+              description: '',
+              urgentProject: false,
+              businessName: '',
+              activity: '',
+              city: '',
+              postalCode: '',
+              targetAudience: '',
+              currentWebsite: '',
+              sections: {
+                about: false,
+                services: false,
+                portfolio: false,
+                practicalInfo: false,
+                contactForm: false,
+              },
+              additionalInfo: '',
+            });
+          }}
         />
       );
     }

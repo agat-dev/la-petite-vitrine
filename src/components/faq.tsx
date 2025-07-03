@@ -3,7 +3,6 @@
 import React from 'react';
 import { ChevronDown } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
-import Link from 'next/link';
 
 interface FAQItem {
   id: number;
