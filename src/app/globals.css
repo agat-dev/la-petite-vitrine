@@ -3,10 +3,11 @@
 @theme inline {
   --color-background: #ffffff;
   --color-foreground: #171717;
-  --color-cream-100: #F6E6D7;
-  --color-primary: #262626;
-  --color-blue-500: #69AFC8;
-  --color-coral-500: #C9645A;
+  --color-cream-100: #3E6097;
+  --color-primary: #09293F;
+  --color-blue-500: #AA916D;
+  --color-coral-500: #FFB64F;
+  --color-brown-500: #2F66C1;
   --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-libre-baskerville), ui-serif, Georgia, serif;
   --font-display: var(--font-urbanist), ui-sans-serif, system-ui, sans-serif;
@@ -27,7 +28,6 @@
 html {
   color-scheme: light !important;
   background: #ffffff !important;
-  color: #171717 !important;
 }
 
 /* Custom scrollbar styles */

@@ -204,6 +204,9 @@ export async function POST(request: NextRequest) {
       ? getInternalOrderTemplate(data)
       : getInternalInformationTemplate(data);
 
+    // Configuration des emails de destination
+    const contactEmails = process.env.CONTACT_EMAIL?.split(',').map(email => email.trim()) || ['contact@lapetitevitrine.com'];
+    
     // Envoi des emails
     const [clientEmail, internalEmail] = await Promise.all([
       // Email au client
@@ -217,7 +220,7 @@ export async function POST(request: NextRequest) {
       // Email interne
       resend.emails.send({
         from: 'Formulaire Web <noreply@lapetitevitrine.com>',
-        to: 'contact@lapetitevitrine.com',
+        to: contactEmails,
         subject: internalSubject,
         html: internalTemplate,
       }),

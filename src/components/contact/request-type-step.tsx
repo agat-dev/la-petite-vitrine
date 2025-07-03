@@ -51,7 +51,7 @@ const RequestTypeStep = ({ requestType, setRequestType }: RequestTypeStepProps) 
               <div className="absolute bottom-0 right-0 w-16 h-16 bg-gradient-to-tl from-white/30 to-transparent rounded-br-3xl"></div>
               
               <div className="relative z-10 text-center">
-                <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-cream-100/40 to-cream-100/20 border border-coral-500/40 mb-6 backdrop-blur-sm group-hover:scale-110 transition-transform duration-500">
+                <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-coral-500140 to-coral-500/15 border border-coral-500/40 mb-6 backdrop-blur-sm group-hover:scale-110 transition-transform duration-500">
                   <svg className="w-10 h-10 text-coral-500/50 group-hover:text-coral-500/50 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                   </svg>
@@ -71,13 +71,6 @@ const RequestTypeStep = ({ requestType, setRequestType }: RequestTypeStepProps) 
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                     Sélectionné
-                  </div>
-                )}
-                
-                {/* Call to action */}
-                {requestType !== 'information' && (
-                  <div className="mt-6 text-coral-500 text-sm font-medium group-hover:text-coral-500/80 transition-colors duration-300">
-                    Cliquez pour choisir
                   </div>
                 )}
               </div>
@@ -107,7 +100,7 @@ const RequestTypeStep = ({ requestType, setRequestType }: RequestTypeStepProps) 
               <div className="absolute bottom-0 right-0 w-16 h-16 bg-gradient-to-tl from-white/30 to-transparent rounded-br-3xl"></div>
               
               <div className="relative z-10 text-center">
-                <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-coral-500/30 to-coral-500/10 border border-coral-500/30 mb-6 backdrop-blur-sm group-hover:scale-110 transition-transform duration-500">
+                <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-coral-500/15 to-coral-500/10 border border-coral-500/30 mb-6 backdrop-blur-sm group-hover:scale-110 transition-transform duration-500">
                   <svg className="w-10 h-10 text-coral-500 group-hover:text-coral-500/80 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                   </svg>
@@ -127,15 +120,6 @@ const RequestTypeStep = ({ requestType, setRequestType }: RequestTypeStepProps) 
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                     Sélectionné
-                  </div>
-                )}
-                
-                {/* Call to action with coral accent for premium option */}
-                {requestType !== 'quote' && (
-                  <div className="mt-6">
-                    <div className="text-coral-500/60 text-sm font-medium group-hover:text-coral-500/80 transition-colors duration-300">
-                      Cliquez pour choisir
-                    </div>
                   </div>
                 )}
               </div>

@@ -153,7 +153,7 @@ export default function SmoothFollower() {
       <div className="custom-cursor pointer-events-none fixed inset-0 z-[99999]">
         {/* Curseur central */}
         <div
-          className="absolute rounded-full bg-coral-500 dark:bg-white"
+          className="absolute rounded-full bg-primary dark:bg-white"
           style={{
             width: "8px",
             height: "8px",
@@ -170,7 +170,7 @@ export default function SmoothFollower() {
 
         {/* Curseur de bordure */}
         <div
-          className="absolute rounded-full border-2 border-coral-500 dark:border-white"
+          className="absolute rounded-full border-2 border-primary dark:border-white"
           style={{
             width: isHovering ? "44px" : "28px",
             height: isHovering ? "44px" : "28px",

@@ -15,7 +15,7 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16 md:pb-24 lg:pb-36">
       {/* Background with subtle gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/60 via-blue-500/30 to-blue-500/80"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-coral-500/30 via-coral-500/10 to-coral-500/40"></div>
 
       {/* SVG Background sophistiqué - thème bleu héroïque */}
       <div className="absolute inset-0 opacity-40">
@@ -104,18 +104,18 @@ const Hero = () => {
 
       {/* Animated background elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-cream-100/40 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-coral-500/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-coral-500/10 rounded-full blur-3xl animate-pulse delay-500"></div>
+        <div className="absolute top-20 left-20 w-72 h-72 bg-cream-100/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-cream-100/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-cream-100/5 rounded-full blur-3xl animate-pulse delay-500"></div>
       </div>
 
       {/* Glass container - the main showcase */}
       <div className="relative z-10 max-w-6xl mx-auto md:px-6 px-3">
         <div className="relative">
           {/* Main glass panel */}
-          <div className="relative backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl p-12 lg:p-24">
+          <div className="relative backdrop-blur-xl bg-white/30 border border-white/20 rounded-3xl p-12 lg:p-24">
             {/* Inner glow effect */}
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/20 via-transparent to-transparent"></div>
+            <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/10 via-transparent to-white/5"></div>
 
             {/* Reflection lines */}
             <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-white/40 via-transparent to-transparent"></div>
@@ -132,7 +132,7 @@ const Hero = () => {
 
               {/* Main heading */}
               <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-                <span className="font-display font-medium bg-coral-500 bg-clip-text text-transparent">
+                <span className="font-display font-medium bg-brown-500 bg-clip-text text-transparent">
                   Vitrine numérique
                 </span>
                 <br />
@@ -156,7 +156,7 @@ const Hero = () => {
                   >
                 <Button
                   size="lg"
-                  className="bg-primary/90 hover:bg-primary/60 text-white border-0 px-8 py-4 text-lg font-regular font-display transition-all duration-600 rounded-full"
+                  className="bg-brown-500 hover:bg-brown-500/80 text-white border-0 px-8 py-4 text-lg font-regular font-display transition-all duration-600 rounded-full"
                 >
                   Voir une démo
                 </Button>
@@ -167,7 +167,7 @@ const Hero = () => {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="backdrop-blur-sm bg-cream-100/90 border-white/30 text-primary hover:bg-cream-100/60 px-8 py-4 text-lg font-regular font-display transition-all duration-600 rounded-full"
+                  className="backdrop-blur-sm bg-white/60 border-white/30 text-cream-100 hover:bg-white/30 px-8 py-4 text-lg font-regular font-display transition-all duration-600 rounded-full"
                 >
                   Voir les tarifs
                 </Button>
@@ -176,7 +176,7 @@ const Hero = () => {
             </div>
 
             {/* Decorative elements */}
-            <div className="absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-br from-cream-100/80 to-transparent rounded-full blur-xl"></div>
+            <div className="absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-br from-cream-100/30 to-transparent rounded-full blur-xl"></div>
             <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-gradient-to-tr from-blue-400/20 to-transparent rounded-full blur-xl"></div>
           </div>
         </div>
@@ -206,7 +206,7 @@ const Hero = () => {
           }}
         >
           <div className="backdrop-blur-lg bg-white/10 border border-white/20 rounded-2xl p-6 animate-float">
-            <div className="w-12 h-12 bg-cream-100 rounded-xl flex items-center justify-center"></div>
+            <div className="w-12 h-12 bg-coral-500 rounded-xl flex items-center justify-center"></div>
             <p className="text-primary/80 mt-3 font-medium text-lg">
               Livraison
               <br /> sous 5 jours

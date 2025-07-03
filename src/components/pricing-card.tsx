@@ -37,9 +37,9 @@ const PricingCard = ({ plan, index }: PricingCardProps) => {
 
       {/* Glass card */}
       <div
-        className={`relative backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl p-8 h-full transition-all duration-700 group-hover:bg-white/12 group-hover:border-white/25 ${
+        className={`relative backdrop-blur-xl bg-white/40 border border-white/20 rounded-3xl p-8 h-full transition-all duration-700 group-hover:bg-white/50 group-hover:border-white/25 ${
           plan.popular
-            ? "ring-2 ring-coral-500/20"
+            ? "ring-2 ring-coral-500/70"
             : ""
         }`}
       >
@@ -82,7 +82,7 @@ const PricingCard = ({ plan, index }: PricingCardProps) => {
           <Button
             className={`w-full py-6 text-lg font-semibold transition-all duration-500 ${
               plan.popular
-                ? "bg-gradient-to-r from-coral-500/80 to-coral-500 hover:from-coral-500/60 hover:to-coral-500/80 text-white"
+                ? "bg-brown-500 hover:from-brown-500/80 hover:to-brown-500/90 text-white"
                 : "hover:bg-primary/80"
             }`}
           >

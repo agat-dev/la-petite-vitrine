@@ -26,7 +26,7 @@ const Gallery = () => {
   return (
     <section id="demos" className="relative min-h-screen flex items-center justify-center overflow-hidden py-16 md:py-24 lg:py-36 p-3 sm:px-3 bg-cream-50/50 backdrop-blur-xl border-y border-white/30">
       {/* Background with subtle gradient - tons crème avec glassmorphism */}
-      <div className="absolute inset-0 bg-gradient-to-br from-cream-100/60 via-cream-200/40 to-cream-300/50 backdrop-blur-sm"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-cream-100/20 via-cream-200/30 to-cream-300/10 backdrop-blur-sm"></div>
 
       {/* SVG Courbes sophistiquées - thème crème */}
       <div className="absolute inset-0 opacity-50">
@@ -131,7 +131,7 @@ const Gallery = () => {
 
       <div className="relative z-10 w-full max-w-6xl mx-auto md:px-6 px-0">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-center mb-8 animate-fade-in break-words">
-          <span className="font-display font-medium bg-coral-500 bg-clip-text text-transparent">
+          <span className="font-display font-medium bg-brown-500 bg-clip-text text-transparent">
             Quelques
             </span>
           <span className="font-serif font-light italic text-slate-700 ml-2 sm:ml-4">démos</span>

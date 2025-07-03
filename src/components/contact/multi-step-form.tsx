@@ -5,12 +5,15 @@ import { motion } from 'framer-motion';
 import RequestTypeStep from './request-type-step';
 import ContactInfoStep from './contact-info-step';
 import InformationRequestStep from './information-request-step-new';
+import ConfirmationStep from './confirmation-step';
+import SummaryStep from './summary-step';
 import { ProjectDetails, MultiStepFormData, RequestType } from './types';
 import ProductSelectionStep from './product-selection-step';
 import ProjectDetailsStep from './project-details-step';
 
 const MultiStepForm = () => {
   const [currentStep, setCurrentStep] = useState(0);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const formRef = useRef<HTMLDivElement>(null);
   const [validationErrors, setValidationErrors] = useState<{[key: string]: string}>({});
   const [formData, setFormData] = useState<MultiStepFormData>({
@@ -81,7 +84,8 @@ const MultiStepForm = () => {
       return [
         'choix', // Étape 0: Choix de l'objet de la demande
         'contact', // Étape 1: Informations de contact
-        'information' // Étape 2: Demande d'information
+        'information', // Étape 2: Demande d'information
+        'confirmation' // Étape 3: Confirmation
       ];
     } else if (formData.requestType === 'quote') {
       return [
@@ -89,7 +93,8 @@ const MultiStepForm = () => {
         'contact', // Étape 1: Informations de contact
         'product', // Étape 2: Sélection du produit
         'details', // Étape 3: Détails du projet
-        'summary' // Étape 4: Récapitulatif avec CTA commander
+        'summary', // Étape 4: Récapitulatif avec CTA commander
+        'confirmation' // Étape 5: Confirmation
       ];
     } else {
       return ['choix']; // Par défaut, seule l'étape de choix
@@ -194,6 +199,68 @@ const MultiStepForm = () => {
     }
   };
 
+  // Fonction pour gérer le succès de l'envoi
+  const handleSubmitSuccess = () => {
+    setIsSubmitted(true);
+    setCurrentStep(currentStep + 1); // Passer à l'étape de confirmation
+    setTimeout(() => {
+      scrollToFormTop();
+    }, 150);
+  };
+
+  // Fonction pour gérer les erreurs d'envoi
+  const handleSubmitError = (error: string) => {
+    // Ici vous pouvez afficher une erreur si nécessaire
+    console.error('Erreur d\'envoi:', error);
+  };
+
+  // Fonction pour commencer une nouvelle demande
+  const handleNewRequest = () => {
+    // Réinitialiser le formulaire
+    setCurrentStep(0);
+    setIsSubmitted(false);
+    setValidationErrors({});
+    setFormData({
+      requestType: '',
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      company: '',
+      subject: '',
+      message: '',
+      projectType: '',
+      budget: '',
+      timeline: '',
+      description: '',
+      urgentProject: false,
+      additionalInfo: '',
+      projectDetails: {
+        artisanType: '',
+        location: '',
+        companyAddress: '',
+        city: '',
+        postalCode: '',
+        servicesOffered: '',
+        specialty: '',
+        targetClients: '',
+        contentTone: '',
+        uploadedFiles: [],
+        sections: {
+          about: false,
+          services: false,
+          portfolio: false,
+          practicalInfo: false,
+          contactForm: false,
+        },
+        additionalInfo: '',
+      },
+    });
+    setTimeout(() => {
+      scrollToFormTop();
+    }, 150);
+  };
+
   const handleRequestTypeSelection = (type: RequestType) => {
     setFormData({ ...formData, requestType: type });
     setCurrentStep(1); // Aller directement à l'étape "contact"
@@ -283,6 +350,23 @@ const MultiStepForm = () => {
         );
 
       case 'summary':
+        return (
+          <SummaryStep
+            formData={formData}
+            onSubmitSuccess={handleSubmitSuccess}
+            onSubmitError={handleSubmitError}
+          />
+        );
+
+      case 'confirmation':
+        return (
+          <ConfirmationStep
+            requestType={formData.requestType as RequestType}
+            clientName={`${formData.firstName} ${formData.lastName}`}
+            email={formData.email}
+            onNewRequest={handleNewRequest}
+          />
+        );
         return (
           <div className="relative backdrop-blur-xl bg-white/30 border border-white/40 rounded-3xl p-6 sm:p-8 lg:p-12 xl:p-16">
             {/* Inner glow effect */}
@@ -521,7 +605,7 @@ const MultiStepForm = () => {
   return (
     <section id="contact" className="relative min-h-screen flex items-center justify-center p-3 sm:px-4 py-16 md:py-24 lg:py-36">
       {/* Background with subtle gradient - same as hero */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/60 via-blue-500/30 to-blue-500/80"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-coral-500/10 via-coral-500/15 to-coral-500/40"></div>
 
       {/* SVG Background sophistiqué - thème bleu héroïque */}
       <div className="absolute inset-0 opacity-40">
@@ -570,7 +654,7 @@ const MultiStepForm = () => {
 
       {/* Animated background elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-cream-100/40 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-20 left-20 w-72 h-72 bg-cream-100/15 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-20 right-20 w-96 h-96 bg-coral-500/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
         <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-coral-500/10 rounded-full blur-3xl animate-pulse delay-500"></div>
       </div>
@@ -579,7 +663,7 @@ const MultiStepForm = () => {
         {/* Header */}
         <div className="text-center mb-16 mx-auto">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-center mb-8 animate-fade-in break-words">
-            <span className="font-display font-medium bg-coral-500 bg-clip-text text-transparent">
+            <span className="font-display font-medium bg-brown-500 bg-clip-text text-transparent">
               Réalisons
             </span>
             <span className="font-serif font-light italic text-primary ml-2 sm:ml-4">Ensemble</span>

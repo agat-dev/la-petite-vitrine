@@ -204,7 +204,7 @@ const FAQ: React.FC = () => {
 
       {/* Animated background elements - matching atouts */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-cream-100/40 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-20 left-20 w-72 h-72 bg-cream-100/20 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-20 right-20 w-96 h-96 bg-coral-500/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
         <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-coral-500/10 rounded-full blur-3xl animate-pulse delay-500"></div>
       </div>
@@ -217,7 +217,7 @@ const FAQ: React.FC = () => {
           }`}
         >
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-center mb-8 animate-fade-in break-words">
-            <span className="font-display font-medium bg-coral-500 bg-clip-text text-transparent">
+            <span className="font-display font-medium bg-brown-500 bg-clip-text text-transparent">
               Foire aux
             </span>
             <span className="font-serif font-light italic text-primary ml-2 sm:ml-4">Questions</span>
@@ -250,7 +250,7 @@ const FAQ: React.FC = () => {
             <a 
             href="#contact">
             <button 
-            className="bg-gradient-to-r from-coral-500 to-coral-500/70 text-white px-8 py-3 rounded-full font-semibold hover:from-coral-600 hover:to-coral-500/90 transition-all duration-300 transform hover:scale-105 backdrop-blur-sm">
+            className="bg-brown-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-brown-500/90 transition-all duration-300 transform hover:scale-105 backdrop-blur-sm">
               Nous contacter
             </button>
             </a>

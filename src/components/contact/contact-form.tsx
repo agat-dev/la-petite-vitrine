@@ -266,8 +266,14 @@ const ContactForm = () => {
         if (formData.requestType === 'information') {
           return (
             <InformationRequestStepNew
-              formData={{ subject: formData.subject, message: formData.message }}
-              setFormData={(data) => setFormData(prev => ({ ...prev, ...data }))}
+              formData={{ additionalInfo: formData.message }}
+              setFormData={(data) => setFormData(prev => ({ 
+                ...prev, 
+                subject: data.additionalInfo.split(':')[0] || '',
+                message: data.additionalInfo.split(':').slice(1).join(':').trim() || data.additionalInfo
+              }))}
+              onNext={handleNext}
+              onBack={handleBack}
             />
           );
         } else {

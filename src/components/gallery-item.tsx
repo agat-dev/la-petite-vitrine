@@ -55,7 +55,7 @@ const GalleryItem: React.FC<GalleryItemProps> = ({ image, index }) => {
         <img
           src={image.src}
           alt={image.alt}
-          className={`w-fit aspect-[4/3] object-cover object-center transition-all duration-500 ${
+          className={`w-fit aspect-[4/3] object-cover transition-all duration-500 ${
             isLoaded ? 'opacity-100' : 'opacity-0'
           } ${isHovered ? 'scale-[1.2]' : 'scale-110'}`}
           onLoad={() => setIsLoaded(true)}

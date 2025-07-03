@@ -13,9 +13,22 @@ interface InformationRequestStepProps {
   onBack: () => void;
 }
 
-const InformationRequestStep = ({ setFormData, onNext, onBack }: InformationRequestStepProps) => {
-  const [subject, setSubject] = React.useState('');
-  const [message, setMessage] = React.useState('');
+const InformationRequestStep = ({ formData, setFormData, onNext, onBack }: InformationRequestStepProps) => {
+  // Initialiser les valeurs depuis formData.additionalInfo si disponible
+  const [subject, setSubject] = React.useState(() => {
+    if (formData.additionalInfo && formData.additionalInfo.includes(':')) {
+      return formData.additionalInfo.split(':')[0];
+    }
+    return '';
+  });
+  
+  const [message, setMessage] = React.useState(() => {
+    if (formData.additionalInfo && formData.additionalInfo.includes(':')) {
+      return formData.additionalInfo.split(':').slice(1).join(':').trim();
+    }
+    return formData.additionalInfo || '';
+  });
+  
   const [errors, setErrors] = React.useState<{[key: string]: string}>({});
 
   // Composant pour afficher les messages d'erreur
@@ -143,7 +156,12 @@ const InformationRequestStep = ({ setFormData, onNext, onBack }: InformationRequ
           <button
             type="button"
             onClick={handleNext}
-            className="px-8 py-3 bg-coral-500 hover:bg-coral-500/80 text-white rounded-xl font-medium transition-colors"
+            disabled={!subject.trim() || !message.trim()}
+            className={`px-8 py-3 rounded-xl font-medium transition-colors ${
+              !subject.trim() || !message.trim()
+                ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                : 'bg-coral-500 hover:bg-coral-500/80 text-white'
+            }`}
           >
             Envoyer la demande
           </button>
