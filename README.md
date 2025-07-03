@@ -2,6 +2,15 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+### Configuration des emails
+
+1. Créez un compte sur [Resend](https://resend.com)
+2. Obtenez votre clé API
+3. Copiez le fichier `.env.example` vers `.env.local`
+4. Remplacez `re_your_api_key_here` par votre vraie clé API Resend
+
+### Installation et lancement
+
 First, run the development server:
 
 ```bash

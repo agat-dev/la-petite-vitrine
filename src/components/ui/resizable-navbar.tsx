@@ -10,7 +10,6 @@ import {
 
 import React, { useRef, useState } from "react";
 
-
 interface NavbarProps {
   children: React.ReactNode;
   className?: string;
@@ -87,10 +86,7 @@ export const NavBody = ({ children, className, isScrolled }: NavBodyProps) => {
   return (
     <motion.div
       animate={{
-        backdropFilter: isScrolled ? "blur(20px)" : "blur(10px)",
-        boxShadow: isScrolled
-          ? "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset"
-          : "0 8px 32px rgba(0, 0, 0, 0.1)",
+        backdropFilter: isScrolled ? "none" : "none",
         width: isScrolled ? "40%" : "100%",
         y: isScrolled ? 20 : 0,
       }}
@@ -103,9 +99,9 @@ export const NavBody = ({ children, className, isScrolled }: NavBodyProps) => {
         minWidth: "800px",
       }}
       className={cn(
-        "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center self-start rounded-full bg-white/10 backdrop-blur-lg border border-white/20 px-4 py-2 lg:flex",
+        "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center self-start rounded-full bg-white/10 border border-white/30 mt-2 px-4 py-2 lg:flex",
         isScrolled ? "justify-between" : "justify-between",
-        isScrolled && "bg-white/20 border-white/30",
+        isScrolled && "bg-white/50 border-white/30",
         className,
       )}
     >
@@ -136,7 +132,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
           {hovered === idx && (
             <motion.div
               layoutId="hovered"
-              className="absolute inset-0 h-full w-full rounded-full bg-white/20 backdrop-blur-sm border border-white/30"
+              className="absolute inset-0 h-full w-full rounded-full border border-white/30"
             />
           )}
           <span className="relative z-20">{item.name}</span>
@@ -150,10 +146,7 @@ export const MobileNav = ({ children, className, isScrolled }: MobileNavProps) =
   return (
     <motion.div
       animate={{
-        backdropFilter: isScrolled ? "blur(20px)" : "blur(10px)",
-        boxShadow: isScrolled
-          ? "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset"
-          : "0 8px 32px rgba(0, 0, 0, 0.1)",
+        backdropFilter: isScrolled ? "none" : "none",
         width: isScrolled ? "90%" : "100%",
         paddingRight: isScrolled ? "12px" : "0px",
         paddingLeft: isScrolled ? "12px" : "0px",
@@ -166,7 +159,7 @@ export const MobileNav = ({ children, className, isScrolled }: MobileNavProps) =
         damping: 50,
       }}
       className={cn(
-        "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-white/10 backdrop-blur-lg border border-white/20 px-0 py-2 lg:hidden shadow-xl rounded-full",
+        "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-white/10 border border-white/20 px-0 py-2 lg:hidden rounded-full",
         isScrolled && "bg-white/20 border-white/30",
         className,
       )}
@@ -196,7 +189,6 @@ export const MobileNavMenu = ({
   children,
   className,
   isOpen,
-  onClose,
 }: MobileNavMenuProps) => {
   return (
     <AnimatePresence>
@@ -206,7 +198,7 @@ export const MobileNavMenu = ({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className={cn(
-            "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-lg bg-white px-4 py-8 shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] dark:bg-neutral-950",
+            "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-lg bg-white px-4 py-8 dark:bg-neutral-950",
             className,
           )}
         >
@@ -235,7 +227,7 @@ export const NavbarLogo = () => {
   return (
     <a
       href="#"
-      className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black"
+      className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal"
     >
       <img
         src="./logo-lpv.png"
@@ -269,11 +261,11 @@ export const NavbarButton = ({
 
   const variantStyles = {
     primary:
-      "shadow-none bg-primary text-white hover:bg-primary/80 focus:bg-primary/80 active:bg-primary/90",
-    secondary: "bg-transparent shadow-none dark:text-white",
-    dark: "bg-black text-white shadow-none",
+      "bg-primary text-white hover:bg-primary/80 focus:bg-primary/80 active:bg-primary/90",
+    secondary: "bg-transparent dark:text-white",
+    dark: "bg-black text-white",
     gradient:
-      "bg-gradient-to-b from-blue-500 to-blue-700 text-white shadow-none",
+      "bg-gradient-to-b from-blue-500 to-blue-700 text-white",
   };
 
   return (

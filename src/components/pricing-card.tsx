@@ -1,5 +1,6 @@
 import { Check, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 interface PricingPlan {
   name: string;
@@ -27,7 +28,7 @@ const PricingCard = ({ plan, index }: PricingCardProps) => {
       {/* Popular badge */}
       {plan.popular && (
         <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">
-          <div className="bg-coral-500/60 text-primary px-6 py-2 rounded-full text-sm font-semibold flex items-center gap-2 shadow-lg">
+          <div className="bg-coral-500/60 text-primary px-6 py-2 rounded-full text-sm font-semibold flex items-center gap-2">
             <Star className="w-4 h-4 fill-current" />
             Pack complet
           </div>
@@ -36,10 +37,10 @@ const PricingCard = ({ plan, index }: PricingCardProps) => {
 
       {/* Glass card */}
       <div
-        className={`relative backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl p-8 h-full transition-all duration-700 group-hover:bg-white/12 group-hover:border-white/25 group-hover:shadow-2xl ${
+        className={`relative backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl p-8 h-full transition-all duration-700 group-hover:bg-white/12 group-hover:border-white/25 ${
           plan.popular
-            ? "shadow-2xl shadow-coral-500/20 ring-2 ring-coral-500/20"
-            : "shadow-xl shadow-black/20"
+            ? "ring-2 ring-coral-500/20"
+            : ""
         }`}
       >
         {/* Subtle glow effect on hover */}
@@ -77,15 +78,17 @@ const PricingCard = ({ plan, index }: PricingCardProps) => {
           </ul>
 
           {/* CTA Button */}
+          <Link href={plan.buttonLink} className="w-full">
           <Button
             className={`w-full py-6 text-lg font-semibold transition-all duration-500 ${
               plan.popular
-                ? "bg-gradient-to-r from-coral-500/80 to-coral-500 hover:from-coral-500/60 hover:to-coral-500/80 text-white shadow-lg hover:shadow-coral-500/20"
+                ? "bg-gradient-to-r from-coral-500/80 to-coral-500 hover:from-coral-500/60 hover:to-coral-500/80 text-white"
                 : "hover:bg-primary/80"
             }`}
           >
             {plan.buttonText}
           </Button>
+          </Link>
         </div>
 
         <p className="pt-4 text-primary/70">Puis 9€ par mois : Hébergement, Nom de domaine et maintenance</p>

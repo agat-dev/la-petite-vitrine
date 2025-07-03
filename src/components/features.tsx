@@ -121,7 +121,7 @@ const Features = () => {
   ];
 
   return (
-    <section className="relative py-16 md:py-24 lg:py-36 px-6 overflow-hidden">
+    <section className="relative py-16 md:py-24 lg:py-36 p-3 sm:px-6 overflow-hidden">
       {/* Background with gradient transition from atouts section */}
       <div className="absolute inset-0 bg-gradient-to-br from-cream-500/70 via-cream-500/40 to-cream-500/80"></div>
 
@@ -227,7 +227,7 @@ const Features = () => {
               fonctionnalités
             </span>
           </h2>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
             Découvrez les capacités qui font de notre plateforme le choix des professionnels
           </p>
         </div>

@@ -1,4 +1,4 @@
-export type RequestType = 'information' | 'quote';
+export type RequestType = 'information' | 'quote' | '';
 
 export interface FormData {
   firstName: string;

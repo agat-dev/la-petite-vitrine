@@ -42,7 +42,7 @@ const GalleryItem: React.FC<GalleryItemProps> = ({ image, index }) => {
       }}
     >
       {/* Container de l'image avec glassmorphism */}
-      <div className="relative overflow-hidden rounded-2xl backdrop-blur-md bg-white/5 border border-white/10 shadow-xl transition-all duration-300 group-hover:shadow-2xl group-hover:bg-white/8">
+      <div className="relative overflow-hidden rounded-2xl backdrop-blur-md bg-white/5 border border-white/10 transition-all duration-300 group-hover:bg-white/8">
         
         {/* Placeholder pendant le chargement */}
         {!isLoaded && (
@@ -67,7 +67,7 @@ const GalleryItem: React.FC<GalleryItemProps> = ({ image, index }) => {
           
           {/* Titre toujours visible avec glassmorphism */}
           <div className="absolute bottom-4 left-4 right-4">
-            <div className="backdrop-blur-md bg-white/50 border border-white/20 rounded-xl px-4 py-3 shadow-lg transition-all duration-300 group-hover:bg-white/15 group-hover:border-white/30">
+            <div className="backdrop-blur-md bg-white/50 border border-white/20 rounded-xl px-4 py-3 transition-all duration-300 group-hover:bg-white/15 group-hover:border-white/30">
               <h3 className="text-primary font-semibold text-lg leading-tight transition-all duration-300 group-hover:text-coral-500">
                 {image.title}
               </h3>

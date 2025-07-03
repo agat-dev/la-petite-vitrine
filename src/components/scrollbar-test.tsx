@@ -15,7 +15,7 @@ export default function ScrollbarTest() {
           <CardContent className="space-y-6">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Select 1 - Test avec beaucoup d'options
+                Select 1 - Test avec beaucoup d&apos;options
               </label>
               <Select>
                 <SelectTrigger>
@@ -53,7 +53,7 @@ export default function ScrollbarTest() {
               </label>
               <Select>
                 <SelectTrigger>
-                  <SelectValue placeholder="Beaucoup d'options" />
+                  <SelectValue placeholder="Beaucoup d&apos;options" />
                 </SelectTrigger>
                 <SelectContent>
                   {Array.from({ length: 30 }, (_, i) => (
@@ -69,7 +69,7 @@ export default function ScrollbarTest() {
 
         <div className="text-center">
           <p className="text-gray-600">
-            Ouvrez les selects ci-dessus pour tester qu'aucune scrollbar noire n'apparaît.
+            Ouvrez les selects ci-dessus pour tester qu&apos;aucune scrollbar noire n&apos;apparaît.
             <br />
             La page doit rester visuellement stable.
           </p>
